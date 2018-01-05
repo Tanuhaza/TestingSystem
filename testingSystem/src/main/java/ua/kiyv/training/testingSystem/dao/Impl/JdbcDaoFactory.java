@@ -1,18 +1,20 @@
 package ua.kiyv.training.testingSystem.dao.Impl;
 
 import ua.kiyv.training.testingSystem.dao.*;
-import ua.kiyv.training.testingSystem.model.User;
 
 /**
  * Created by Tanya on 02.01.2018.
  */
 
 public class JdbcDaoFactory  extends DaoFactory{
-
+    private UserDao userDao;
 
     @Override
     public UserDao createUserDao() {
-        return new JdbcUserDao();
+        if (userDao==null) {
+            userDao = new JdbcUserDao();
+        }
+        return userDao;
     }
 
     @Override
@@ -26,12 +28,10 @@ public class JdbcDaoFactory  extends DaoFactory{
     }
 
     @Override
-    public QuestionDao createQuestionDao() {
-        return new JdbcQuestionDao();
-    }
+    public QuestionDao createQuestionDao() {return new JdbcQuestionDao();}
 
     @Override
-    public AssesmentDao createAssesmentDao() {
-        return new JdbcAssesmentDao();
+    public AssessmentDao createAssesmentDao() {
+        return new JdbcAssessmentDao();
     }
 }

@@ -12,6 +12,16 @@ public class Question {
     private Date creationalDate;
     private int topicId;
 
+    public Question() {
+    }
+
+    public Question( int id, String questionText, int topicId) {
+//        this.id = id;
+        this.questionText = questionText;
+//        this.creationalDate = creationalDate;
+        this.topicId = topicId;
+    }
+
     public int getId() {
         return id;
     }

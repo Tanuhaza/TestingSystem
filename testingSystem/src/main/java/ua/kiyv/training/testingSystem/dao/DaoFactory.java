@@ -12,7 +12,7 @@ public abstract class DaoFactory {
     public  abstract TopicDao createTopicDao();
     public abstract OptionDao createOptionDao();
     public abstract QuestionDao createQuestionDao();
-    public abstract AssesmentDao createAssesmentDao();
+    public abstract AssessmentDao createAssesmentDao();
 
     public static DaoFactory getInstance() {
         if(daoFactory==null) {

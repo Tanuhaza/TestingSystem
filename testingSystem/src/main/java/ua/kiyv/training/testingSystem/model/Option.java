@@ -15,6 +15,32 @@ public class Option {
     private Integer assesmentId;
     private int questionId;
 
+    public Option() {
+    }
+
+    public Option(String optionText) {
+        this.optionText = optionText;
+
+    }
+
+    public Option(String optionText, int score, boolean isCorrect, String comment, int questionId) {
+        this.optionText = optionText;
+        this.score = score;
+        this.isCorrect = isCorrect;
+        this.comment = comment;
+        this.questionId = questionId;
+    }
+
+    public Option( String optionText, int score, boolean isCorrect, String comment, Integer assesmentId, int questionId) {
+
+        this.optionText = optionText;
+        this.score = score;
+        this.isCorrect = isCorrect;
+        this.comment = comment;
+        this.assesmentId = assesmentId;
+        this.questionId = questionId;
+    }
+
     public int getId() {
         return id;
     }
@@ -81,7 +107,7 @@ public class Option {
                 ", comment='" + comment + '\'' +
                 ", assesmentId=" + assesmentId +
                 ", questionId=" + questionId +
-                '}';
+                '}'+'\n';
     }
 
     public static class Builder {

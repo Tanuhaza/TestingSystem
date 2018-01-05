@@ -16,6 +16,28 @@ public class User {
     private Role role;
     private Integer superiorId;
 
+    public User() {
+    }
+    public User(int id,String firstName, String lastName, String login, String password, String email, Role role, Integer superiorId) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.login = login;
+        this.password = password;
+        this.email = email;
+        this.role = role;
+        this.superiorId = superiorId;
+    }
+    public User(int id,String firstName, String lastName, String login, String password, String email, Role role) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.login = login;
+        this.password = password;
+        this.email = email;
+        this.role = role;
+    }
+
     public int getId() {
         return id;
     }
@@ -126,7 +148,7 @@ public class User {
                 ", email='" + email + '\'' +
                 ", role=" + role +
                 ", superiorId=" + superiorId +
-                '}';
+                '}'+ '\n';
     }
 
     public static class Builder {

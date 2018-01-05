@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by Tanya on 02.01.2018.
  */
-public class Assesment {
+public class Assessment {
 
     private int id;
     private int userId;
@@ -55,7 +55,7 @@ public class Assesment {
 
     @Override
     public String toString() {
-        return "Assesment{" +
+        return "Assessment{" +
                 "id=" + id +
                 ", userId=" + userId +
                 ", topicId=" + topicId +
@@ -65,38 +65,38 @@ public class Assesment {
     }
 
     public static class Builder {
-        private Assesment assesment;
+        private Assessment assesment;
 
         public Builder() {
-            assesment = new Assesment();
+            assesment = new Assessment();
         }
 
-        public Assesment.Builder setId(int id) {
+        public Assessment.Builder setId(int id) {
             assesment.setId(id);
             return this;
         }
 
-        public Assesment.Builder setUserId(int userId) {
+        public Assessment.Builder setUserId(int userId) {
             assesment.setUserId(userId);
             return this;
         }
 
-        public Assesment.Builder setTopicId(int topicId) {
+        public Assessment.Builder setTopicId(int topicId) {
             assesment.setTopicId(topicId);
             return this;
         }
 
-        public Assesment.Builder setDataPassed(Date dataPassed) {
+        public Assessment.Builder setDataPassed(Date dataPassed) {
             assesment.setDatePassed(dataPassed);
             return this;
         }
 
-        public Assesment.Builder setTotalScore(int totalScore) {
+        public Assessment.Builder setTotalScore(int totalScore) {
             assesment.setTotalScore(totalScore);
             return this;
         }
 
-        public Assesment build() {
+        public Assessment build() {
             return assesment;
         }
     }

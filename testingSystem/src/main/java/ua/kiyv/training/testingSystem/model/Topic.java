@@ -9,6 +9,14 @@ public class Topic {
     private String title;
     private String info;
 
+    public Topic() {
+    }
+
+    public Topic(String title, String info) {
+        this.title = title;
+        this.info = info;
+    }
+
     public Integer getId() {
         return id;
     }
