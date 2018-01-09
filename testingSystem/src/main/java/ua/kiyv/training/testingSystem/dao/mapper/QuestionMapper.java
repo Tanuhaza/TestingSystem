@@ -1,13 +1,10 @@
 package ua.kiyv.training.testingSystem.dao.mapper;
 
-import ua.kiyv.training.testingSystem.model.Option;
-import ua.kiyv.training.testingSystem.model.Question;
+import ua.kiyv.training.testingSystem.model.entity.Question;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Map;
-
-import static com.sun.corba.se.impl.util.RepositoryId.cache;
 
 /**
  * Created by Tanya on 04.01.2018.

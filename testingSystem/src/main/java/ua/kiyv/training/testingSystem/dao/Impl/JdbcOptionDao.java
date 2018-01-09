@@ -1,19 +1,13 @@
 package ua.kiyv.training.testingSystem.dao.Impl;
 
-import javafx.concurrent.Task;
+
 import ua.kiyv.training.testingSystem.connection.DaoConnection;
 import ua.kiyv.training.testingSystem.connection.Jdbc.JdbcTransactionHelper;
-import ua.kiyv.training.testingSystem.connection.TransactionHelper;
 import ua.kiyv.training.testingSystem.dao.DaoException;
 import ua.kiyv.training.testingSystem.dao.OptionDao;
 import ua.kiyv.training.testingSystem.dao.mapper.OptionMapper;
-import ua.kiyv.training.testingSystem.dao.mapper.UserMapper;
-import ua.kiyv.training.testingSystem.model.Option;
-import ua.kiyv.training.testingSystem.model.Question;
-import ua.kiyv.training.testingSystem.model.User;
-
+import ua.kiyv.training.testingSystem.model.entity.Option;
 import java.sql.*;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,18 +30,18 @@ public class JdbcOptionDao implements OptionDao {
             statement.setInt(6, option.getQuestionId());
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
-                throw new DaoException("Creating user failed: no rows affected.");
+                throw new DaoException("Creating option failed: no rows affected.");
             }
             ResultSet generatedKeys = statement.getGeneratedKeys();
             if (!generatedKeys.next()) {
-                throw new DaoException("Creating user failed: no id obtained.");
+                throw new DaoException("Creating option failed: no id obtained.");
             }
             Integer id = generatedKeys.getInt(1);
             option.setId(id);
             generatedKeys.close();
             statement.close();
         } catch (SQLException e) {
-            throw new DaoException("Can't create user", e);
+            throw new DaoException("Can't create option", e);
         }
     }
 
@@ -96,7 +90,7 @@ public class JdbcOptionDao implements OptionDao {
 
     @Override
     public void update(Option option) {
-        String sqlStatement = "UPDATE options SET option = ?, score = ?, isCorrect = ?,comment = ?" +
+        String sqlStatement = "UPDATE options SET optionText = ?, score = ?, isCorrect = ?,comment = ?" +
                  "assessment_id = ?, questions_id=?  WHERE id = ?";
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sqlStatement);
@@ -106,7 +100,6 @@ public class JdbcOptionDao implements OptionDao {
             statement.setString(4, option.getComment());
             statement.setInt(5, option.getAssesmentId());
             statement.setInt(6, option.getQuestionId());
-
             statement.setInt(7, option.getId());
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {

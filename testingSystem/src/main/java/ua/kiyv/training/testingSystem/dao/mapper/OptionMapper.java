@@ -1,7 +1,6 @@
 package ua.kiyv.training.testingSystem.dao.mapper;
 
-import ua.kiyv.training.testingSystem.model.Option;
-import ua.kiyv.training.testingSystem.model.User;
+import ua.kiyv.training.testingSystem.model.entity.Option;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +15,7 @@ public class OptionMapper implements ObjectMapper<Option> {
     public Option extractFromResultSet(ResultSet rs) throws SQLException {
         Option option =new Option.Builder()
                 .setId(rs.getInt("id") )
-                .setOptionText( rs.getString("option") )
+                .setOptionText( rs.getString("optionText") )
                 .setScore( rs.getInt("score") )
                 .setCorrect(rs.getBoolean("isCorrect"))
                 .setComment(rs.getString("comment"))

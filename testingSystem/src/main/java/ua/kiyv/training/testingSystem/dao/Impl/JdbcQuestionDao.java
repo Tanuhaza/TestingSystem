@@ -5,10 +5,7 @@ import ua.kiyv.training.testingSystem.connection.Jdbc.JdbcTransactionHelper;
 import ua.kiyv.training.testingSystem.dao.DaoException;
 import ua.kiyv.training.testingSystem.dao.QuestionDao;
 import ua.kiyv.training.testingSystem.dao.mapper.QuestionMapper;
-import ua.kiyv.training.testingSystem.dao.mapper.UserMapper;
-import ua.kiyv.training.testingSystem.model.Question;
-import ua.kiyv.training.testingSystem.model.Topic;
-import ua.kiyv.training.testingSystem.model.User;
+import ua.kiyv.training.testingSystem.model.entity.Question;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

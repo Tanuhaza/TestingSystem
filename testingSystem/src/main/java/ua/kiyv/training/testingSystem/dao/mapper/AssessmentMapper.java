@@ -1,6 +1,6 @@
 package ua.kiyv.training.testingSystem.dao.mapper;
 
-import ua.kiyv.training.testingSystem.model.Assessment;
+import ua.kiyv.training.testingSystem.model.entity.Assessment;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

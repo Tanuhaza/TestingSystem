@@ -18,9 +18,7 @@ public class ServiceFactoryImpl extends ServiceFactory{
     }
 
     @Override
-    public OptionService createOptionService() {
-        return new OptionServiceImpl();
-    }
+    public OptionService createOptionService() {return new OptionServiceImpl();}
 
     @Override
     public QuestionService createQuestionService() {

@@ -1,6 +1,7 @@
 package ua.kiyv.training.testingSystem.service.impl;
 
-import ua.kiyv.training.testingSystem.model.Topic;
+import ua.kiyv.training.testingSystem.dao.Impl.JdbcDaoFactory;
+import ua.kiyv.training.testingSystem.model.entity.Topic;
 import ua.kiyv.training.testingSystem.service.TopicService;
 
 import java.util.List;
@@ -10,27 +11,23 @@ import java.util.List;
  */
 public class TopicServiceImpl implements TopicService {
     @Override
-    public void create(Topic entity) {
-
-    }
+    public void create(Topic topic) {
+        JdbcDaoFactory.getInstance().createTopicDao().create(topic);}
 
     @Override
     public Topic findById(int id) {
-        return null;
-    }
+        return JdbcDaoFactory.getInstance().createTopicDao().findById(id);}
 
     @Override
     public List<Topic> findAll() {
-        return null;
-    }
+        return JdbcDaoFactory.getInstance().createTopicDao().findAll();}
+
 
     @Override
-    public void update(Topic entity) {
-
-    }
+    public void update(Topic topic) {
+        JdbcDaoFactory.getInstance().createTopicDao().update(topic);}
 
     @Override
-    public void delete(Topic entity) {
-
+    public void delete(Topic topic) {
+        JdbcDaoFactory.getInstance().createTopicDao().delete(topic);}
     }
-}

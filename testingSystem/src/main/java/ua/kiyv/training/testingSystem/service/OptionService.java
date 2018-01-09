@@ -1,6 +1,6 @@
 package ua.kiyv.training.testingSystem.service;
 
-import ua.kiyv.training.testingSystem.model.Option;
+import ua.kiyv.training.testingSystem.model.entity.Option;
 
 /**
  * Created by Tanya on 05.01.2018.

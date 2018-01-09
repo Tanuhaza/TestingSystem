@@ -5,9 +5,8 @@ import ua.kiyv.training.testingSystem.connection.Jdbc.JdbcTransactionHelper;
 import ua.kiyv.training.testingSystem.dao.DaoException;
 import ua.kiyv.training.testingSystem.dao.TopicDao;
 import ua.kiyv.training.testingSystem.dao.mapper.TopicMapper;
-import ua.kiyv.training.testingSystem.dao.mapper.UserMapper;
-import ua.kiyv.training.testingSystem.model.Topic;
-import ua.kiyv.training.testingSystem.model.User;
+import ua.kiyv.training.testingSystem.model.entity.Question;
+import ua.kiyv.training.testingSystem.model.entity.Topic;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -120,6 +119,10 @@ public class JdbcTopicDao implements TopicDao {
         } catch (SQLException e) {
             throw new DaoException("Can't delete topic", e);
         }
+    }
 
+    @Override
+    public List<Question> getAssosiatedQuestions(int id) {
+        return null;
     }
 }

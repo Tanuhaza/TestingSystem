@@ -1,7 +1,7 @@
 package ua.kiyv.training.testingSystem;
 
 import ua.kiyv.training.testingSystem.dao.*;
-import ua.kiyv.training.testingSystem.model.*;
+import ua.kiyv.training.testingSystem.model.entity.Option;
 
 /**
  * Created by Tanya on 03.01.2018.

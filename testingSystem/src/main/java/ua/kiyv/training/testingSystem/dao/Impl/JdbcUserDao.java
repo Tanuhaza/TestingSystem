@@ -2,11 +2,10 @@ package ua.kiyv.training.testingSystem.dao.Impl;
 
 import ua.kiyv.training.testingSystem.connection.DaoConnection;
 import ua.kiyv.training.testingSystem.connection.Jdbc.JdbcTransactionHelper;
-import ua.kiyv.training.testingSystem.connection.TransactionHelper;
 import ua.kiyv.training.testingSystem.dao.DaoException;
 import ua.kiyv.training.testingSystem.dao.UserDao;
 import ua.kiyv.training.testingSystem.dao.mapper.UserMapper;
-import ua.kiyv.training.testingSystem.model.User;
+import ua.kiyv.training.testingSystem.model.entity.User;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -1,16 +1,15 @@
 package ua.kiyv.training.testingSystem.service;
 
-public class ServiceException extends RuntimeException {
+import ua.kiyv.training.testingSystem.exception.ApplicationException;
+
+public class ServiceException extends ApplicationException {
 
     public ServiceException(String message) {
         super(message);
     }
 
     public ServiceException(String message, Throwable cause) {
-        super(message, cause);
+        super( cause, message);
     }
 
-    public ServiceException(Throwable cause) {
-        super(cause);
-    }
 }
