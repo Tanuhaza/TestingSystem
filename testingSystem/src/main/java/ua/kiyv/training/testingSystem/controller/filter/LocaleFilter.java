@@ -20,6 +20,7 @@ public class LocaleFilter implements Filter {
      */
     private LocaleHolder localeHolder = new LocaleHolder(LocaleHolder.DEFAULT_LOCALE);
     private static final String MESSAGE_PATH = "webProject.i18n.messages";
+//    private static final String MESSAGE_PATH = "messages";
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {

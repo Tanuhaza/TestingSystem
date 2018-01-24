@@ -15,7 +15,7 @@ public class LocaleHolder {
     public static final Locale[] SUPPORTED_LOCALES = {
             new Locale(Attributes.EN, Attributes.EN.toUpperCase()),
             new Locale(Attributes.UA, Attributes.UA.toUpperCase()),
-            new Locale(Attributes.RU, Attributes.RU.toUpperCase())
+//            new Locale(Attributes.RU, Attributes.RU.toUpperCase())
     };
 
     public static final Locale DEFAULT_LOCALE = new Locale(Attributes.EN, Attributes.EN.toUpperCase());

@@ -12,7 +12,7 @@ import java.util.Properties;
 
 public class JdbcConnectionPool implements ConnectionPool {
 
-    private final String DB_CONFIG_FILENAME = "webProject/config/dbConfig.properties";
+    private final String DB_CONFIG_FILENAME = "webProject/config/DBconfig.properties";
     private final String DB_CONFIG_PARAM_URL = "database.url";
     private final String DB_CONFIG_PARAM_DB_NAME = "database.dbName";
     private final String DB_CONFIG_PARAM_USER_NAME = "database.userName";

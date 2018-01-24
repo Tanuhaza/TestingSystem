@@ -21,10 +21,4 @@ public class QuestionMapper implements ObjectMapper<Question> {
                 .build();
     }
 
-
-    @Override
-    public Question makeUnique(Map<Integer, Question> cache, Question teacher) {
-        return null;
-    }
-
 }

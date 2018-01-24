@@ -22,7 +22,7 @@ public class UserValidator implements Validator<RegisterData> {
             results.addError(Attributes.USER_SURNAME, MessageKeys.WRONG_USER_SURNAME);
         }
         if(!Pattern.matches(REGEX_EMAIL, data.getEmail())){
-            results.addError(Attributes.USER_CELLPHONE, MessageKeys.WRONG_USER_CELLPHONE);
+            results.addError(Attributes.USER_EMAIL, MessageKeys.WRONG_USER_EMAIL);
         }
         if(!Pattern.matches(REGEX_PASSWORD, data.getPassword())){
             results.addError(Attributes.USER_PASSWORD, MessageKeys.WRONG_USER_PASSWORD);

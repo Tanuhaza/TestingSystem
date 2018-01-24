@@ -5,7 +5,6 @@
 <%@ page import="ua.kiyv.training.testingSystem.utils.constants.Attributes" %>
 <%@ page import="ua.kiyv.training.testingSystem.controller.i18n.LocaleHolder" %>
 <%@ page import="ua.kiyv.training.testingSystem.utils.constants.PagesPath" %>
-<%--<fmt:setBundle basename="webProject.i18n.messages" var="msg"/>--%>
 
 <fmt:setLocale value="${sessionScope['locale']}"/>
 <fmt:requestEncoding value="UTF-8" />

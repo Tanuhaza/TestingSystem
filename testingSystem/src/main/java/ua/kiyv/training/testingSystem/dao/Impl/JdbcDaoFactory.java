@@ -23,6 +23,11 @@ public class JdbcDaoFactory  extends DaoFactory{
     }
 
     @Override
+    public TestDao createTestDao() {
+        return new JdbcTestDao();
+    }
+
+    @Override
     public OptionDao createOptionDao() {
         return new JdbcOptionDao();
     }
@@ -31,7 +36,5 @@ public class JdbcDaoFactory  extends DaoFactory{
     public QuestionDao createQuestionDao() {return new JdbcQuestionDao();}
 
     @Override
-    public AssessmentDao createAssesmentDao() {
-        return new JdbcAssessmentDao();
-    }
+    public UserResponseDao createUserResponseDao() {return new JdbcUserResponseDao();}
 }

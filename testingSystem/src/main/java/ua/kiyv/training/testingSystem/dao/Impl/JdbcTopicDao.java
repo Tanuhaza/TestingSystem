@@ -30,18 +30,18 @@ public class JdbcTopicDao implements TopicDao {
 
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
-                throw new DaoException("Creating user failed: no rows affected.");
+                throw new DaoException("Creating topic failed: no rows affected.");
             }
             ResultSet generatedKeys = statement.getGeneratedKeys();
             if (!generatedKeys.next()) {
-                throw new DaoException("Creating user failed: no id obtained.");
+                throw new DaoException("Creating topic failed: no id obtained.");
             }
             Integer id = generatedKeys.getInt(1);
             topic.setId(id);
             generatedKeys.close();
             statement.close();
         } catch (SQLException e) {
-            throw new DaoException("Can't create user", e);
+            throw new DaoException("Can't create topic", e);
         }
     }
 
@@ -82,7 +82,7 @@ public class JdbcTopicDao implements TopicDao {
             resultSet.close();
             statement.close();
         } catch (SQLException e) {
-            throw new DaoException("Can't get all users.", e);
+            throw new DaoException("Can't get all topics.", e);
         }
         return topics;
     }

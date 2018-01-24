@@ -5,8 +5,7 @@
 
 <fmt:setLocale value="${sessionScope['locale']}"/>
 <fmt:requestEncoding value="UTF-8" />
-<fmt:setBundle basename="webProject.i18n.messages" var="msg"/>
-<%--<fmt:setBundle basename="${bundleFile}" var="msg"/>--%>
+<fmt:setBundle basename="${bundleFile}" var="msg"/>
 <!-- Footer -->
 <div class="footer" style="position:absolute; bottom:0; width: 100%; position: fixed;">
     <div class="container">

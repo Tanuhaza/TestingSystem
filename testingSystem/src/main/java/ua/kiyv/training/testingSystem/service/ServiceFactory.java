@@ -1,8 +1,5 @@
 package ua.kiyv.training.testingSystem.service;
 
-import ua.kiyv.training.testingSystem.dao.*;
-import ua.kiyv.training.testingSystem.dao.Impl.JdbcDaoFactory;
-import ua.kiyv.training.testingSystem.service.impl.AssessmentServiceImpl;
 import ua.kiyv.training.testingSystem.service.impl.ServiceFactoryImpl;
 
 /**
@@ -11,11 +8,9 @@ import ua.kiyv.training.testingSystem.service.impl.ServiceFactoryImpl;
 public abstract class ServiceFactory {
     private static ServiceFactory serviceFactory;
 
-    public abstract UserSevice createUserService();
-    public  abstract TopicService createTopicService();
-    public abstract OptionService createOptionService();
-    public abstract QuestionService createQuestionService();
-    public abstract AssessmentService createAssesmentService();
+    public abstract UserService createUserService();
+    public abstract ConstructingTestService createConstructingTestService();
+    public abstract UserResponseService createUserResponseService();
 
     public static ServiceFactory getInstance() {
         if(serviceFactory==null) {

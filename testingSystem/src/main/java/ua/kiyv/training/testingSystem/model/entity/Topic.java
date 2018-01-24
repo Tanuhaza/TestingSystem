@@ -5,7 +5,7 @@ package ua.kiyv.training.testingSystem.model.entity;
  */
 public class Topic {
 
-    private Integer id;
+    private int id;
     private String title;
     private String info;
 
@@ -17,11 +17,11 @@ public class Topic {
         this.info = info;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 

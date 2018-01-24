@@ -2,14 +2,14 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page trimDirectiveWhitespaces="true" %>
-<fmt:setBundle basename="webProject.i18n.messages" var="msg"/>
+<%--<fmt:setBundle basename="webProject.i18n.messages" var="msg"/>--%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
     <fmt:setLocale value="${sessionScope['locale']}"/>
     <fmt:requestEncoding value="UTF-8" />
-    <%--<fmt:setBundle basename="${sessionScope['bundleFile']}" var="msg"/>--%>
+    <fmt:setBundle basename="${sessionScope['bundleFile']}" var="msg"/>
     <meta charset="utf-8">
     <title>Title</title>
     <link rel="stylesheet" href="/css/login.css">
@@ -24,12 +24,12 @@
 <div class="dropdown choose-country top-right">
     <c:forEach items="${SUPPORTED_LOCALES}" var="value">
         <c:if test="${value eq sessionScope['locale']}">
-            <a class="#" data-toggle="dropdown" href="#"><img src="/images/${value.language}.png" alt="${value.language}">  ${value.language}</a>
+            <a class="#" data-toggle="dropdown" href="#"><img src="/icons/${value.language}.png" alt="${value.language}">  ${value.language}</a>
         </c:if>
     </c:forEach>
     <ul class="dropdown-menu" role="menu">
         <c:forEach items="${SUPPORTED_LOCALES}" var="value">
-            <li role="menuitem"><a href="login?lang=${value.language}"><img src="/images/${value.language}.png" alt="${value.language}"> ${value.language}</a></li>
+            <li role="menuitem"><a href="login?lang=${value.language}"><img src="/icons/${value.language}.png" alt="${value.language}"> ${value.language}</a></li>
         </c:forEach>
     </ul>
 </div>
@@ -89,7 +89,7 @@
                                     <input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="<fmt:message key="testing.system.placeholder.email" bundle="${msg}" />" value="${requestScope.previousUserEmail}" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="cellphone" id="login" tabindex="1" class="form-control" placeholder="<fmt:message key="testing.system.placeholder.login" bundle="${msg}"/>" value="${requestScope.previousUserLogin}" required>
+                                    <input type="text" name="login" id="login" tabindex="1" class="form-control" placeholder="<fmt:message key="testing.system.placeholder.login" bundle="${msg}"/>" value="${requestScope.previousUserLogin}" required>
                                 </div>
                                 <div class="form-group">
                                     <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="<fmt:message key="testing.system.placeholder.password" bundle="${msg}"/>" value="${requestScope.previousUserPassword}" required>

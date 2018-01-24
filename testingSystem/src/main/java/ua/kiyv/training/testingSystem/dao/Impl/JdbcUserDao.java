@@ -23,7 +23,7 @@ public class JdbcUserDao implements UserDao {
 
     @Override
     public void create(User user) {
-        String sqlStatement = "INSERT INTO users (firstName, lastName,login,password, email, role,superiorId) VALUES (?, ?, ?, ?, ?, ?,?)";
+        String sqlStatement = "INSERT INTO user (firstName, lastName,login,password, email, role) VALUES (?, ?, ?, ?, ?, ?)";
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sqlStatement,
                     Statement.RETURN_GENERATED_KEYS);
@@ -33,7 +33,6 @@ public class JdbcUserDao implements UserDao {
             statement.setString(4, user.getPassword());
             statement.setString(5, user.getEmail());
             statement.setString(6, user.getRole().toString());
-            statement.setObject(7, user.getSuperiorId());
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
                 throw new DaoException("Creating user failed: no rows affected.");
@@ -53,7 +52,7 @@ public class JdbcUserDao implements UserDao {
 
     @Override
     public User findById(int id) {
-        String sqlStatement = "SELECT * FROM users WHERE id = ?";
+        String sqlStatement = "SELECT * FROM user WHERE id = ?";
         User user;
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sqlStatement);
@@ -64,7 +63,6 @@ public class JdbcUserDao implements UserDao {
             }
             UserMapper userMapper=new UserMapper();
             user=userMapper.extractFromResultSet(resultSet);
-            if (resultSet.wasNull()) {user.setSuperiorId (null);}
 
             resultSet.close();
             statement.close();
@@ -76,8 +74,8 @@ public class JdbcUserDao implements UserDao {
 
     @Override
     public User findByLogin(String login) {
-        String sqlStatement = "SELECT id, firstName, lastName,login, password, email, role, superiorId "
-                               + "FROM users WHERE login=?";
+        String sqlStatement = "SELECT id, firstName, lastName,login, password, email, role "
+                               + "FROM user WHERE login=?";
         User user;
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sqlStatement);
@@ -88,7 +86,6 @@ public class JdbcUserDao implements UserDao {
             }
                 UserMapper userMapper=new UserMapper();
                 user=userMapper.extractFromResultSet(resultSet);
-                if (resultSet.wasNull()) {user.setSuperiorId(null);}
 
             resultSet.close();
             statement.close();
@@ -100,7 +97,7 @@ public class JdbcUserDao implements UserDao {
 
     @Override
     public List<User> findAll() {
-        String sqlStatement = "SELECT * FROM users";
+        String sqlStatement = "SELECT * FROM user";
         User user;
         List<User> users = new ArrayList<>();
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
@@ -109,7 +106,6 @@ public class JdbcUserDao implements UserDao {
             UserMapper userMapper=new UserMapper();
             while (resultSet.next()) {
                 user=userMapper.extractFromResultSet(resultSet);
-                if (resultSet.wasNull()) {user.setSuperiorId(null);}
                 users.add(user);
             }
             resultSet.close();
@@ -122,8 +118,8 @@ public class JdbcUserDao implements UserDao {
 
     @Override
     public void update(User user) {
-        String sqlStatement = "UPDATE users SET firstName = ?, lastName = ?, " +
-                "login=?,password=?, email = ?,role = ?, superiorId = ? WHERE id = ?";
+        String sqlStatement = "UPDATE user SET firstName = ?, lastName = ?, " +
+                "login=?,password=?, email = ?,role = ?, WHERE id = ?";
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sqlStatement);
             statement.setString(1, user.getFirstName());
@@ -132,8 +128,7 @@ public class JdbcUserDao implements UserDao {
             statement.setString(4, user.getPassword());
             statement.setString(5, user.getEmail());
             statement.setString(6, user.getRole().toString());
-            statement.setInt(7, user.getSuperiorId());
-            statement.setInt(8, user.getId());
+            statement.setInt(7, user.getId());
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
                 throw new DaoException("Updating user failed: no rows affected.");
@@ -147,7 +142,7 @@ public class JdbcUserDao implements UserDao {
 
     @Override
     public void delete(User user) {
-        String sqlStatement = "DELETE FROM users WHERE id = ?";
+        String sqlStatement = "DELETE FROM user WHERE id = ?";
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sqlStatement);
             statement.setInt(1, user.getId());
@@ -163,34 +158,8 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
-    public List<User> findAllSubordinatesOf(User user) {
-        String sqlStatement = "SELECT * FROM users WHERE superiorId = ?";
-        List<User> subordinates = new ArrayList<>();
-        User subordinate;
-        try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
-            PreparedStatement statement = connection.prepareStatement(sqlStatement);
-            statement.setInt(1, user.getId());
-            ResultSet resultSet = statement.executeQuery();
-            UserMapper userMapper = new UserMapper();
-            if (!resultSet.next()) {
-                throw new DaoException("Subordinators of  " + user + " don't exist");
-            }
-            resultSet.previous();
-            while (resultSet.next()) {
-                subordinate=userMapper.extractFromResultSet(resultSet);
-                subordinates.add(subordinate);
-            }
-            resultSet.close();
-            statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't get all subordinates of user with id " + user.getId(), e);
-        }
-        return subordinates;
-    }
-
-    @Override
     public List<User> findByRole(User.Role role) {
-        String sqlStatement = "SELECT * FROM users WHERE role = ?";
+        String sqlStatement = "SELECT * FROM user WHERE role = ?";
         List<User> users = new ArrayList<>();
         User user;
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
@@ -204,9 +173,6 @@ public class JdbcUserDao implements UserDao {
             resultSet.previous();
             while (resultSet.next()) {
                 user = userMapper.extractFromResultSet(resultSet);
-                if (resultSet.wasNull())
-                    user.setSuperiorId(null);
-
                 users.add(user);
             }
             resultSet.close();

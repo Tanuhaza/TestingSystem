@@ -4,6 +4,7 @@ package ua.kiyv.training.testingSystem.utils.constants;
  * This class contains all necessary messages to perform logging
  */
 public class LoggerMessages {
+    public static final String REQUESTED_UNSUPPORTED_URI = "Requested unsupported URI. Redirecting to home page.";
     public static final String ERROR_PARSING_INPUT_DATE = "Error occured when parsing date...";
     public static final String SUCCESSFULL_USER_INFO_PARSE = "User's info was successfully parsed";
     public static final String SUCCESSFULL_REFILLING = "Card was successfully refilled";

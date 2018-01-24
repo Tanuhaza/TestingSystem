@@ -12,22 +12,11 @@ public class User {
     private String password;
     private String email;
     private Role role;
-    private Integer superiorId;
 
     public User() {
     }
-    public User(int id,String firstName, String lastName, String login, String password, String email, Role role, Integer superiorId) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.login = login;
-        this.password = password;
-        this.email = email;
-        this.role = role;
-        this.superiorId = superiorId;
-    }
-    public User(int id,String firstName, String lastName, String login, String password, String email, Role role) {
-        this.id = id;
+    public User(String firstName, String lastName, String login, String password, String email, Role role) {
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.login = login;
@@ -92,14 +81,6 @@ public class User {
         this.role = role;
     }
 
-    public Integer getSuperiorId() {
-        return superiorId;
-    }
-
-    public void setSuperiorId(Integer superiorId) {
-        this.superiorId = superiorId;
-    }
-
     public enum Role {
         ADMIN("admin"),
         STUDENT("user");
@@ -132,7 +113,6 @@ public class User {
 
         if (id != user.id) return false;
         if (role!=user.role)return false;
-        if (superiorId != null ? !superiorId.equals(user.superiorId) : user.superiorId != null) return false;
         if (firstName != null ? !firstName.equals(user.firstName) : user.firstName != null) return false;
         if (lastName != null ? !lastName.equals(user.lastName) : user.lastName != null) return false;
         if (login != null ? !login.equals(user.login) : user.login != null) return false;
@@ -150,7 +130,6 @@ public class User {
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (role != null ? role.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + ( superiorId!= null ? superiorId.hashCode() : 0);
         return result;
     }
 
@@ -164,7 +143,6 @@ public class User {
                 ", password=" + password +
                 ", email='" + email + '\'' +
                 ", role=" + role +
-                ", superiorId=" + superiorId +
                 '}'+ '\n';
     }
 
@@ -207,11 +185,6 @@ public class User {
 
         public Builder setRole(Role role) {
             user.setRole(role);
-            return this;
-        }
-
-        public Builder setSuperiorId(Integer superiorId) {
-            user.setSuperiorId(superiorId);
             return this;
         }
 

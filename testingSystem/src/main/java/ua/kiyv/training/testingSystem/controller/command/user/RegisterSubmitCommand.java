@@ -7,7 +7,7 @@ import ua.kiyv.training.testingSystem.controller.validate.UserValidator;
 import ua.kiyv.training.testingSystem.model.dto.RegisterData;
 import ua.kiyv.training.testingSystem.model.entity.User;
 import ua.kiyv.training.testingSystem.service.ServiceFactory;
-import ua.kiyv.training.testingSystem.service.UserSevice;
+import ua.kiyv.training.testingSystem.service.UserService;
 import ua.kiyv.training.testingSystem.utils.constants.Attributes;
 import ua.kiyv.training.testingSystem.utils.constants.MessageKeys;
 import ua.kiyv.training.testingSystem.utils.constants.PagesPath;
@@ -19,7 +19,7 @@ import java.io.IOException;
 
 public class RegisterSubmitCommand extends CommandWrapper {
     private static final Logger logger = Logger.getLogger(RegisterSubmitCommand.class);
-    private UserSevice userService = ServiceFactory.getInstance().createUserService();
+    private UserService userService = ServiceFactory.getInstance().createUserService();
     private UserValidator userValidator;
 
     public RegisterSubmitCommand() {

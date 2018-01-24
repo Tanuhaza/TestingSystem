@@ -19,16 +19,9 @@ public class OptionMapper implements ObjectMapper<Option> {
                 .setScore( rs.getInt("score") )
                 .setCorrect(rs.getBoolean("isCorrect"))
                 .setComment(rs.getString("comment"))
-                .setAssesmentId(rs.getInt("assessment_id"))
-                .setQuestionId(rs.getInt("questions_id"))
+                .setQuestionId(rs.getInt("question_id"))
                 .build();
-        if (rs.getInt("assessment_id") == 0)
-            option.setAssesmentId(null);
           return option;
     }
 
-    @Override
-    public Option makeUnique(Map<Integer, Option> cache, Option teacher) {
-        return null;
-    }
 }

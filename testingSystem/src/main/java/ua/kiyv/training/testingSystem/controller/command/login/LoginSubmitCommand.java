@@ -5,7 +5,7 @@ package ua.kiyv.training.testingSystem.controller.command.login;
 import ua.kiyv.training.testingSystem.controller.CommandWrapper;
 import ua.kiyv.training.testingSystem.model.entity.User;
 import ua.kiyv.training.testingSystem.service.ServiceFactory;
-import ua.kiyv.training.testingSystem.service.UserSevice;
+import ua.kiyv.training.testingSystem.service.UserService;
 import ua.kiyv.training.testingSystem.utils.constants.Attributes;
 import ua.kiyv.training.testingSystem.utils.constants.PagesPath;
 
@@ -18,7 +18,7 @@ public class LoginSubmitCommand extends CommandWrapper {
     private static final String PARAM_LOGIN = "login_name";
     private static final String PARAM_PASSWORD ="login_password";
 
-    private UserSevice userService = ServiceFactory.getInstance().createUserService();
+    private UserService userService = ServiceFactory.getInstance().createUserService();
 
     public LoginSubmitCommand() {
         super(PagesPath.LOGIN_PAGE);
@@ -33,9 +33,6 @@ public class LoginSubmitCommand extends CommandWrapper {
         Optional<User> user = userService.getUserByLoginPassword(login, password);
         if( user.isPresent() ){
             User person = user.get();
-//            if(person.getRole()!= User.Role.ADMIN) {
-//                userService.updateUserCards(person.getId());
-//            }
             pageToGo = getResultPageByUserRole(person);
             request.getSession().setAttribute(Attributes.USER_ID, person.getId());
             request.getSession().setAttribute(Attributes.USER_ROLE, person.getRole());
@@ -49,6 +46,7 @@ public class LoginSubmitCommand extends CommandWrapper {
         if(user.getRole()== User.Role.ADMIN) {
             result = PagesPath.ADMIN_PATH;
         }
+
         return result;
     }
 

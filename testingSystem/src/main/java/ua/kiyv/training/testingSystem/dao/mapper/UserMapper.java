@@ -18,14 +18,7 @@ public class UserMapper implements ObjectMapper<User> {
                 .setPassword(rs.getString("password"))
                 .setEmail(rs.getString("email"))
                 .setRole(User.Role.valueOf(rs.getString("role")))
-                .setSuperiorId(rs.getInt("superiorID"))
                 .build();
     }
-
-    @Override
-    public User makeUnique(Map<Integer, User> cache,
-                              User user) {
-        cache.putIfAbsent(user.getId(), user);
-        return cache.get(user.getId());
-    }
 }
+

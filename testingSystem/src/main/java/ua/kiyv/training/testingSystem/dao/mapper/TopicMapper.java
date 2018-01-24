@@ -20,8 +20,4 @@ public class TopicMapper implements ObjectMapper<Topic> {
                 .build();
     }
 
-    @Override
-    public Topic makeUnique(Map<Integer, Topic> cache, Topic teacher) {
-        return null;
-    }
 }

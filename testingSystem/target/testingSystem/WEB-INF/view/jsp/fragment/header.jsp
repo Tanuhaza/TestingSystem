@@ -2,9 +2,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page trimDirectiveWhitespaces="true" %>
-<fmt:setBundle basename="webProject.i18n.messages" var="msg"/>
+<%@ page import="ua.kiyv.training.testingSystem.utils.constants.Attributes" %>
 
-<fmt:setLocale value="${sessionScope['locale']}"/>
+<%--<fmt:setLocale value="${sessionScope['locale']}"/>--%>
+<fmt:setBundle basename="${bundleFile}" var="msg"/>
 <fmt:requestEncoding value="UTF-8" />
 <div class="mainmenu-wrapper">
     <div class="container">
@@ -26,14 +27,20 @@
         <nav id="mainmenu" class="mainmenu">
             <ul>
                 <li>
-                    <a href="/home"><fmt:message key="home" bundle="${msg}"/></a>
+                    <a href="/home"><fmt:message key="testing.system.menu.home" bundle="${msg}"/></a>
                 </li>
-                <%--<li>--%>
-                    <%--<a href="/cards"><fmt:message key="payments.menu.cards" bundle="${msg}"/></a>--%>
-                <%--</li>--%>
-                <%--<li>--%>
-                    <%--<a href="/payments"><fmt:message key="payments" bundle="${msg}"/></a>--%>
-                <%--</li>--%>
+                <li>
+                    <a href="/topic"><fmt:message key="testing.system.menu.topics" bundle="${msg}"/></a>
+                </li>
+                <li>
+                    <a href="/profile"><fmt:message key="testing.system.menu.profile" bundle="${msg}"/></a>
+                </li>
+                <c:if test="${sessionScope.userRole=='ADMIN'}">
+                    <li>
+                        <a href="/admin/users"><fmt:message key="testing.system.menu.users" bundle="${msg}"/></a>
+                    </li>
+                </c:if>
+
             </ul>
         </nav>
     </div>

@@ -2,10 +2,15 @@ package ua.kiyv.training.testingSystem.dao.Impl;
 
 import ua.kiyv.training.testingSystem.connection.DaoConnection;
 import ua.kiyv.training.testingSystem.connection.Jdbc.JdbcTransactionHelper;
+import ua.kiyv.training.testingSystem.connection.TransactionHelper;
 import ua.kiyv.training.testingSystem.dao.DaoException;
 import ua.kiyv.training.testingSystem.dao.QuestionDao;
+import ua.kiyv.training.testingSystem.dao.mapper.OptionMapper;
 import ua.kiyv.training.testingSystem.dao.mapper.QuestionMapper;
+import ua.kiyv.training.testingSystem.model.entity.Option;
 import ua.kiyv.training.testingSystem.model.entity.Question;
+import ua.kiyv.training.testingSystem.model.entity.Test;
+import ua.kiyv.training.testingSystem.model.entity.Topic;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +25,7 @@ import java.util.List;
 public class JdbcQuestionDao implements QuestionDao {
     @Override
     public void create(Question question) {
-            String sqlStatement = "INSERT INTO questions (question,topic_Id) VALUES (?, ?)";
+            String sqlStatement = "INSERT INTO question (question,topic_Id) VALUES (?, ?)";
             try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
                 PreparedStatement statement = connection.prepareStatement(sqlStatement,
                         Statement.RETURN_GENERATED_KEYS);
@@ -46,7 +51,7 @@ public class JdbcQuestionDao implements QuestionDao {
 
     @Override
     public Question findById(int id) {
-        String sqlStatement = "SELECT * FROM questions WHERE id = ?";
+        String sqlStatement = "SELECT * FROM question WHERE id = ?";
         Question question;
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sqlStatement);
@@ -68,7 +73,7 @@ public class JdbcQuestionDao implements QuestionDao {
 
     @Override
     public List<Question> findAll() {
-        String sqlStatement = "SELECT * FROM questions";
+        String sqlStatement = "SELECT * FROM question";
         Question question;
         List<Question> questions = new ArrayList<>();
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
@@ -89,7 +94,7 @@ public class JdbcQuestionDao implements QuestionDao {
 
     @Override
     public void update(Question question) {
-        String sqlStatement = "UPDATE questions SET question = ?, topic_id = ? WHERE id = ?";
+        String sqlStatement = "UPDATE question SET question = ?, topic_id = ? WHERE id = ?";
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sqlStatement);
             statement.setString(1, question.getQuestionText());
@@ -108,7 +113,7 @@ public class JdbcQuestionDao implements QuestionDao {
 
     @Override
     public void delete(Question question) {
-        String sqlStatement = "DELETE FROM questions WHERE id = ?";
+        String sqlStatement = "DELETE FROM question WHERE id = ?";
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sqlStatement);
             statement.setInt(1, question.getId());
@@ -120,6 +125,70 @@ public class JdbcQuestionDao implements QuestionDao {
         } catch (SQLException e) {
             throw new DaoException("Can't delete question", e);
         }
-
     }
+
+    @Override
+    public List<Question> getAssosiatedQuestionByTopicId(int id) {
+        String sqlStatement = "SELECT * FROM question WHERE topic_id = ?";
+        List<Question> questions=new ArrayList<>();
+        Question question;
+        try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(sqlStatement);
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            QuestionMapper questionMapper = new QuestionMapper();
+            while (resultSet.next()) {
+                question = questionMapper.extractFromResultSet(resultSet);
+                questions.add(question);
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            throw new DaoException("Can't get question", e);
+        }
+        return questions;
+    }
+
+    @Override
+    public List<Option> getAssociatedOptionsByQuestionID( int id) {
+        String sqlStatement = "SELECT * FROM options WHERE question_Id = ?";
+        List<Option> associatedOptions = new ArrayList<>();
+        try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(sqlStatement);
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            OptionMapper optionMapper = new OptionMapper();
+            while (resultSet.next()) {
+                Option option = optionMapper.extractFromResultSet(resultSet);
+                associatedOptions.add(option);
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            throw new DaoException("Can't get associated options", e);
+        }
+        return associatedOptions;
+    }
+
+
+    @Override
+    public List<Integer> getAssociatedTestsIDByQuestionID(int id) {
+        String sqlStatement = "SELECT * FROM question_test WHERE question_Id = ?";
+        List<Integer> associatedTestsId = new ArrayList<>();
+        try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(sqlStatement);
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                associatedTestsId.add(resultSet.getInt("test_Id"));
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            throw new DaoException("Can't get associated tests", e);
+        }
+        return associatedTestsId;
+    }
+
 }

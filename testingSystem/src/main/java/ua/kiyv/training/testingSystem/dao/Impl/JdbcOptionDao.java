@@ -18,7 +18,7 @@ public class JdbcOptionDao implements OptionDao {
     @Override
     public void create(Option option) {
         String sqlStatement = "INSERT INTO options  (optionText, score, isCorrect, comment, " +
-                "assessment_id, questions_id) VALUES (?,?,?,?,?,?)";
+                            " question_id) VALUES (?,?,?,?,?)";
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sqlStatement,
                     Statement.RETURN_GENERATED_KEYS);
@@ -26,8 +26,7 @@ public class JdbcOptionDao implements OptionDao {
             statement.setInt(2, option.getScore());
             statement.setBoolean(3, option.isCorrect());
             statement.setString(4, option.getComment());
-            statement.setInt(5, option.getAssesmentId());
-            statement.setInt(6, option.getQuestionId());
+            statement.setInt(5, option.getQuestionId());
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
                 throw new DaoException("Creating option failed: no rows affected.");
@@ -91,16 +90,15 @@ public class JdbcOptionDao implements OptionDao {
     @Override
     public void update(Option option) {
         String sqlStatement = "UPDATE options SET optionText = ?, score = ?, isCorrect = ?,comment = ?" +
-                 "assessment_id = ?, questions_id=?  WHERE id = ?";
+                            " question_id=?  WHERE id = ?";
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sqlStatement);
             statement.setString(1, option.getOptionText());
             statement.setInt(2, option.getScore());
             statement.setBoolean(3, option.isCorrect());
             statement.setString(4, option.getComment());
-            statement.setInt(5, option.getAssesmentId());
-            statement.setInt(6, option.getQuestionId());
-            statement.setInt(7, option.getId());
+            statement.setInt(5, option.getQuestionId());
+            statement.setInt(6, option.getId());
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
                 throw new DaoException("Updating option failed: no rows affected.");

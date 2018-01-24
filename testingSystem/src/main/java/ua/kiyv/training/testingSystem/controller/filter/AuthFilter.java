@@ -7,6 +7,7 @@ import ua.kiyv.training.testingSystem.utils.constants.PagesPath;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.EnumMap;
@@ -30,12 +31,19 @@ public class AuthFilter implements Filter{
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException{
         HttpServletRequest req = ((HttpServletRequest) request);
+        HttpServletResponse res = ((HttpServletResponse) response);
         HttpSession session = req.getSession();
         String uri = req.getRequestURI();
-        Object userId = session.getAttribute(Attributes.USER_ID);
+        req.setCharacterEncoding(Attributes.UTF_8);
+        res.setContentType("text/html");
+
+        if (session==null || session.isNew()){req.getRequestDispatcher("index.jsp").forward(request, response);}
+
+        Integer userId = (Integer)session.getAttribute(Attributes.USER_ID);
         User.Role role = (User.Role) session.getAttribute(Attributes.USER_ROLE);
+
         if(!checkUserPermissions(uri, userId, role)){
-            req.getRequestDispatcher(PagesPath.LOGIN_PATH).forward(request, response);
+            res.sendRedirect(PagesPath.LOGIN_PATH);
             logger.info(String.format(USER_NOT_AUTHORIZED));
             return;
         }
@@ -65,13 +73,12 @@ public class AuthFilter implements Filter{
     private static class UserAuthorizer implements Authorizer {
         public boolean check(String uri, Object userId) {
             return userId!=null && !uri.startsWith(PagesPath.ADMIN_PATH);
-
         }
     }
 
     private static class AdminAuthorizer implements Authorizer {
         public boolean check(String uri, Object userId) {
-            return  userId!=null && (uri.startsWith(PagesPath.ADMIN_PATH)||
+            return  (userId!=null ||
                     uri.startsWith(PagesPath.LOGIN_PATH)||
                     uri.startsWith(PagesPath.REGISTER_PATH));
         }

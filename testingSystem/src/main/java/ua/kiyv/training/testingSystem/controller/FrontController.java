@@ -16,7 +16,6 @@ import java.io.IOException;
  * This class represents request dispatcher. It calls commands for correspondent request uri
  * and forwards request to the appropriate view page.
  *
- * @author oleksij.onysymchuk@gmail.com
  */
 public class FrontController extends HttpServlet {
 
@@ -35,6 +34,7 @@ public class FrontController extends HttpServlet {
     public void init() throws ServletException {
         super.init();
         commandHolder = new CommandHolder(getServletContext().getContextPath());
+        System.out.println(getServletContext().getContextPath());
     }
 
     /**
@@ -75,11 +75,13 @@ public class FrontController extends HttpServlet {
     }
 
     @Override
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String path = processRequest(request, response);
         if(!path.equals(PagesPath.FORWARD))
             response.sendRedirect(path);
+//        request.getRequestDispatcher(path).forward(request, response);
     }
 
     void setCommandHolder(CommandHolder commandHolder) {
