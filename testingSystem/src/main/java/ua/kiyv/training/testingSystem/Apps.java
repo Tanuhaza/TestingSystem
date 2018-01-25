@@ -121,8 +121,8 @@ public class Apps {
 //        userResponse.setOptionId(3);
 //        userResponse.setTotalScore(1);
 //        userResponseService.create(userResponse);
-        System.out.println(userResponseService.getTestsPassedByUser(3)) ;
-        System.out.println(userResponseService.getTotalScoreByPassedTimes(3,1,1)) ;
+//        System.out.println(userResponseService.getTestsPassedByUser(3)) ;
+//        System.out.println(userResponseService.getTotalScoreByPassedTimes(3,1,1)) ;
 
 ////        userResponse.setPassedTimes(0);
       //  userResponseService.update(userResponse);

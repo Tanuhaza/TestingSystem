@@ -19,7 +19,7 @@ public interface UserResponseService {
 
     public void delete(UserResponse userResponse);
 
-    public List<Test> getTestsPassedByUser(int userId);
+    public List<Test> getTestsPassedByUser(int userId,int passedTimes);
 
     public int getTotalScoreByPassedTimes(int userId,int testId, int passedTimes);
 

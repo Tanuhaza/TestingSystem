@@ -1,5 +1,6 @@
 package ua.kiyv.training.testingSystem.dao.Impl;
 
+import org.apache.log4j.Logger;
 import ua.kiyv.training.testingSystem.connection.DaoConnection;
 import ua.kiyv.training.testingSystem.connection.Jdbc.JdbcTransactionHelper;
 import ua.kiyv.training.testingSystem.dao.DaoException;
@@ -7,6 +8,8 @@ import ua.kiyv.training.testingSystem.dao.TopicDao;
 import ua.kiyv.training.testingSystem.dao.mapper.TopicMapper;
 import ua.kiyv.training.testingSystem.model.entity.Question;
 import ua.kiyv.training.testingSystem.model.entity.Topic;
+import ua.kiyv.training.testingSystem.utils.constants.LoggerMessages;
+import ua.kiyv.training.testingSystem.utils.constants.MessageKeys;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,7 +21,15 @@ import java.util.List;
 /**
  * Created by Tanya on 02.01.2018.
  */
+
+/**
+ * Implementation of topic response dao, which works with MySql using jdbc
+ */
 public class JdbcTopicDao implements TopicDao {
+    JdbcTopicDao(){}
+
+    private static final Logger logger = Logger.getLogger(JdbcTopicDao.class);
+
     @Override
     public void create(Topic topic) {
         String sqlStatement = "INSERT INTO topic (title,info) VALUES (?, ? )";
@@ -30,18 +41,19 @@ public class JdbcTopicDao implements TopicDao {
 
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
-                throw new DaoException("Creating topic failed: no rows affected.");
+                throw new DaoException(MessageKeys.WRONG_TOPIC_DB_CREATING_NO_ROWS_AFFECTED);
             }
             ResultSet generatedKeys = statement.getGeneratedKeys();
             if (!generatedKeys.next()) {
-                throw new DaoException("Creating topic failed: no id obtained.");
+                throw new DaoException(MessageKeys.WRONG_TOPIC_DB_NO_ID_OBTAINED);
             }
             Integer id = generatedKeys.getInt(1);
             topic.setId(id);
             generatedKeys.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't create topic", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_CREATE_NEW_TOPIC + topic.toString());
+            throw new DaoException(ex, MessageKeys.WRONG_TOPIC_DB_CAN_NOT_CREATE);
         }
     }
 
@@ -54,14 +66,15 @@ public class JdbcTopicDao implements TopicDao {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (!resultSet.next()) {
-                throw new DaoException("Topic with id " + id + " doesn't exist");
+                throw new DaoException(MessageKeys.WRONG_TOPIC_DB_NO_ID_EXIST);
             }
             TopicMapper topicMapper = new TopicMapper();
             topic = topicMapper.extractFromResultSet(resultSet);
             resultSet.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't get topic", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_TOPIC_BY_ID + id);
+            throw new DaoException(ex, MessageKeys.WRONG_TOPIC_DB_CAN_NOT_GET);
         }
         return topic;
     }
@@ -81,8 +94,9 @@ public class JdbcTopicDao implements TopicDao {
             }
             resultSet.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't get all topics.", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_ALL_TOPICS);
+            throw new DaoException(ex, MessageKeys.WRONG_TOPIC_DB_CAN_NOT_GET_ALL_TOPICS);
         }
         return topics;
     }
@@ -97,11 +111,12 @@ public class JdbcTopicDao implements TopicDao {
             statement.setInt(3, topic.getId());
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
-                throw new DaoException("Updating topic failed: no rows affected.");
+                throw new DaoException(MessageKeys.WRONG_TOPIC_DB_UPDATING_NO_ROWS_AFFECTED);
             }
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't update topic", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_UPDATE_TOPIC + topic.toString());
+            throw new DaoException(ex, MessageKeys.WRONG_TOPIC_DB_CAN_NOT_UPDATE);
         }
     }
 
@@ -113,11 +128,12 @@ public class JdbcTopicDao implements TopicDao {
             statement.setInt(1, topic.getId());
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
-                throw new DaoException("Deleting topic failed: no rows affected.");
+                throw new DaoException(MessageKeys.WRONG_TOPIC_DB_DELETING_NO_ROWS_AFFECTED);
             }
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't delete topic", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_DELETE_TOPIC + topic.getId());
+            throw new DaoException(ex, MessageKeys.WRONG_TOPIC_DB_CAN_NOT_DELETE);
         }
     }
 

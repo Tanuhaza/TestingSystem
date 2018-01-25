@@ -28,7 +28,8 @@ public class AdminViewUsersResponseCommand extends CommandWrapper{
     public String performExecute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         int userId = paramExtractor.extractSingleIntPathParam(request);
-        Map<Test,Integer> testResultMap =  ServiceFactory.getInstance().createUserResponseService().getTestResultMapByPassedTimes(userId,1);
+        Map<Test,Integer> testResultMap =  ServiceFactory.getInstance().createUserResponseService()
+                .getTestResultMapByPassedTimes(userId,1);
         request.setAttribute(Attributes.TEST_RESULT_MAP, testResultMap);
 
         return PagesPath.ADMIN_USER_RESPONSE_PAGE;}

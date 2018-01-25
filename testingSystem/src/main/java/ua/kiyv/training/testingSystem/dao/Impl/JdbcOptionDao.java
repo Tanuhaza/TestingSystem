@@ -1,12 +1,16 @@
 package ua.kiyv.training.testingSystem.dao.Impl;
 
 
+import org.apache.log4j.Logger;
 import ua.kiyv.training.testingSystem.connection.DaoConnection;
 import ua.kiyv.training.testingSystem.connection.Jdbc.JdbcTransactionHelper;
 import ua.kiyv.training.testingSystem.dao.DaoException;
 import ua.kiyv.training.testingSystem.dao.OptionDao;
 import ua.kiyv.training.testingSystem.dao.mapper.OptionMapper;
 import ua.kiyv.training.testingSystem.model.entity.Option;
+import ua.kiyv.training.testingSystem.utils.constants.LoggerMessages;
+import ua.kiyv.training.testingSystem.utils.constants.MessageKeys;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +18,18 @@ import java.util.List;
 /**
  * Created by Tanya on 02.01.2018.
  */
+
+/**
+ * Implementation of option dao, which works with MySql using jdbc
+ */
+
 public class JdbcOptionDao implements OptionDao {
+
+    JdbcOptionDao(){}
+
+    private static final Logger logger = Logger.getLogger(JdbcOptionDao.class);
+
+
     @Override
     public void create(Option option) {
         String sqlStatement = "INSERT INTO options  (optionText, score, isCorrect, comment, " +
@@ -29,18 +44,19 @@ public class JdbcOptionDao implements OptionDao {
             statement.setInt(5, option.getQuestionId());
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
-                throw new DaoException("Creating option failed: no rows affected.");
+                throw new DaoException(MessageKeys.WRONG_OPTION_DB_CREATING_NO_ROWS_AFFECTED);
             }
             ResultSet generatedKeys = statement.getGeneratedKeys();
             if (!generatedKeys.next()) {
-                throw new DaoException("Creating option failed: no id obtained.");
+                throw new DaoException(MessageKeys.WRONG_OPTION_DB_NO_ID_OBTAINED);
             }
             Integer id = generatedKeys.getInt(1);
             option.setId(id);
             generatedKeys.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't create option", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_CREATE_NEW_OPTION + option.toString());
+            throw new DaoException(ex, MessageKeys.WRONG_OPTION_DB_CAN_NOT_CREATE);
         }
     }
 
@@ -54,14 +70,15 @@ public class JdbcOptionDao implements OptionDao {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (!resultSet.next()) {
-                throw new DaoException("option with id " + id + " doesn't exist");
+                throw new DaoException(MessageKeys.WRONG_OPTION_DB_NO_ID_EXIST);
             }
             OptionMapper optionMapper = new OptionMapper();
             option = optionMapper.extractFromResultSet(resultSet);
             resultSet.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't get option", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_OPTION_BY_ID + id);
+            throw new DaoException(ex, MessageKeys.WRONG_OPTION_DB_CAN_NOT_GET);
         }
         return option;
     }
@@ -81,8 +98,9 @@ public class JdbcOptionDao implements OptionDao {
             }
             resultSet.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't get all options", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_ALL_OPTIONS);
+            throw new DaoException(ex, MessageKeys.WRONG_OPTION_DB_CAN_NOT_GET_ALL_OPTIONS);
         }
         return options;
     }
@@ -101,11 +119,12 @@ public class JdbcOptionDao implements OptionDao {
             statement.setInt(6, option.getId());
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
-                throw new DaoException("Updating option failed: no rows affected.");
+                throw new DaoException(MessageKeys.WRONG_OPTION_DB_UPDATING_NO_ROWS_AFFECTED);
             }
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't update option", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_UPDATE_OPTION + option.toString());
+            throw new DaoException(ex, MessageKeys.WRONG_OPTION_DB_CAN_NOT_UPDATE);
         }
     }
 
@@ -117,11 +136,11 @@ public class JdbcOptionDao implements OptionDao {
             statement.setInt(1, option.getId());
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
-                throw new DaoException("Deleting option failed: no rows affected.");
-            }
+                throw new DaoException(MessageKeys.WRONG_OPTION_DB_DELETING_NO_ROWS_AFFECTED);            }
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't delete option", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_DELETE_OPTION + option.getId());
+            throw new DaoException(ex, MessageKeys.WRONG_OPTION_DB_CAN_NOT_DELETE);
         }
     }
 }

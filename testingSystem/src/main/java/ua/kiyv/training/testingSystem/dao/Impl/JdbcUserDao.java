@@ -1,11 +1,14 @@
 package ua.kiyv.training.testingSystem.dao.Impl;
 
+import org.apache.log4j.Logger;
 import ua.kiyv.training.testingSystem.connection.DaoConnection;
 import ua.kiyv.training.testingSystem.connection.Jdbc.JdbcTransactionHelper;
 import ua.kiyv.training.testingSystem.dao.DaoException;
 import ua.kiyv.training.testingSystem.dao.UserDao;
 import ua.kiyv.training.testingSystem.dao.mapper.UserMapper;
 import ua.kiyv.training.testingSystem.model.entity.User;
+import ua.kiyv.training.testingSystem.utils.constants.LoggerMessages;
+import ua.kiyv.training.testingSystem.utils.constants.MessageKeys;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,9 +20,16 @@ import java.util.List;
 /**
  * Created by Tanya on 02.01.2018.
  */
+
+/**
+ * Implementation of user dao, which works with MySql using jdbc
+ */
+
 public class JdbcUserDao implements UserDao {
 
     JdbcUserDao(){}
+
+    private static final Logger logger = Logger.getLogger(JdbcUserDao.class);
 
     @Override
     public void create(User user) {
@@ -35,18 +45,19 @@ public class JdbcUserDao implements UserDao {
             statement.setString(6, user.getRole().toString());
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
-                throw new DaoException("Creating user failed: no rows affected.");
+                throw new DaoException(MessageKeys.WRONG_USER_DB_CREATING_NO_ROWS_AFFECTED);
             }
             ResultSet generatedKeys = statement.getGeneratedKeys();
             if (!generatedKeys.next()) {
-                throw new DaoException("Creating user failed: no id obtained.");
+                throw new DaoException(MessageKeys.WRONG_USER_DB_NO_ID_OBTAINED);
             }
             Integer id = generatedKeys.getInt(1);
             user.setId(id);
             generatedKeys.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't create user", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_CREATE_NEW_USER + user.toString());
+            throw new DaoException(ex, MessageKeys.WRONG_USER_DB_CAN_NOT_CREATE);
         }
     }
 
@@ -59,15 +70,16 @@ public class JdbcUserDao implements UserDao {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (!resultSet.next()) {
-                throw new DaoException("User with id " + id + " doesn't exist");
+                throw new DaoException(MessageKeys.WRONG_USER_DB_NO_ID_EXIST);
             }
             UserMapper userMapper=new UserMapper();
             user=userMapper.extractFromResultSet(resultSet);
 
             resultSet.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't get user", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_USER_BY_ID + id);
+            throw new DaoException(ex, MessageKeys.WRONG_USER_DB_CAN_NOT_GET);
         }
         return user;
     }
@@ -82,15 +94,16 @@ public class JdbcUserDao implements UserDao {
             statement.setString(1, login);
             ResultSet resultSet = statement.executeQuery();
             if (!resultSet.next()) {
-                throw new DaoException("User with login " + login + " doesn't exist");
+                throw new DaoException(MessageKeys.WRONG_USER_DB_NO_LOGIN_EXIST);
             }
                 UserMapper userMapper=new UserMapper();
                 user=userMapper.extractFromResultSet(resultSet);
 
             resultSet.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't get user", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_USER_BY_LOGIN + login);
+            throw new DaoException(ex, MessageKeys.WRONG_USER_DB_CAN_NOT_GET);
         }
         return user;
     }
@@ -110,9 +123,10 @@ public class JdbcUserDao implements UserDao {
             }
             resultSet.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't get all users.", e);
-        }
+            } catch (SQLException ex) {
+                logger.error(LoggerMessages.ERROR_FIND_ALL_USERS);
+                throw new DaoException(ex, MessageKeys.WRONG_USER_DB_CAN_NOT_GET_ALL_USERS);
+            }
         return users;
     }
 
@@ -131,11 +145,12 @@ public class JdbcUserDao implements UserDao {
             statement.setInt(7, user.getId());
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
-                throw new DaoException("Updating user failed: no rows affected.");
+                throw new DaoException(MessageKeys.WRONG_USER_DB_UPDATING_NO_ROWS_AFFECTED);
             }
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't update user", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_UPDATE_USER + user.toString());
+            throw new DaoException(ex, MessageKeys.WRONG_USER_DB_CAN_NOT_UPDATE);
         }
 
     }
@@ -148,12 +163,13 @@ public class JdbcUserDao implements UserDao {
             statement.setInt(1, user.getId());
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
-                throw new DaoException("Deleting user failed: no rows affected.");
+                throw new DaoException(MessageKeys.WRONG_USER_DB_DELETING_NO_ROWS_AFFECTED);
             }
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't delete user", e);
-        }
+        } catch (SQLException ex) {
+        logger.error(LoggerMessages.ERROR_DELETE_USER + user.getId());
+        throw new DaoException(ex, MessageKeys.WRONG_USER_DB_CAN_NOT_DELETE);
+    }
 
     }
 
@@ -168,7 +184,7 @@ public class JdbcUserDao implements UserDao {
             ResultSet resultSet = statement.executeQuery();
             UserMapper userMapper=new UserMapper();
             if (!resultSet.next()) {
-                throw new DaoException("Users for role  " + role + " don't exist");
+                throw new DaoException(MessageKeys.WRONG_USER_DB_ROLE);
             }
             resultSet.previous();
             while (resultSet.next()) {
@@ -177,8 +193,9 @@ public class JdbcUserDao implements UserDao {
             }
             resultSet.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't get users by role", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_ROLE + role);
+            throw new DaoException(ex, MessageKeys.WRONG_USER_DB_CAN_NOT_GET);
         }
         return users;
     }

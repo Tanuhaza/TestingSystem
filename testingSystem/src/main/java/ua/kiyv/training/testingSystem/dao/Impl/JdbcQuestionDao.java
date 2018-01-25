@@ -1,5 +1,6 @@
 package ua.kiyv.training.testingSystem.dao.Impl;
 
+import org.apache.log4j.Logger;
 import ua.kiyv.training.testingSystem.connection.DaoConnection;
 import ua.kiyv.training.testingSystem.connection.Jdbc.JdbcTransactionHelper;
 import ua.kiyv.training.testingSystem.connection.TransactionHelper;
@@ -11,6 +12,8 @@ import ua.kiyv.training.testingSystem.model.entity.Option;
 import ua.kiyv.training.testingSystem.model.entity.Question;
 import ua.kiyv.training.testingSystem.model.entity.Test;
 import ua.kiyv.training.testingSystem.model.entity.Topic;
+import ua.kiyv.training.testingSystem.utils.constants.LoggerMessages;
+import ua.kiyv.training.testingSystem.utils.constants.MessageKeys;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,7 +25,17 @@ import java.util.List;
 /**
  * Created by Tanya on 02.01.2018.
  */
+
+/**
+ * Implementation of topic response dao, which works with MySql using jdbc
+ */
+
 public class JdbcQuestionDao implements QuestionDao {
+
+    JdbcQuestionDao(){}
+
+    private static final Logger logger = Logger.getLogger(JdbcQuestionDao.class);
+
     @Override
     public void create(Question question) {
             String sqlStatement = "INSERT INTO question (question,topic_Id) VALUES (?, ?)";
@@ -33,18 +46,19 @@ public class JdbcQuestionDao implements QuestionDao {
                 statement.setInt(2, question.getTopicId());
                 int affectedRows = statement.executeUpdate();
                 if (affectedRows == 0) {
-                    throw new DaoException("Creating question failed: no rows affected.");
+                    throw new DaoException(MessageKeys.WRONG_QUESTION_DB_CREATING_NO_ROWS_AFFECTED);
                 }
                 ResultSet generatedKeys = statement.getGeneratedKeys();
                 if (!generatedKeys.next()) {
-                    throw new DaoException("Creating question failed: no id obtained.");
+                    throw new DaoException(MessageKeys.WRONG_QUESTION_DB_NO_ID_OBTAINED);
                 }
                 Integer id = generatedKeys.getInt(1);
                 question.setId(id);
                 generatedKeys.close();
                 statement.close();
-            } catch (SQLException e) {
-                throw new DaoException("Can't create question", e);
+            } catch (SQLException ex) {
+                logger.error(LoggerMessages.ERROR_CREATE_NEW_QUESTION + question.toString());
+                throw new DaoException(ex, MessageKeys.WRONG_QUESTION_DB_CAN_NOT_CREATE);
             }
 
     }
@@ -58,15 +72,16 @@ public class JdbcQuestionDao implements QuestionDao {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (!resultSet.next()) {
-                throw new DaoException("Question with id " + id + " doesn't exist");
+                throw new DaoException(MessageKeys.WRONG_QUESTION_DB_NO_ID_EXIST);
             }
             QuestionMapper questionMapper = new QuestionMapper();
             question = questionMapper.extractFromResultSet(resultSet);
 
             resultSet.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't get question", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_QUESTION_BY_ID + id);
+            throw new DaoException(ex, MessageKeys.WRONG_QUESTION_DB_CAN_NOT_GET);
         }
         return question;
     }
@@ -86,8 +101,9 @@ public class JdbcQuestionDao implements QuestionDao {
             }
             resultSet.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't get all questions", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_ALL_QUESTIONS);
+            throw new DaoException(ex, MessageKeys.WRONG_QUESTION_DB_CAN_NOT_GET_ALL_QUESTIONS);
         }
         return questions;
     }
@@ -102,11 +118,12 @@ public class JdbcQuestionDao implements QuestionDao {
             statement.setInt(3, question.getId());
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
-                throw new DaoException("Updating question failed: no rows affected.");
+                throw new DaoException(MessageKeys.WRONG_QUESTION_DB_UPDATING_NO_ROWS_AFFECTED);
             }
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't update question", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_UPDATE_QUESTION + question.toString());
+            throw new DaoException(ex, MessageKeys.WRONG_QUESTION_DB_CAN_NOT_UPDATE);
         }
 
     }
@@ -119,11 +136,12 @@ public class JdbcQuestionDao implements QuestionDao {
             statement.setInt(1, question.getId());
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
-                throw new DaoException("Deleting question failed: no rows affected.");
+                throw new DaoException(MessageKeys.WRONG_QUESTION_DB_DELETING_NO_ROWS_AFFECTED);
             }
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't delete question", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_DELETE_QUESTION + question.getId());
+            throw new DaoException(ex, MessageKeys.WRONG_QUESTION_DB_CAN_NOT_DELETE);
         }
     }
 
@@ -143,8 +161,9 @@ public class JdbcQuestionDao implements QuestionDao {
             }
             resultSet.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't get question", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_ASSOSIATED_QUESTIONS_BY_TOPIC_ID + id );
+            throw new DaoException(ex, MessageKeys.WRONG_QUESTION_DB_CAN_NOT_GET_ASSOSIATED_QUESTIONS_BY_TOPIC_ID);
         }
         return questions;
     }
@@ -164,8 +183,9 @@ public class JdbcQuestionDao implements QuestionDao {
             }
             resultSet.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't get associated options", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_FIND_ASSOSIATED_OPTIONS_BY_QUESTION_ID + id);
+            throw new DaoException(ex, MessageKeys.WRONG_QUESTION_DB_CAN_NOT_GET_ASSOSIATED_OPTIONS_BY_QUESTION_ID );
         }
         return associatedOptions;
     }
@@ -185,8 +205,9 @@ public class JdbcQuestionDao implements QuestionDao {
             }
             resultSet.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't get associated tests", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_FIND_ASSOSIATED_TESTS_BY_QUESTION_ID + id);
+            throw new DaoException(ex, MessageKeys.WRONG_QUESTION_DB_CAN_NOT_GET_ASSOSIATED_TESTS_BY_QUESTION_ID);
         }
         return associatedTestsId;
     }

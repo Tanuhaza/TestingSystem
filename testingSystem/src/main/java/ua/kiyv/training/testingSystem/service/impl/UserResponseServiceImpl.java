@@ -63,8 +63,8 @@ public class UserResponseServiceImpl implements UserResponseService {
     }
 
     @Override
-    public List<Test> getTestsPassedByUser(int userId) {
-        List<Integer> passedTestsId= DaoFactory.getInstance().createUserResponseDao().getPassedTestsIdByUserId(userId);
+    public List<Test> getTestsPassedByUser(int userId, int passedTimes) {
+        List<Integer> passedTestsId= DaoFactory.getInstance().createUserResponseDao().getPassedTestsId(userId,passedTimes);
         ConstructingTestService testService = ServiceFactory.getInstance().createConstructingTestService();
         return passedTestsId
                 .stream()
@@ -88,12 +88,13 @@ public class UserResponseServiceImpl implements UserResponseService {
     public Map<Test,Integer> getTestResultMapByPassedTimes (int userId,int passedTimes){
 
         UserResponseService userResponseService = ServiceFactory.getInstance().createUserResponseService();
-        List<Test> passedTests = userResponseService.getTestsPassedByUser(userId);
+        List<Test> passedTests = userResponseService.getTestsPassedByUser(userId,passedTimes);
         return  passedTests
                 .stream()
                 .collect(Collectors.toMap(Function.identity(),
                         test -> userResponseService.getTotalScoreByPassedTimes(userId,test.getId(),passedTimes)));
     }
+
 
     public int getTotalScore(Map<Question, List<Option>> resultMap){
         return resultMap.values()

@@ -1,5 +1,6 @@
 package ua.kiyv.training.testingSystem.dao.Impl;
 
+import org.apache.log4j.Logger;
 import ua.kiyv.training.testingSystem.connection.DaoConnection;
 import ua.kiyv.training.testingSystem.connection.Jdbc.JdbcTransactionHelper;
 import ua.kiyv.training.testingSystem.dao.DaoException;
@@ -7,6 +8,8 @@ import ua.kiyv.training.testingSystem.dao.UserResponseDao;
 import ua.kiyv.training.testingSystem.dao.mapper.UserResponseMapper;
 import ua.kiyv.training.testingSystem.model.entity.Test;
 import ua.kiyv.training.testingSystem.model.entity.UserResponse;
+import ua.kiyv.training.testingSystem.utils.constants.LoggerMessages;
+import ua.kiyv.training.testingSystem.utils.constants.MessageKeys;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,7 +21,15 @@ import java.util.List;
 /**
  * Created by Tanya on 14.01.2018.
  */
+
+/**
+ * Implementation of user response dao, which works with MySql using jdbc
+ */
+
 public class JdbcUserResponseDao implements UserResponseDao {
+    JdbcUserResponseDao(){}
+
+    private static final Logger logger = Logger.getLogger(JdbcUserResponseDao.class);
 
         @Override
         public void create(UserResponse userResponse) {
@@ -35,12 +46,12 @@ public class JdbcUserResponseDao implements UserResponseDao {
 
                 int affectedRows = statement.executeUpdate();
                 if (affectedRows == 0) {
-                    throw new DaoException("Creating userResponse failed: no rows affected.");
+                    throw new DaoException(MessageKeys.WRONG_USER_RESPONSE_DB_CREATING_NO_ROWS_AFFECTED);
                 }
-
                 statement.close();
-            } catch (SQLException e) {
-                throw new DaoException("Can't create userResponse", e);
+            } catch (SQLException ex) {
+                logger.error(LoggerMessages.ERROR_CREATE_NEW_USER_RESPONSE + userResponse.toString());
+                throw new DaoException(ex,MessageKeys.WRONG_USER_RESPONSE_DB_CAN_NOT_CREATE);
             }
         }
 
@@ -65,8 +76,9 @@ public class JdbcUserResponseDao implements UserResponseDao {
                 }
                 resultSet.close();
                 statement.close();
-            } catch (SQLException e) {
-                throw new DaoException("Can't get userResponse", e);
+            } catch (SQLException ex) {
+                logger.error(LoggerMessages.ERROR_FIND_USER_RESPONSE_BY_USER_ID + id);
+                throw new DaoException(ex,MessageKeys.WRONG_USER_RESPONSE_DB_CAN_NOT_GET);
             }
             return userResponses;
         }
@@ -86,8 +98,9 @@ public class JdbcUserResponseDao implements UserResponseDao {
                 }
                 resultSet.close();
                 statement.close();
-            } catch (SQLException e) {
-                throw new DaoException("Can't get all users.", e);
+            } catch (SQLException ex) {
+                logger.error(LoggerMessages.ERROR_FIND_ALL_USER_RESPONSES );
+                throw new DaoException(ex,MessageKeys.WRONG_USER_RESPONSE_DB_CAN_NOT_GET_ALL_USER_RESPONSES);
             }
             return userResponses;
         }
@@ -111,11 +124,12 @@ public class JdbcUserResponseDao implements UserResponseDao {
                 statement.setInt(11, userResponse.getOptionId());
                 int affectedRows = statement.executeUpdate();
                 if (affectedRows == 0) {
-                    throw new DaoException("Updating UserResponse failed: no rows affected.");
+                    throw new DaoException(MessageKeys.WRONG_USER_RESPONSE_DB_UPDATING_NO_ROWS_AFFECTED);
                 }
                 statement.close();
-            } catch (SQLException e) {
-                throw new DaoException("Can't update UserResponse", e);
+            } catch (SQLException ex) {
+                logger.error(LoggerMessages.ERROR_UPDATE_USER_RESPONSE );
+                throw new DaoException(ex,MessageKeys.WRONG_USER_RESPONSE_DB_CAN_NOT_UPDATE);
             }
         }
 
@@ -129,11 +143,12 @@ public class JdbcUserResponseDao implements UserResponseDao {
                 statement.setInt(3, userResponse.getPassedTimes());
                 int affectedRows = statement.executeUpdate();
                 if (affectedRows == 0) {
-                    throw new DaoException("Deleting userResponse failed: no rows affected.");
+                    throw new DaoException(MessageKeys.WRONG_USER_RESPONSE_DB_DELETING_NO_ROWS_AFFECTED);
                 }
                 statement.close();
-            } catch (SQLException e) {
-                throw new DaoException("Can't delete userResponse", e);
+            } catch (SQLException ex) {
+                logger.error(LoggerMessages.ERROR_DELETE_USER_RESPONSE +userResponse.getUserId() +userResponse.getTestId()+userResponse.getPassedTimes() );
+                throw new DaoException(ex,MessageKeys.WRONG_USER_RESPONSE_DB_CAN_NOT_DELETE);
             }
         }
 
@@ -147,22 +162,24 @@ public class JdbcUserResponseDao implements UserResponseDao {
             statement.setInt(3, passedTimes);
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
-                throw new DaoException("Deleting userResponse failed: no rows affected.");
+                throw new DaoException(MessageKeys.WRONG_USER_RESPONSE_DB_DELETING_NO_ROWS_AFFECTED);
             }
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't delete userResponse", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_DELETE_USER_RESPONSE +userId +testId+passedTimes );
+            throw new DaoException(ex,MessageKeys.WRONG_USER_RESPONSE_DB_CAN_NOT_DELETE);
         }
     }
 
     @Override
-    public List<Integer> getPassedTestsIdByUserId(int userId){
-        String sqlStatement = "SELECT DISTINCT test_id,passedTimes FROM user_response WHERE user_id = ?";
+    public List<Integer> getPassedTestsId(int userId,int passedTimes){
+        String sqlStatement = "SELECT DISTINCT test_id,passedTimes FROM user_response WHERE user_id = ? and passedTimes=? ";
         int testId;
         List<Integer> passedTestsId = new ArrayList<>();
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sqlStatement);
             statement.setInt(1, userId);
+            statement.setInt(2, passedTimes);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 testId =resultSet.getInt("test_id");
@@ -170,12 +187,12 @@ public class JdbcUserResponseDao implements UserResponseDao {
             }
             resultSet.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't get testId", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_PASSED_TESTS_ID_BY_USER_ID_PASSED_TIMES + userId + passedTimes );
+            throw new DaoException(ex,MessageKeys.WRONG_USER_RESPONSE_DB_NO_TESTS_ID_FIND);
         }
         return passedTestsId;
     }
-
 
     @Override
     public List<UserResponse> getUserResponseByUserAndTestId(int userId,int testId){
@@ -194,8 +211,9 @@ public class JdbcUserResponseDao implements UserResponseDao {
             }
             resultSet.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't get userResponse", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_USER_RESPONSES_BY_USER_ID_TEST_ID +userId +testId);
+            throw new DaoException(ex,MessageKeys.WRONG_USER_RESPONSE_DB_CAN_NOT_GET);
         }
         return userResponses;
     }
@@ -216,10 +234,10 @@ public class JdbcUserResponseDao implements UserResponseDao {
                 }
                 resultSet.close();
                 statement.close();
-            } catch (SQLException e) {
-                throw new DaoException("Can't get column passedTimes", e);
+            } catch (SQLException ex) {
+                logger.error(LoggerMessages.ERROR_FIND_PASSED_TIMES_BY_USER_ID_TEST_ID +userId +testId);
+                throw new DaoException(ex,MessageKeys.WRONG_USER_RESPONSE_DB_CAN_NOT_GET_PASSED_TIMES);
             }
-
         return passedTimes;
     }
 }

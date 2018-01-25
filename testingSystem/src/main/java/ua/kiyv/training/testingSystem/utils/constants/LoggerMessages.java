@@ -19,41 +19,59 @@ public class LoggerMessages {
 
     public static final String ERROR_CONNECT_TO_DATABASE = "";
 
-    public static final String ERROR_FIND_USER_BY_CELLPHONE = "Error occurred when finding user by cellphone: ";
+    public static final String ERROR_FIND_USER_BY_LOGIN = "Error occurred when finding user by login: ";
     public static final String ERROR_FIND_USER_BY_ID = "Error occurred when finding user by id: ";
     public static final String ERROR_FIND_ALL_USERS = "Error occurred when finding all users";
     public static final String ERROR_CREATE_NEW_USER = "Error occurred when creating new user: ";
     public static final String ERROR_UPDATE_USER = "Error occurred when updating user: ";
-    public static final String ERROR_UPDATE_USER_CARDS = "Error occurred when updating user's cards";
     public static final String ERROR_DELETE_USER = "Error occurred when deleting user: ";
+    public static final String ERROR_FIND_ROLE = "Error occurred when finding user by role:";
 
-    public static final String ERROR_FIND_TARIFF_BY_ID = "Error occurred when finding tariff by id: ";
-    public static final String ERROR_FIND_TARIFF_BY_TYPE = "Error occurred when finding tariff by type: ";
-    public static final String ERROR_FIND_ALL_TARIFFS = "Error occurred when finding all tariffs";
-    public static final String ERROR_UPDATE_TARIFF = "Error occurred when updating tariff: ";
+    public static final String ERROR_FIND_USER_RESPONSES_BY_USER_ID_TEST_ID = "Error occurred when finding user response by userId and testID: ";
+    public static final String ERROR_FIND_USER_RESPONSE_BY_USER_ID = "Error occurred when finding user response  by id: ";
+    public static final String ERROR_FIND_ALL_USER_RESPONSES = "Error occurred when finding all user responses";
+    public static final String ERROR_CREATE_NEW_USER_RESPONSE = "Error occurred when creating new user response: ";
+    public static final String ERROR_UPDATE_USER_RESPONSE = "Error occurred when updating user response: ";
+    public static final String ERROR_DELETE_USER_RESPONSE = "Error occurred when deleting user response: ";
+    public static final String ERROR_FIND_PASSED_TESTS_ID_BY_USER_ID_PASSED_TIMES = "Error occurred when finding passed tests by userId and passedTimes: ";
+    public static final String ERROR_FIND_PASSED_TIMES_BY_USER_ID_TEST_ID = "Error occurred when finding passedTimes: ";
 
-    public static final String ERROR_FIND_PAYMENT_BY_ID = "Error occurred when finding payment by id: ";
-    public static final String ERROR_FIND_ALL_PAYMENTS = "Error occurred when finding all payments";
-    public static final String ERROR_FIND_ALL_PAYMENTS_BY_OFFSET = "Error occurred when finding all payments by offset and quantity: ";
-    public static final String ERROR_RETRIEVE_PAYMENTS_COUNT = "Error occurred when retrieving payments total count";
-    public static final String ERROR_CREATE_NEW_PAYMENT = "Error occurred when creating new payment: ";
+    public static final String ERROR_FIND_TEST_BY_ID = "Error occurred when finding test by id: ";
+    public static final String ERROR_FIND_ALL_TESTS = "Error occurred when finding all tests";
+    public static final String ERROR_CREATE_NEW_TEST = "Error occurred when creating new test: ";
+    public static final String ERROR_UPDATE_TEST= "Error occurred when updating test: ";
+    public static final String ERROR_DELETE_TEST = "Error occurred when deleting test: ";
+    public static final String ERROR_FIND_ASSOSIATED_QUESTIONS_BY_TEST_ID = "Error occurred when finding assosiated questions by test id";
+    public static final String ERROR_FIND_FIND_ASSOSIATED_TESTS_BY_TOPIC_ID = "Error occurred when finding assosiated tests by topic id";
+    public static final String ERROR_ASSOSIATE_TEST_WITH_QUESTION = "Error occurred when assosiate test with question";
 
-    public static final String ERROR_FIND_CARD_BY_ID = "Error occurred when finding card by id: ";
-    public static final String ERROR_FIND_CARD_BY_NUMBER = "Error occurred when finding card by number: ";
-    public static final String ERROR_FIND_CARDS_BY_USER = "Error occurred when finding card by user: ";
-    public static final String ERROR_BLOCK_CARD = "Error occurred when blocking card: ";
-    public static final String ERROR_UNBLOCK_CARD = "Error occurred when unblocking card: ";
-    public static final String ERROR_FIND_ALL_CARDS = "Error occurred when finding all cards";
-    public static final String ERROR_FIND_ALL_BLOCK_CARDS = "Error occurred when finding all blocked cards";
-    public static final String ERROR_CREATE_NEW_CARD = "Error occurred when creating new card: ";
-    public static final String ERROR_UPDATE_CARD = "Error occurred when updating card: ";
+    public static final String ERROR_FIND_OPTION_BY_ID = "Error occurred when finding option by id: ";
+    public static final String ERROR_FIND_ALL_OPTIONS = "Error occurred when finding all options";
+    public static final String ERROR_CREATE_NEW_OPTION= "Error occurred when creating new option: ";
+    public static final String ERROR_UPDATE_OPTION = "Error occurred when updating option: ";
+    public static final String ERROR_DELETE_OPTION = "Error occurred when deleting option: ";
 
-    public static final String ERROR_FIND_ACCOUNT_BY_ID = "Error occurred when finding card by id: ";
-    public static final String ERROR_FIND_ACCOUNT_BY_NUMBER = "Error occurred when finding account by number: ";
-    public static final String ERROR_FIND_ACCOUNT_BY_CARD = "Error occurred when finding user by card: ";
-    public static final String ERROR_FIND_ALL_ACCOUNT = "Error occurred when finding all accounts";
-    public static final String ERROR_CREATE_ACCOUNT = "Error occurred when creating new account: ";
-    public static final String ERROR_UPDATE_ACCOUNT = "Error occurred when updating account: ";
+    public static final String ERROR_FIND_TOPIC_BY_ID = "Error occurred when finding topic by id: ";
+    public static final String ERROR_FIND_ALL_TOPICS = "Error occurred when finding all topics";
+    public static final String ERROR_CREATE_NEW_TOPIC = "Error occurred when creating new topic: ";
+    public static final String ERROR_UPDATE_TOPIC= "Error occurred when updating topic: ";
+    public static final String ERROR_DELETE_TOPIC = "Error occurred when deleting topic: ";
+
+    public static final String ERROR_FIND_QUESTION_BY_ID = "Error occurred when finding question by id: ";
+    public static final String ERROR_FIND_ALL_QUESTIONS = "Error occurred when finding all questions";
+    public static final String ERROR_CREATE_NEW_QUESTION = "Error occurred when creating new question: ";
+    public static final String ERROR_UPDATE_QUESTION= "Error occurred when updating question: ";
+    public static final String ERROR_DELETE_QUESTION = "Error occurred when deleting question: ";
+    public static final String ERROR_FIND_ASSOSIATED_QUESTIONS_BY_TOPIC_ID = "Error occurred when finding assosiated questions by topic id";
+    public static final String ERROR_FIND_FIND_ASSOSIATED_OPTIONS_BY_QUESTION_ID = "Error occurred when finding assosiated options by question id";
+    public static final String ERROR_FIND_FIND_ASSOSIATED_TESTS_BY_QUESTION_ID ="Error occurred when finding assosiated tests by question id";
+
+
+
+
+
+
+
 
     public static final String UNKNOWN_ERROR_OCCURED = "Unknown error occurred";
     public static final String SERVICE_EXCEPTION_OCCURRED = "exception in business logic";

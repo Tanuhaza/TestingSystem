@@ -1,5 +1,6 @@
 package ua.kiyv.training.testingSystem.dao.Impl;
 
+import org.apache.log4j.Logger;
 import ua.kiyv.training.testingSystem.connection.DaoConnection;
 import ua.kiyv.training.testingSystem.connection.Jdbc.JdbcTransactionHelper;
 import ua.kiyv.training.testingSystem.dao.DaoException;
@@ -10,6 +11,8 @@ import ua.kiyv.training.testingSystem.dao.mapper.TopicMapper;
 import ua.kiyv.training.testingSystem.model.entity.Question;
 import ua.kiyv.training.testingSystem.model.entity.Test;
 import ua.kiyv.training.testingSystem.model.entity.Topic;
+import ua.kiyv.training.testingSystem.utils.constants.LoggerMessages;
+import ua.kiyv.training.testingSystem.utils.constants.MessageKeys;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,7 +24,17 @@ import java.util.List;
 /**
  * Created by Tanya on 15.01.2018.
  */
+
+/**
+ * Implementation of test dao, which works with MySql using jdbc
+ */
+
 public class JdbcTestDao implements TestDao {
+
+    JdbcTestDao(){}
+
+    private static final Logger logger = Logger.getLogger(JdbcTestDao.class);
+
     @Override
     public void create(Test test) {
         String sqlStatement = "INSERT INTO test (name,topic_id) VALUES (?, ? )";
@@ -33,18 +46,19 @@ public class JdbcTestDao implements TestDao {
 
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
-                throw new DaoException("Creating test failed: no rows affected.");
+                throw new DaoException(MessageKeys.WRONG_TEST_DB_CREATING_NO_ROWS_AFFECTED);
             }
             ResultSet generatedKeys = statement.getGeneratedKeys();
             if (!generatedKeys.next()) {
-                throw new DaoException("Creating test failed: no id obtained.");
+                throw new DaoException(MessageKeys.WRONG_TEST_DB_NO_ID_OBTAINED);
             }
             Integer id = generatedKeys.getInt(1);
             test.setId(id);
             generatedKeys.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't create test", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_CREATE_NEW_TEST + test.toString());
+            throw new DaoException(ex, MessageKeys.WRONG_TEST_DB_CAN_NOT_CREATE);
         }
     }
 
@@ -57,14 +71,15 @@ public class JdbcTestDao implements TestDao {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (!resultSet.next()) {
-                throw new DaoException("Test with id " + id + " doesn't exist");
+                throw new DaoException(MessageKeys.WRONG_TEST_DB_NO_ID_EXIST);
             }
             TestMapper testMapper = new TestMapper();
             test = testMapper.extractFromResultSet(resultSet);
             resultSet.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't get test", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_TEST_BY_ID + id);
+            throw new DaoException(ex, MessageKeys.WRONG_TEST_DB_CAN_NOT_GET);
         }
         return test;
     }
@@ -84,8 +99,9 @@ public class JdbcTestDao implements TestDao {
             }
             resultSet.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't get all tests.", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_ALL_TESTS);
+            throw new DaoException(ex, MessageKeys.WRONG_TEST_DB_CAN_NOT_GET_ALL_TESTS);
         }
         return tests;
     }
@@ -100,11 +116,12 @@ public class JdbcTestDao implements TestDao {
             statement.setInt(3, test.getId());
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
-                throw new DaoException("Updating test failed: no rows affected.");
+                throw new DaoException(MessageKeys.WRONG_TEST_DB_UPDATING_NO_ROWS_AFFECTED);
             }
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't update test", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_UPDATE_TEST + test.toString());
+            throw new DaoException(ex, MessageKeys.WRONG_TEST_DB_CAN_NOT_UPDATE);
         }
     }
 
@@ -116,11 +133,12 @@ public class JdbcTestDao implements TestDao {
             statement.setInt(1, test.getId());
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
-                throw new DaoException("Deleting test failed: no rows affected.");
+                throw new DaoException(MessageKeys.WRONG_TEST_DB_DELETING_NO_ROWS_AFFECTED);
             }
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't delete test", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_DELETE_TEST + test.getId());
+            throw new DaoException(ex, MessageKeys.WRONG_TEST_DB_CAN_NOT_DELETE);
         }
     }
 
@@ -137,8 +155,9 @@ public class JdbcTestDao implements TestDao {
             }
             resultSet.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't get associated questions", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_ASSOSIATED_QUESTIONS_BY_TEST_ID + id);
+            throw new DaoException(ex, MessageKeys.WRONG_TEST_DB_CAN_NOT_GET_ASSOSIATED_QUESTIONS);
         }
         return associatedQuestionsId;
     }
@@ -159,8 +178,9 @@ public class JdbcTestDao implements TestDao {
             }
             resultSet.close();
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't get test", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_FIND_ASSOSIATED_TESTS_BY_TOPIC_ID + id);
+            throw new DaoException(ex, MessageKeys.WRONG_TEST_DB_CAN_NOT_GET_ASSOSIATED_TEST_BY_TOPIC);
         }
         return tests;
     }
@@ -177,8 +197,9 @@ public class JdbcTestDao implements TestDao {
 
             isCreated = statement.executeUpdate() != 0;
             statement.close();
-        } catch (SQLException e) {
-            throw new DaoException("Can't assosiate test with question", e);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_ASSOSIATE_TEST_WITH_QUESTION +" testId " + test.getId() + " questionId  " + question.getId());
+            throw new DaoException(ex, MessageKeys.WRONG_TEST_DB_CAN_NOT_ASSOSIATE_TESTS_WITH_QUESTIONS);
         }
         return isCreated;
     }

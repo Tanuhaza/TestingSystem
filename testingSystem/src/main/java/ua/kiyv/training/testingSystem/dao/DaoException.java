@@ -1,16 +1,18 @@
 package ua.kiyv.training.testingSystem.dao;
 
-public class DaoException extends RuntimeException {
+import ua.kiyv.training.testingSystem.exception.ApplicationException;
 
-    public DaoException(Throwable cause) {
-        super(cause);
-    }
+public class DaoException extends ApplicationException {
 
     public DaoException(String message) {
         super(message);
     }
 
-    public DaoException(String message, Throwable cause) {
-        super(message, cause);
+    public DaoException(String message, String messageKey) {
+        super(message, messageKey);
+    }
+
+    public DaoException(Throwable cause, String message ) {
+        super(cause, message);
     }
 }
