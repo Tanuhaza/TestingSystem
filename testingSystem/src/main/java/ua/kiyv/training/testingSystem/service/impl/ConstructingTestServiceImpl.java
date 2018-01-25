@@ -1,5 +1,6 @@
 package ua.kiyv.training.testingSystem.service.impl;
 
+import org.apache.log4j.Logger;
 import ua.kiyv.training.testingSystem.connection.Jdbc.JdbcTransactionHelper;
 import ua.kiyv.training.testingSystem.dao.DaoException;
 import ua.kiyv.training.testingSystem.dao.Impl.JdbcDaoFactory;
@@ -12,11 +13,10 @@ import ua.kiyv.training.testingSystem.model.entity.Topic;
 import ua.kiyv.training.testingSystem.service.ServiceException;
 import ua.kiyv.training.testingSystem.service.ServiceFactory;
 import ua.kiyv.training.testingSystem.service.ConstructingTestService;
+import ua.kiyv.training.testingSystem.utils.constants.LoggerMessages;
+import ua.kiyv.training.testingSystem.utils.constants.MessageKeys;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -24,15 +24,18 @@ import java.util.stream.Collectors;
  */
 public class ConstructingTestServiceImpl implements ConstructingTestService {
 
+    private static final Logger logger = Logger.getLogger(ConstructingTestServiceImpl.class);
+
     @Override
     public void create(Test test) {
         JdbcTransactionHelper.getInstance().beginTransaction();
         try {
             JdbcDaoFactory.getInstance().createTestDao().create(test);
             JdbcTransactionHelper.getInstance().commitTransaction();
-        } catch (DaoException e) {
+        } catch (DaoException ex) {
             JdbcTransactionHelper.getInstance().rollbackTransaction();
-            throw new ServiceException("Transaction failed.", e);
+            logger.error(LoggerMessages.WRONG_TRANSACTION);
+            throw new ServiceException(ex, MessageKeys.WRONG_TRANSACTION);
         }
     }
 
@@ -42,9 +45,10 @@ public class ConstructingTestServiceImpl implements ConstructingTestService {
         try {
             JdbcDaoFactory.getInstance().createTopicDao().create(topic);
             JdbcTransactionHelper.getInstance().commitTransaction();
-        } catch (DaoException e) {
+        } catch (DaoException ex) {
             JdbcTransactionHelper.getInstance().rollbackTransaction();
-            throw new ServiceException("Transaction failed.", e);
+            logger.error(LoggerMessages.WRONG_TRANSACTION);
+            throw new ServiceException(ex, MessageKeys.WRONG_TRANSACTION);
         }
     }
 
@@ -54,27 +58,58 @@ public class ConstructingTestServiceImpl implements ConstructingTestService {
 
     @Override
     public List<Topic> findAllTopics() {
-        return  JdbcDaoFactory.getInstance().createTopicDao().findAll();}
+        List<Topic> topics = new ArrayList<>();
+        JdbcTransactionHelper.getInstance().beginTransaction();
+        try {
+             topics = JdbcDaoFactory.getInstance().createTopicDao().findAll();
+            JdbcTransactionHelper.getInstance().commitTransaction();
+        } catch (DaoException ex) {
+            JdbcTransactionHelper.getInstance().rollbackTransaction();
+            logger.error(LoggerMessages.WRONG_TRANSACTION);
+            throw new ServiceException(ex, MessageKeys.WRONG_TRANSACTION);
+        }
+        return topics;
+    }
+
 
     @Override
     public void update(Test test) {
-        JdbcDaoFactory.getInstance().createTestDao().update(test);}
+        JdbcTransactionHelper.getInstance().beginTransaction();
+        try {
+            JdbcDaoFactory.getInstance().createTestDao().update(test);
+            JdbcTransactionHelper.getInstance().commitTransaction();
+        } catch (DaoException ex) {
+            JdbcTransactionHelper.getInstance().rollbackTransaction();
+            logger.error(LoggerMessages.WRONG_TRANSACTION);
+            throw new ServiceException(ex, MessageKeys.WRONG_TRANSACTION);
+        }
+    }
 
     @Override
     public void delete(Test test) {
-        JdbcDaoFactory.getInstance().createTestDao().delete(test);}
+        JdbcTransactionHelper.getInstance().beginTransaction();
+        try {
+            JdbcDaoFactory.getInstance().createTestDao().delete(test);
+            JdbcTransactionHelper.getInstance().commitTransaction();
+        } catch (DaoException ex) {
+            JdbcTransactionHelper.getInstance().rollbackTransaction();
+            logger.error(LoggerMessages.WRONG_TRANSACTION);
+            throw new ServiceException(ex, MessageKeys.WRONG_TRANSACTION);
+        }
+    }
 
     @Override
     public void createTestAndAssosiateWithQuestion(Test test, List<Question> questions) {
         JdbcTransactionHelper.getInstance().beginTransaction();
         try {
-            JdbcDaoFactory.getInstance().createTestDao().create(test);
             TestDao testDao = JdbcDaoFactory.getInstance().createTestDao();
+            testDao.create(test);
             questions.forEach(question -> testDao.associate(test,question));
             JdbcTransactionHelper.getInstance().commitTransaction();
-        }catch (DaoException e) {
+        } catch (DaoException ex) {
             JdbcTransactionHelper.getInstance().rollbackTransaction();
-            throw new ServiceException("Transaction failed.", e);
+            logger.error(LoggerMessages.WRONG_TRANSACTION);
+            throw new ServiceException(ex, MessageKeys.WRONG_TRANSACTION);
         }
     }
 

@@ -21,13 +21,41 @@
 <jsp:include page="../fragment/header.jsp"></jsp:include>
 
 <div class="dropdown choose-country top-right">
-    <ul>
+    <table class="table borderless">
         <c:forEach items="${users}" var="user">
-            <li><a href="/admin/user/${user.id} "><h4>${user.firstName} <span style='padding-left:10px;'> </span> ${user.lastName}</h4></a></li>
+            <tr>
+            <td> <a href="/admin/user/${user.id} ">
+                 <h5>${user.firstName} <span style='padding-left:5px;'> </span> ${user.lastName}</h5> </a></td>
+                <td><h5> ${user.email}</h5></td>
+                <td><h5> ${user.role}</h5></td>
+                <td><button class="btn-primary" id="${user.id}_button" name="${user.id}_button"><fmt:message key="testing.system.users.results" bundle="${msg}"/> </button></td>
+            </tr>
         </c:forEach>
-    </ul>
+    </table>
 </div>
 <jsp:include page="../fragment/footer.jsp"></jsp:include>
+
+<%--<script type="text/javascript">--%>
+    <%--$(document).on("click", ".btn-primary", function(){--%>
+        <%--var but=$(this).attr('id').split('_')[0];--%>
+
+        <%--$.ajax({--%>
+            <%--type: "POST",--%>
+            <%--url: "/admin/cards/unblock",--%>
+            <%--data: {--%>
+                <%--cardID:but--%>
+            <%--},--%>
+            <%--success: function(){--%>
+                <%--var selector = "#"+but + "_button";--%>
+                <%--$(selector).hide();--%>
+                <%--alert('<fmt:message key="payments.successful.card.unblock" bundle="${msg}"/>');--%>
+            <%--},--%>
+            <%--error:function () {--%>
+                <%--alert("<fmt:message key="payments.successful.card.unblock" bundle="${msg}"/>");--%>
+            <%--}--%>
+        <%--});--%>
+    <%--});--%>
+<%--</script>--%>
 
 </body>
 </html>

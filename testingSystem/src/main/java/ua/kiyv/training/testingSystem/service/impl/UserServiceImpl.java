@@ -1,5 +1,6 @@
 package ua.kiyv.training.testingSystem.service.impl;
 
+import org.apache.log4j.Logger;
 import ua.kiyv.training.testingSystem.connection.Jdbc.JdbcTransactionHelper;
 import ua.kiyv.training.testingSystem.dao.DaoException;
 import ua.kiyv.training.testingSystem.dao.DaoFactory;
@@ -8,6 +9,7 @@ import ua.kiyv.training.testingSystem.dao.UserDao;
 import ua.kiyv.training.testingSystem.model.entity.User;
 import ua.kiyv.training.testingSystem.service.ServiceException;
 import ua.kiyv.training.testingSystem.service.UserService;
+import ua.kiyv.training.testingSystem.utils.constants.LoggerMessages;
 import ua.kiyv.training.testingSystem.utils.constants.MessageKeys;
 
 import java.util.List;
@@ -18,15 +20,19 @@ import java.util.Optional;
  */
 public class UserServiceImpl implements UserService {
 
+    private static final Logger logger = Logger.getLogger(UserServiceImpl.class);
+
+
     @Override
     public void create(User user) {
         JdbcTransactionHelper.getInstance().beginTransaction();
         try {
             JdbcDaoFactory.getInstance().createUserDao().create(user);
             JdbcTransactionHelper.getInstance().commitTransaction();
-        } catch (DaoException e) {
+        } catch (DaoException ex) {
             JdbcTransactionHelper.getInstance().rollbackTransaction();
-            throw new ServiceException("Transaction failed.", e);
+            logger.error(LoggerMessages.WRONG_TRANSACTION);
+            throw new ServiceException(ex, MessageKeys.WRONG_TRANSACTION);
         }
     }
 

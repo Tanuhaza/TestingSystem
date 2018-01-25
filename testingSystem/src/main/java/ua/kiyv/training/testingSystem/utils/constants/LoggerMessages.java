@@ -12,12 +12,19 @@ public class LoggerMessages {
     public static final String SUCCESSFULL_ACCOUNT_TRANSFER = "Account transfer was successfully done";
     public static final String SUCCESSFUL_REGISTER = "Congratulations! You was successfully registered!";
 
+    public static final String PROBLEM_WITH_DB_CONFIG= "Problem wit DB config file";
+    public static final String CAN_NOT_GET_DB_CONNECTION = "Can not get connection to DB";
     public static final String CAN_NOT_CLOSE_CONNECTION = "Can not close connection";
-    public static final String CAN_NOT_BEGIN_TRANSACTION = "Can not begin transaction";
-    public static final String CAN_NOT_ROLLBACK_TRANSACTION = "Can not rollback transaction";
-    public static final String CAN_NOT_COMMIT_TRANSACTION = "Can not commit transaction";
-
-    public static final String ERROR_CONNECT_TO_DATABASE = "";
+    public static final String CAN_NOT_PREPARE_STATEMENT_WITH_AUTO_GENERATED_KEYS = "Can not prepare statement with auto generated keys";
+    public static final String CAN_NOT_PREPARE_STATEMENT =  "Can't prepare statement";
+    public static final String CAN_NOT_CREATE_STATEMENT = "Can't create statement";
+    public static final String CAN_NOT_SET_IN_TRANSACTION = "Can't set is-in-transaction";
+    public static final String CAN_NOT_COMMIT_IN_TRANSACTION= "Can't commit: Is not in transaction";
+    public static final String CAN_NOT_COMMIT = "Can't commit";
+    public static final String CAN_NOT_ROLLBACK = "Can't rollback";
+    public static final String CAN_NOT_COMMIT_TRANSACTION_NOT_BEGUN = "Can't commit transaction: it has not been begun";
+    public static final String CAN_NOT_ROLLBACK_TRANSACTION_NOT_BEGUN = "Can't rollback transaction: it has not been begun";
+    public static final String WRONG_TRANSACTION = "Transaction failed";
 
     public static final String ERROR_FIND_USER_BY_LOGIN = "Error occurred when finding user by login: ";
     public static final String ERROR_FIND_USER_BY_ID = "Error occurred when finding user by id: ";
@@ -66,16 +73,8 @@ public class LoggerMessages {
     public static final String ERROR_FIND_FIND_ASSOSIATED_OPTIONS_BY_QUESTION_ID = "Error occurred when finding assosiated options by question id";
     public static final String ERROR_FIND_FIND_ASSOSIATED_TESTS_BY_QUESTION_ID ="Error occurred when finding assosiated tests by question id";
 
-
-
-
-
-
-
-
     public static final String UNKNOWN_ERROR_OCCURED = "Unknown error occurred";
     public static final String SERVICE_EXCEPTION_OCCURRED = "exception in business logic";
     public static final String APPLICATION_EXCEPTION_OCCURRED = "application exception occurred";
-
     public static final String ERROR_USER_ALREADY_EXISTS = "User with such login already exists!";
 }

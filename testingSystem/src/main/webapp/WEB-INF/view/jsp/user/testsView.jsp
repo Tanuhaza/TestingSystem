@@ -22,11 +22,14 @@
 <jsp:include page="../fragment/header.jsp"></jsp:include>
 
 <div class="dropdown choose-country top-right">
-    <ul>
+    <table class="table borderless">
         <c:forEach items="${tests}" var="test">
-            <li><a href="/test/${test.id} ">${test.name}</a></li>
+            <tr>
+                <td><a href="/test/${test.id} ">${test.name}</a></td>
+                <td><button class="btn-primary" id="${card.id}_button" name="${card.id}_button"><fmt:message key="testing.system.pass.test" bundle="${msg}"/> </button></td>
+            </tr>
         </c:forEach>
-    </ul>
+    </table>
 </div>
 <jsp:include page="../fragment/footer.jsp"></jsp:include>
 </body>

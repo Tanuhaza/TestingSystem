@@ -1,5 +1,6 @@
 package ua.kiyv.training.testingSystem.service.impl;
 
+import org.apache.log4j.Logger;
 import ua.kiyv.training.testingSystem.connection.Jdbc.JdbcTransactionHelper;
 import ua.kiyv.training.testingSystem.dao.DaoException;
 import ua.kiyv.training.testingSystem.dao.DaoFactory;
@@ -13,6 +14,7 @@ import ua.kiyv.training.testingSystem.service.ConstructingTestService;
 import ua.kiyv.training.testingSystem.service.ServiceException;
 import ua.kiyv.training.testingSystem.service.ServiceFactory;
 import ua.kiyv.training.testingSystem.service.UserResponseService;
+import ua.kiyv.training.testingSystem.utils.constants.LoggerMessages;
 import ua.kiyv.training.testingSystem.utils.constants.MessageKeys;
 
 import java.util.List;
@@ -25,6 +27,9 @@ import java.util.stream.Collectors;
  */
 public class UserResponseServiceImpl implements UserResponseService {
 
+    private static final Logger logger = Logger.getLogger(UserResponseServiceImpl.class);
+
+
     @Override
     public void create(UserResponse userResponse) {
 
@@ -32,9 +37,10 @@ public class UserResponseServiceImpl implements UserResponseService {
         try {
             JdbcDaoFactory.getInstance().createUserResponseDao().create(userResponse);
             JdbcTransactionHelper.getInstance().commitTransaction();
-        } catch (DaoException e) {
+        } catch (DaoException ex) {
             JdbcTransactionHelper.getInstance().rollbackTransaction();
-            throw new ServiceException("Transaction failed.", e);
+            logger.error(LoggerMessages.WRONG_TRANSACTION);
+            throw new ServiceException(ex, MessageKeys.WRONG_TRANSACTION);
         }
     }
 
@@ -44,9 +50,10 @@ public class UserResponseServiceImpl implements UserResponseService {
         try {
             JdbcDaoFactory.getInstance().createUserResponseDao().update(userResponse);
             JdbcTransactionHelper.getInstance().commitTransaction();
-        } catch (DaoException e) {
+        } catch (DaoException ex) {
             JdbcTransactionHelper.getInstance().rollbackTransaction();
-            throw new ServiceException("Transaction failed.", e);
+            logger.error(LoggerMessages.WRONG_TRANSACTION);
+            throw new ServiceException(ex, MessageKeys.WRONG_TRANSACTION);
         }
     }
 
@@ -56,9 +63,10 @@ public class UserResponseServiceImpl implements UserResponseService {
         try {
             JdbcDaoFactory.getInstance().createUserResponseDao().delete(userResponse);
             JdbcTransactionHelper.getInstance().commitTransaction();
-        } catch (DaoException e) {
+        } catch (DaoException ex) {
             JdbcTransactionHelper.getInstance().rollbackTransaction();
-            throw new ServiceException("Transaction failed.", e);
+            logger.error(LoggerMessages.WRONG_TRANSACTION);
+            throw new ServiceException(ex, MessageKeys.WRONG_TRANSACTION);
         }
     }
 
@@ -117,9 +125,10 @@ public class UserResponseServiceImpl implements UserResponseService {
         try {
             JdbcDaoFactory.getInstance().createUserResponseDao().deleteByPassedTimes(userId,testId,passedTimes);
             JdbcTransactionHelper.getInstance().commitTransaction();
-        } catch (DaoException e) {
+        } catch (DaoException ex) {
             JdbcTransactionHelper.getInstance().rollbackTransaction();
-            throw new ServiceException("Transaction failed.", e);
+            logger.error(LoggerMessages.WRONG_TRANSACTION);
+            throw new ServiceException(ex, MessageKeys.WRONG_TRANSACTION);
         }
     }
 }

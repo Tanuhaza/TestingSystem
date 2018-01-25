@@ -17,7 +17,6 @@ public final class MessageKeys {
     public static final String WRONG_LOGIN_DATA = "message.wrong.login.data";
     public static final String WRONG_LOGIN = "message.wrong.login";
 
-
     public static final String WRONG_USER_DB_CREATING_NO_ROWS_AFFECTED = "message.wrong.creating.user.no.rows.affected";
     public static final String WRONG_USER_DB_NO_ID_OBTAINED ="message.wrong.creating.user.no.id.obtained";
     public static final String WRONG_USER_DB_CAN_NOT_CREATE ="message.can.not.create.user";
@@ -93,8 +92,20 @@ public final class MessageKeys {
     public static final String WRONG_QUESTION_DB_CAN_NOT_GET_ASSOSIATED_OPTIONS_BY_QUESTION_ID = "message.can.not.get.assosiated.options.by.question.id ";
     public static final String WRONG_QUESTION_DB_CAN_NOT_GET_ASSOSIATED_QUESTIONS_BY_TOPIC_ID = "message.can.not.get.assosiated.questions.by.topic ";
 
-
-
+    public static final String CONNECTION_PROBLEM_CONFIG_FILE = "message.wrong.connection.config";
+    public static final String CAN_NOT_CLOSE_CONNECTION = "message.wrong.connection.can.not.close";
+    public static final String CAN_NOT_GET_DB_CONNECTION = "message.wrong.connection.can.not.get.connection";
+    public static final String PREPARE_STATEMENT_PROBLEM_WITH_AUTO_GENERATED_KEYS = "message.wrong.prepare.statement.with.generates.keys";
+    public static final String CAN_NOT_PREPARE_STATEMENT= "message.wrong.can.not.prepare.statement";
+    public static final String CAN_NOT_CREATE_CREATE_STATEMENT = "message.wrong.statement";
+    public static final String TRANSACTION_CAN_NOT_SET = "message.wrong.transaction.can.not.set";
+    public static final String CAN_NOT_COMMIT_IS_IN_TRANSACTION = "message.wrong.is.not.in.transaction.can.not.commit";
+    public static final String TRANSACTION_CAN_NOT_COMMIT= "message.wrong.transaction.can.not.commit";
+    public static final String CAN_NOT_ROLLBACK_IS_IN_TRANSACTION = "message.wrong.is.not.in.transaction.can.not.rollback";
+    public static final String TANSACTION_CAN_NOT_ROLLBACK = "message.wrong.transaction.can.not.rollback";
+    public static final String CAN_NOT_COMMIT_TRANSACTION_NOT_BEGUN= "message.wrong.commit.transaction.no.begun";
+    public static final String CAN_NOT_ROLLBACK_TRANSACTION_NOT_BEGUN = "message.wrong.rollback.transaction.no.begun";
+    public static final String WRONG_TRANSACTION = "message.wrong.transaction";
 
     public static final String WRONG_QUERY_PARAMETER = "message.wrong.query.parameter";
     public static final String WRONG_PARAMETER = "message.wrong.parameter";

@@ -12,7 +12,7 @@ public class ServiceException extends ApplicationException {
         super(message, messageKey);
     }
 
-    public ServiceException(String message, Throwable cause) {
+    public ServiceException(Throwable cause,String message) {
         super( cause, message);
     }
 

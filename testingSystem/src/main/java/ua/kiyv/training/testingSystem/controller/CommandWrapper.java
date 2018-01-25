@@ -47,7 +47,7 @@ public abstract class CommandWrapper implements Command {
         catch (ServiceException exception){
             logger.error(LoggerMessages.SERVICE_EXCEPTION_OCCURRED, exception);
             putErrorMessageInRequest(request, exception.getMessageKey());
-            request.getRequestDispatcher(nextPage).forward(request, response);
+            request.getRequestDispatcher(PagesPath.ERROR_PAGE).forward(request, response);
         }
         catch (ApplicationException exception){
             logger.error(LoggerMessages.APPLICATION_EXCEPTION_OCCURRED, exception);

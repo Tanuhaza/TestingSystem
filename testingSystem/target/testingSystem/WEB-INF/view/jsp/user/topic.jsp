@@ -22,12 +22,16 @@
 <jsp:include page="../fragment/header.jsp"></jsp:include>
 
 <div class="dropdown choose-country top-right">
-    <ul>
+    <table class="table borderless">
+
         <c:forEach items="${topics}" var="topic">
-            <%--<input  type="hidden" id="Attributes.TOPIC_ID" name="${Attributes.TOPIC_ID}" value="${topic.getId()}">--%>
-            <li><a href="/topic/${topic.id} ">${topic.title} </a></li>
+            <tr>
+            <td><h4><a href="/topic/${topic.id} ">${topic.title} </a></h4></td>
+            <td><h4>${topic.info}</h4></td>
+            </tr>
         </c:forEach>
-    </ul>
+
+    </table>
 </div>
 <jsp:include page="../fragment/footer.jsp"></jsp:include>
 </body>

@@ -1,12 +1,16 @@
 package ua.kiyv.training.testingSystem.connection.Jdbc;
 
 
+import org.apache.log4j.Logger;
 import ua.kiyv.training.testingSystem.connection.ConnectionPool;
 import ua.kiyv.training.testingSystem.connection.DaoConnection;
 import ua.kiyv.training.testingSystem.connection.TransactionHelper;
 import ua.kiyv.training.testingSystem.dao.DaoException;
+import ua.kiyv.training.testingSystem.utils.constants.MessageKeys;
 
 public class JdbcTransactionHelper implements TransactionHelper {
+
+    private static final Logger logger = Logger.getLogger(JdbcTransactionHelper.class);
 
     private static JdbcTransactionHelper instance = new JdbcTransactionHelper();
 
@@ -30,7 +34,7 @@ public class JdbcTransactionHelper implements TransactionHelper {
     public void commitTransaction() {
         DaoConnection connection = local.get();
         if (connection == null) {
-            throw new DaoException("Can't commit transaction: it has not been begun");
+            throw new DaoException(MessageKeys.CAN_NOT_COMMIT_TRANSACTION_NOT_BEGUN);
         }
         connection.commit();
         endTransaction(connection);
@@ -40,7 +44,7 @@ public class JdbcTransactionHelper implements TransactionHelper {
     public void rollbackTransaction() {
         DaoConnection connection = local.get();
         if (connection == null) {
-            throw new DaoException("Can't rollback transaction: it has not been begun");
+            throw new DaoException(MessageKeys.CAN_NOT_ROLLBACK_TRANSACTION_NOT_BEGUN);
         }
         connection.rollback();
         endTransaction(connection);
