@@ -23,12 +23,25 @@
 <div class="dropdown choose-country top-right">
     <h3>${user.firstName}<span style='padding-left:10px;'> </span>${user.lastName}</h3>
     <h3><fmt:message key="testing.system.your.results" bundle="${msg}"/></h3>
-    <ul>
-        <h4>${"Test"}<span style='padding-left:25px;'> </span> ${"Score"}</h4>
-        <c:forEach items="${testResultMap}" var="map">
-            <li> <h4>${map.key.name}<span style='padding-left:20px;'> </span> ${map.value}</h4> </li>
+    <table class="table borderless">
+        <tr>
+            <td><h4>${"Test"}</h4></td>
+            <td><h4>${"Score"}</h4></td>
+        </tr>
+        <c:forEach items="${firstTestResultMap}" var="map">
+            <tr>
+                <td> <h4>${map.key.name}</h4></td>
+                <td><h4>${map.value}</h4> </td>
+            </tr>
         </c:forEach>
-    </ul>
+        <c:forEach items="${lastTestResultMap}" var="map">
+            <tr>
+                <td> <h4>${map.key.name}</h4></td>
+                <td><h4>${map.value}</h4> </td>
+            </tr>
+        </c:forEach>
+
+    </table>
 </div>
 <jsp:include page="../fragment/footer.jsp"></jsp:include>
 

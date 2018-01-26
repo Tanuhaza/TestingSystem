@@ -21,6 +21,14 @@ public interface UserResponseService {
 
     public List<Test> getTestsPassedByUser(int userId,int passedTimes);
 
+    public List<Test> getTestsPassedFirstly(int userId);
+
+    public List<Test> getTestsPassedFirstTime(int userId);
+
+    public List<Test> getTestsPassedLastTime(int userId);
+
+    public Map<Test,Integer> getTestResultMapByFirstlyPassed (int userId);
+
     public int getTotalScoreByPassedTimes(int userId,int testId, int passedTimes);
 
     public Map<Test,Integer> getTestResultMapByPassedTimes (int userId,int passedTimes);

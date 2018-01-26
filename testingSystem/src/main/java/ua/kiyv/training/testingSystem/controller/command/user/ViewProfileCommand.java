@@ -4,17 +4,17 @@ import ua.kiyv.training.testingSystem.controller.CommandWrapper;
 import ua.kiyv.training.testingSystem.model.entity.Test;
 import ua.kiyv.training.testingSystem.model.entity.User;
 import ua.kiyv.training.testingSystem.service.ServiceFactory;
+import ua.kiyv.training.testingSystem.service.UserResponseService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import static ua.kiyv.training.testingSystem.utils.constants.Attributes.TEST_RESULT_MAP;
-import static ua.kiyv.training.testingSystem.utils.constants.Attributes.USER;
-import static ua.kiyv.training.testingSystem.utils.constants.Attributes.USER_ID;
+import static ua.kiyv.training.testingSystem.utils.constants.Attributes.*;
 import static ua.kiyv.training.testingSystem.utils.constants.PagesPath.LOGIN_PAGE;
 import static ua.kiyv.training.testingSystem.utils.constants.PagesPath.PROFILE_PAGE;
 
@@ -35,8 +35,13 @@ public class ViewProfileCommand extends CommandWrapper{
             User person = user.get();
             request.setAttribute(USER, person);
         }
-        Map<Test,Integer> testResultMap =  ServiceFactory.getInstance().createUserResponseService().getTestResultMapByPassedTimes(userId,1);
-        request.setAttribute(TEST_RESULT_MAP, testResultMap);
+
+        UserResponseService userResponseService = ServiceFactory.getInstance().createUserResponseService();
+        Map<Test,Integer> testResultMapByFirstlyPassed =  userResponseService.getTestResultMapByFirstlyPassed(userId);
+        Map<Test,Integer> testResultMapLastTimePassed =  userResponseService.getTestResultMapByPassedTimes(userId,2);
+
+        request.setAttribute(FIRST_TEST_RESULT_MAP, testResultMapByFirstlyPassed);
+        request.setAttribute(LAST_TEST_RESULT_MAP, testResultMapLastTimePassed);
         return PROFILE_PAGE;
     }
 }

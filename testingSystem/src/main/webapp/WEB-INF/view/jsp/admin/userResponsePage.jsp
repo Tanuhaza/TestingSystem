@@ -21,11 +21,14 @@
 <jsp:include page="../fragment/header.jsp"></jsp:include>
 
 <div class="dropdown choose-country top-right">
-    <ul>
+    <table class="table borderless">
         <c:forEach items="${testResultMap}" var="map">
-            <li> <h4>${map.key.name}<span style='padding-left:10px;'> </span> ${map.value}</h4> </li>
+            <tr>
+                <td> <h4>${map.key.name}</h4></td>
+                <td> <h4> ${map.value}</h4> </td>
+            </tr>
         </c:forEach>
-    </ul>
+    </table>
 </div>
 <jsp:include page="../fragment/footer.jsp"></jsp:include>
 

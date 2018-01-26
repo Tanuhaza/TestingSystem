@@ -26,11 +26,13 @@
         <c:forEach items="${tests}" var="test">
             <tr>
                 <td><a href="/test/${test.id} ">${test.name}</a></td>
-                <td><button class="btn-primary" id="${card.id}_button" name="${card.id}_button"><fmt:message key="testing.system.pass.test" bundle="${msg}"/> </button></td>
+                <%--<td>${test.name}</td>--%>
+                <td><button class="btn-primary" id="${test.id}_button" name="${test.id}_button"><fmt:message key="testing.system.pass.test" bundle="${msg}"/> </button></td>
             </tr>
         </c:forEach>
     </table>
 </div>
 <jsp:include page="../fragment/footer.jsp"></jsp:include>
+
 </body>
 </html>

@@ -19,6 +19,8 @@ public final class Attributes {
     public static final String TEST = "test";
     public static final String PASSED_TEST = "passedTests";
     public static final String TEST_ID = "test_id";
+    public static final String FIRST_TEST_RESULT_MAP = "firstTestResultMap";
+    public static final String LAST_TEST_RESULT_MAP = "lastTestResultMap";
     public static final String TEST_RESULT_MAP = "testResultMap";
     public static final String PAGE_TITLE = "page_title";
 
@@ -44,14 +46,6 @@ public final class Attributes {
     public static final String PREVIOUS_USER_SURNAME = "previousUserSurname";
     public static final String PREVIOUS_USER_LOGIN = "previousUserLogin";
     public static final String PREVIOUS_USER_ROLE = "previousUserRole";
-
-    public static final String USREOU = "usreou";
-    public static final String MFO = "mfo";
-    public static final String SUM = "sum";
-    public static final String ACCOUNT_NUMBER = "accountNumber";
-    public static final String PIN = "pin";
-    public static final String CVV = "cvv";
-    public static final String EXPIRE_DATE = "expireDate";
 
     public static final String LIMIT = "limit";
     public static final String OFFSET = "page";

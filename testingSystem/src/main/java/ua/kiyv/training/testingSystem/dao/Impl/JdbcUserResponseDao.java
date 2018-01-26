@@ -195,6 +195,28 @@ public class JdbcUserResponseDao implements UserResponseDao {
     }
 
     @Override
+    public List<Integer> getPassedTestsId(int userId){
+        String sqlStatement = "SELECT DISTINCT test_id,passedTimes FROM user_response WHERE user_id = ? ";
+        int testId;
+        List<Integer> passedTestsId = new ArrayList<>();
+        try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(sqlStatement);
+            statement.setInt(1, userId);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                testId =resultSet.getInt("test_id");
+                passedTestsId.add(testId);
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_PASSED_TESTS_ID_BY_USER_ID_PASSED_TIMES + userId  );
+            throw new DaoException(ex,MessageKeys.WRONG_USER_RESPONSE_DB_NO_TESTS_ID_FIND);
+        }
+        return passedTestsId;
+    }
+
+    @Override
     public List<UserResponse> getUserResponseByUserAndTestId(int userId,int testId){
         String sqlStatement = "SELECT * FROM user_response WHERE (user_id = ? and test_id=?)";
         UserResponse UserResponse;

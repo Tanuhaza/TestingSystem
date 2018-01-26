@@ -32,11 +32,11 @@ public final class PagesPath {
     public static final String ADMIN_USER_RESPONSE_PAGE = VIEW_JSP_CLASSPATH + "admin/userResponsePage.jsp";
 
     public static final String LOGIN_PAGE = VIEW_JSP_CLASSPATH + "loginPage.jsp";
-    public static final String TOPICS_PAGE = VIEW_JSP_CLASSPATH + "user/topic.jsp";
-    public static final String TEST_VIEW_PAGE = VIEW_JSP_CLASSPATH + "user/testsView.jsp";
-    public static final String TEST_PAGE = VIEW_JSP_CLASSPATH + "user/test.jsp";
+    public static final String TOPICS_PAGE = VIEW_JSP_CLASSPATH + "user/viewTopics.jsp";
+    public static final String TEST_VIEW_PAGE = VIEW_JSP_CLASSPATH + "user/viewTests.jsp";
+    public static final String TEST_PAGE = VIEW_JSP_CLASSPATH + "user/testPage.jsp";
     public static final String QUESTIONS_PAGE = VIEW_JSP_CLASSPATH + "user/question.jsp";
-    public static final String RESPONSE_PAGE = VIEW_JSP_CLASSPATH + "user/response.jsp";
+    public static final String RESPONSE_PAGE = VIEW_JSP_CLASSPATH + "user/userResponsePage.jsp";
     public static final String PROFILE_PAGE = VIEW_JSP_CLASSPATH + "user/profilePage.jsp";
 
     public static final String ERROR_PAGE = VIEW_JSP_CLASSPATH + "error.jsp";

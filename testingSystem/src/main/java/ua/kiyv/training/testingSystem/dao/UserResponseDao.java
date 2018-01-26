@@ -11,6 +11,8 @@ public interface UserResponseDao extends GenericDao<UserResponse> {
 
     public List<Integer> getPassedTestsId(int userId, int passedTime);
 
+    public List<Integer> getPassedTestsId(int userId);
+
     public List<UserResponse> getUserResponseByUserAndTestId(int userId,int testId);
 
     public List<Integer> getPassedTimes(int userId, int testId);

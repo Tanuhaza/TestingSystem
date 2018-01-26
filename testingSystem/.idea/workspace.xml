@@ -68,12 +68,90 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="FrontController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/FrontController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1912#1913#0" expanded="false" />
+                <element signature="e#1968#1969#0" expanded="false" />
+                <element signature="e#2959#2960#0" expanded="false" />
+                <element signature="e#3009#3010#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ViewProfileCommand.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/ViewProfileCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="249">
+              <caret line="34" column="31" lean-forward="true" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminViewUsersResponseCommand.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/admin/AdminViewUsersResponseCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="32" column="39" lean-forward="false" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ConstructingTestServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/ConstructingTestServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="37" column="74" lean-forward="true" selection-start-line="36" selection-start-column="12" selection-end-line="37" selection-end-column="74" />
+            <state relative-caret-position="153">
+              <caret line="26" column="4" lean-forward="false" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="93" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChooseTestCommand.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/tests/ChooseTestCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="629">
+              <caret line="54" column="1" lean-forward="false" selection-start-line="54" selection-start-column="1" selection-end-line="54" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1070#1071#0" expanded="false" />
+                <element signature="e#1113#1114#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestSubmitCommand.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/tests/TestSubmitCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="241">
+              <caret line="63" column="31" lean-forward="true" selection-start-line="63" selection-start-column="31" selection-end-line="63" selection-end-column="31" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ViewTestsCommand.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/tests/ViewTestsCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="32" column="91" lean-forward="false" selection-start-line="32" selection-start-column="91" selection-end-line="32" selection-end-column="91" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#760#761#0" expanded="false" />
+                <element signature="e#803#804#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -81,94 +159,37 @@
       <file leaf-file-name="UserResponseServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/UserResponseServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="29" column="81" lean-forward="false" selection-start-line="29" selection-start-column="81" selection-end-line="29" selection-end-column="81" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="31" column="32" lean-forward="false" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="viewUsersPage.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/admin/viewUsersPage.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="30" column="83" lean-forward="false" selection-start-line="30" selection-start-column="83" selection-end-line="30" selection-end-column="83" />
+            <state relative-caret-position="2142">
+              <caret line="148" column="0" lean-forward="false" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#span#0;n#h5#0;n#a#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="imports" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testsView.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/testsView.jsp">
+      <file leaf-file-name="profilePage.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/profilePage.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="33" column="57" lean-forward="true" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
+            <state relative-caret-position="612">
+              <caret line="36" column="58" lean-forward="false" selection-start-line="36" selection-start-column="58" selection-end-line="36" selection-end-column="58" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/model/entity/Test.java">
+      <file leaf-file-name="JdbcUserResponseDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-23">
-              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="messages_en.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/webProject/i18n/messages_en.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="40" lean-forward="true" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="ResourceBundle">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Topic.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/model/entity/Topic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/model/entity/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="topic.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/topic.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="28" column="20" lean-forward="false" selection-start-line="27" selection-start-column="12" selection-end-line="28" selection-end-column="20" />
-              <folding />
+            <state relative-caret-position="3332">
+              <caret line="214" column="0" lean-forward="false" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#2609#2610#0" expanded="false" />
+                <element signature="e#2636#2637#0" expanded="false" />
+                <marker date="1516915558644" expanded="true" signature="2744:2789" ph="SELECT * FRO... user_response" />
+                <marker date="1516915558644" expanded="true" signature="3931:3958" ph="SELECT * FRO... user_response" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -232,12 +253,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service1/impl/ConstructingTestService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service1/impl/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service1/impl/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service1/impl/UserResponseServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service1/impl/ConstructingTestServiceImpl.java" />
-        <option value="$PROJECT_DIR$/../../Taleb/servletTraining/src/main/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/ServiceFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/ServiceFactoryImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/RegisterSubmitCommand.java" />
@@ -254,16 +269,10 @@
         <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/mapper/TopicMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/mapper/UserMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/mapper/UserResponseMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/tests/ChooseTestCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/ViewProfileCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/model/entity/UserResponse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/tests/TestSubmitCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/admin/AdminViewUsersResponseCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/Apps.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/UserResponseService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/UserResponseDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/DaoException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcOptionDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcTestDao.java" />
@@ -277,12 +286,24 @@
         <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/ServiceException.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/utils/constants/LoggerMessages.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/ConstructingTestServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/UserResponseServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/admin/viewUsersPage.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/topic.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/webProject/i18n/messages_en.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/testsView.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/admin/userResponsePage.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/ControllerException.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/viewTests.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/utils/constants/PagesPath.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/tests/ChooseTestCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/UserResponseDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/UserResponseService.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/profilePage.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/utils/constants/Attributes.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/UserResponseServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/ViewProfileCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/tests/TestSubmitCommand.java" />
       </list>
     </option>
   </component>
@@ -353,8 +374,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -945,6 +964,70 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testingSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testingSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testingSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testingSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testingSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testingSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1217,6 +1300,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1232,26 +1317,26 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\webapp\WEB-INF\view\jsp\user" />
+      <recent name="C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\resources" />
+      <recent name="C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\webapp\WEB-INF\view\jsp\admin" />
+      <recent name="C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\webapp\WEB-INF\view\jsp" />
+      <recent name="C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\java\ua\kiyv\training\testingSystem\model\dto" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ua.kiyv.training.testingSystem.controller" />
+      <recent name="ua.kiyv.training.testingSystem.service1" />
+      <recent name="ua.kiyv.training.testingSystem.service1.impl" />
+      <recent name="ua.kiyv.training.testingSystem.controller.exception" />
+      <recent name="ua.kiyv.training.testingSystem.controller.command.admin" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\resources\webProject\i18n" />
       <recent name="C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\resources" />
       <recent name="C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\webapp" />
       <recent name="C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\webapp\WEB-INF\view\jsp\user" />
       <recent name="C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\webapp\WEB-INF\view" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="ua.kiyv.training.testingSystem.service1" />
-      <recent name="ua.kiyv.training.testingSystem.service1.impl" />
-      <recent name="ua.kiyv.training.testingSystem.controller.exception" />
-      <recent name="ua.kiyv.training.testingSystem.controller.command.admin" />
-      <recent name="ua.kiyv.training.testingSystem.controller.filter" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\resources" />
-      <recent name="C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\webapp\WEB-INF\view\jsp\admin" />
-      <recent name="C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\webapp\WEB-INF\view\jsp" />
-      <recent name="C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\java\ua\kiyv\training\testingSystem\model\dto" />
-      <recent name="C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\webapp" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1808,12 +1893,13 @@
       <workItem from="1516640345401" duration="9928000" />
       <workItem from="1516698774110" duration="41261000" />
       <workItem from="1516780745004" duration="31231000" />
-      <workItem from="1516868852366" duration="29995000" />
+      <workItem from="1516868852366" duration="46988000" />
+      <workItem from="1516954228290" duration="626000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="592960000" />
+    <option name="totallyTimeSpent" value="610579000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1842,7 +1928,6 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08496732" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33660132" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -1850,7 +1935,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4591503" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.49693722" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31164902" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3207262" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1859,6 +1944,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33660132" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
@@ -2059,24 +2145,6 @@
           <option name="timeStamp" value="144" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/question.jsp</url>
-          <line>25</line>
-          <properties />
-          <option name="timeStamp" value="155" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/question.jsp</url>
-          <line>26</line>
-          <properties />
-          <option name="timeStamp" value="156" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/question.jsp</url>
-          <line>27</line>
-          <properties />
-          <option name="timeStamp" value="157" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcTestDao.java</url>
           <line>168</line>
           <properties />
@@ -2131,85 +2199,85 @@
           <option name="timeStamp" value="257" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/response.jsp</url>
+          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/userResponsePage.jsp</url>
           <line>34</line>
           <properties />
           <option name="timeStamp" value="258" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/response.jsp</url>
+          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/userResponsePage.jsp</url>
           <line>35</line>
           <properties />
           <option name="timeStamp" value="259" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/response.jsp</url>
+          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/userResponsePage.jsp</url>
           <line>36</line>
           <properties />
           <option name="timeStamp" value="260" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/response.jsp</url>
+          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/userResponsePage.jsp</url>
           <line>37</line>
           <properties />
           <option name="timeStamp" value="261" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/response.jsp</url>
+          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/userResponsePage.jsp</url>
           <line>38</line>
           <properties />
           <option name="timeStamp" value="262" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/response.jsp</url>
+          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/userResponsePage.jsp</url>
           <line>26</line>
           <properties />
           <option name="timeStamp" value="263" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/response.jsp</url>
+          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/userResponsePage.jsp</url>
           <line>27</line>
           <properties />
           <option name="timeStamp" value="264" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/response.jsp</url>
+          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/userResponsePage.jsp</url>
           <line>25</line>
           <properties />
           <option name="timeStamp" value="265" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/response.jsp</url>
+          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/userResponsePage.jsp</url>
           <line>28</line>
           <properties />
           <option name="timeStamp" value="266" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/response.jsp</url>
+          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/userResponsePage.jsp</url>
           <line>29</line>
           <properties />
           <option name="timeStamp" value="267" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/response.jsp</url>
+          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/userResponsePage.jsp</url>
           <line>30</line>
           <properties />
           <option name="timeStamp" value="268" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/response.jsp</url>
+          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/userResponsePage.jsp</url>
           <line>31</line>
           <properties />
           <option name="timeStamp" value="269" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/response.jsp</url>
+          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/userResponsePage.jsp</url>
           <line>32</line>
           <properties />
           <option name="timeStamp" value="270" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/response.jsp</url>
+          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/userResponsePage.jsp</url>
           <line>33</line>
           <properties />
           <option name="timeStamp" value="271" />
@@ -2414,79 +2482,79 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
-          <line>198</line>
+          <line>220</line>
           <properties />
           <option name="timeStamp" value="389" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
-          <line>199</line>
+          <line>221</line>
           <properties />
           <option name="timeStamp" value="390" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
-          <line>201</line>
+          <line>223</line>
           <properties />
           <option name="timeStamp" value="391" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
-          <line>202</line>
+          <line>224</line>
           <properties />
           <option name="timeStamp" value="392" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
-          <line>205</line>
+          <line>227</line>
           <properties />
           <option name="timeStamp" value="393" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
-          <line>204</line>
+          <line>226</line>
           <properties />
           <option name="timeStamp" value="394" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
-          <line>203</line>
+          <line>225</line>
           <properties />
           <option name="timeStamp" value="395" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
-          <line>206</line>
+          <line>228</line>
           <properties />
           <option name="timeStamp" value="396" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
-          <line>207</line>
+          <line>229</line>
           <properties />
           <option name="timeStamp" value="397" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
-          <line>208</line>
+          <line>230</line>
           <properties />
           <option name="timeStamp" value="399" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
-          <line>209</line>
+          <line>231</line>
           <properties />
           <option name="timeStamp" value="400" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
-          <line>217</line>
+          <line>239</line>
           <properties />
           <option name="timeStamp" value="401" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/admin/userResponsePage.jsp</url>
-          <line>25</line>
+          <line>26</line>
           <properties />
           <option name="timeStamp" value="402" />
         </line-breakpoint>
@@ -2498,7 +2566,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/admin/userResponsePage.jsp</url>
-          <line>26</line>
+          <line>29</line>
           <properties />
           <option name="timeStamp" value="404" />
         </line-breakpoint>
@@ -2522,19 +2590,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/profilePage.jsp</url>
-          <line>27</line>
+          <line>30</line>
           <properties />
           <option name="timeStamp" value="422" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/profilePage.jsp</url>
-          <line>29</line>
+          <line>35</line>
           <properties />
           <option name="timeStamp" value="423" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/profilePage.jsp</url>
-          <line>28</line>
+          <line>32</line>
           <properties />
           <option name="timeStamp" value="424" />
         </line-breakpoint>
@@ -2730,6 +2798,252 @@
           <properties />
           <option name="timeStamp" value="490" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/UserResponseServiceImpl.java</url>
+          <line>147</line>
+          <properties />
+          <option name="timeStamp" value="491" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/UserResponseServiceImpl.java</url>
+          <line>146</line>
+          <properties />
+          <option name="timeStamp" value="492" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/UserResponseServiceImpl.java</url>
+          <line>148</line>
+          <properties />
+          <option name="timeStamp" value="493" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/UserResponseServiceImpl.java</url>
+          <line>136</line>
+          <properties />
+          <option name="timeStamp" value="494" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/UserResponseServiceImpl.java</url>
+          <line>137</line>
+          <properties />
+          <option name="timeStamp" value="495" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/UserResponseServiceImpl.java</url>
+          <line>138</line>
+          <properties />
+          <option name="timeStamp" value="496" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/UserResponseServiceImpl.java</url>
+          <line>126</line>
+          <properties />
+          <option name="timeStamp" value="497" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/UserResponseServiceImpl.java</url>
+          <line>127</line>
+          <properties />
+          <option name="timeStamp" value="498" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/UserResponseServiceImpl.java</url>
+          <line>113</line>
+          <properties />
+          <option name="timeStamp" value="499" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/UserResponseServiceImpl.java</url>
+          <line>114</line>
+          <properties />
+          <option name="timeStamp" value="500" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/UserResponseServiceImpl.java</url>
+          <line>115</line>
+          <properties />
+          <option name="timeStamp" value="501" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/UserResponseServiceImpl.java</url>
+          <line>87</line>
+          <properties />
+          <option name="timeStamp" value="502" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/UserResponseServiceImpl.java</url>
+          <line>88</line>
+          <properties />
+          <option name="timeStamp" value="503" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/UserResponseServiceImpl.java</url>
+          <line>89</line>
+          <properties />
+          <option name="timeStamp" value="504" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
+          <line>198</line>
+          <properties />
+          <option name="timeStamp" value="505" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
+          <line>200</line>
+          <properties />
+          <option name="timeStamp" value="506" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
+          <line>201</line>
+          <properties />
+          <option name="timeStamp" value="507" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
+          <line>203</line>
+          <properties />
+          <option name="timeStamp" value="508" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
+          <line>204</line>
+          <properties />
+          <option name="timeStamp" value="509" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
+          <line>202</line>
+          <properties />
+          <option name="timeStamp" value="510" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
+          <line>205</line>
+          <properties />
+          <option name="timeStamp" value="511" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
+          <line>206</line>
+          <properties />
+          <option name="timeStamp" value="512" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
+          <line>207</line>
+          <properties />
+          <option name="timeStamp" value="513" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
+          <line>208</line>
+          <properties />
+          <option name="timeStamp" value="514" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
+          <line>209</line>
+          <properties />
+          <option name="timeStamp" value="515" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
+          <line>210</line>
+          <properties />
+          <option name="timeStamp" value="516" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
+          <line>211</line>
+          <properties />
+          <option name="timeStamp" value="517" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
+          <line>212</line>
+          <properties />
+          <option name="timeStamp" value="518" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
+          <line>213</line>
+          <properties />
+          <option name="timeStamp" value="519" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java</url>
+          <line>214</line>
+          <properties />
+          <option name="timeStamp" value="520" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/ViewProfileCommand.java</url>
+          <line>31</line>
+          <properties />
+          <option name="timeStamp" value="521" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/ViewProfileCommand.java</url>
+          <line>32</line>
+          <properties />
+          <option name="timeStamp" value="523" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/ViewProfileCommand.java</url>
+          <line>34</line>
+          <properties />
+          <option name="timeStamp" value="524" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/ViewProfileCommand.java</url>
+          <line>35</line>
+          <properties />
+          <option name="timeStamp" value="525" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/ViewProfileCommand.java</url>
+          <line>36</line>
+          <properties />
+          <option name="timeStamp" value="526" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/ViewProfileCommand.java</url>
+          <line>38</line>
+          <properties />
+          <option name="timeStamp" value="527" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/ViewProfileCommand.java</url>
+          <line>39</line>
+          <properties />
+          <option name="timeStamp" value="528" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/ViewProfileCommand.java</url>
+          <line>40</line>
+          <properties />
+          <option name="timeStamp" value="529" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/ViewProfileCommand.java</url>
+          <line>42</line>
+          <properties />
+          <option name="timeStamp" value="530" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/ViewProfileCommand.java</url>
+          <line>43</line>
+          <properties />
+          <option name="timeStamp" value="531" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/ViewProfileCommand.java</url>
+          <line>44</line>
+          <properties />
+          <option name="timeStamp" value="532" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcTopicDao.java</url>
           <line>60</line>
@@ -2739,7 +3053,7 @@
           <option name="timeStamp" value="77" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="491" />
+      <option name="time" value="533" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2748,180 +3062,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/topic/ViewTopicsCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/ViewProfileCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/CommandHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/test.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/filter/AuthFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="101" column="0" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/UnsupportedPathCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/tests/ViewTestsCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="32" column="91" lean-forward="true" selection-start-line="32" selection-start-column="91" selection-end-line="32" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/mapper/UserResponseMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="27" column="1" lean-forward="false" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/Apps.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="125" column="0" lean-forward="true" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/UserResponseDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/admin/userResponsePage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/admin/AdminViewUsersResponseCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="31" column="16" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-          <folding>
-            <element signature="e#779#780#0" expanded="false" />
-            <element signature="e#822#823#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/admin/AdminViewUsersCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/tests/ChooseTestCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#821#822#0" expanded="false" />
-            <element signature="e#864#865#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/FrontController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1912#1913#0" expanded="false" />
-            <element signature="e#1968#1969#0" expanded="false" />
-            <element signature="e#2959#2960#0" expanded="false" />
-            <element signature="e#3009#3010#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/tests/TestSubmitCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="63" column="46" lean-forward="false" selection-start-line="63" selection-start-column="46" selection-end-line="63" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="110" column="19" lean-forward="false" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/AbstractDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="28" column="61" lean-forward="true" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
-          <folding>
-            <marker date="1516882473678" expanded="true" signature="2744:2789" ph="SELECT * FRO... user_response" />
-            <marker date="1516882473678" expanded="true" signature="3931:3958" ph="SELECT * FRO... user_response" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcOptionDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="25" column="47" lean-forward="true" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="48" />
-          <folding>
-            <marker date="1516886200400" expanded="true" signature="3499:3520" ph="SELECT * FRO... options" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2949,7 +3093,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2957,23 +3100,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/utils/constants/Attributes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/UserResponseService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="71" lean-forward="false" selection-start-line="21" selection-start-column="71" selection-end-line="21" selection-end-column="71" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2991,7 +3117,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="221" column="9" lean-forward="false" selection-start-line="221" selection-start-column="9" selection-end-line="221" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2999,7 +3124,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3007,7 +3131,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="18" column="1" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="83" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3027,29 +3150,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/CommandWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="49" column="90" lean-forward="true" selection-start-line="49" selection-start-column="90" selection-end-line="49" selection-end-column="90" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/question.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/DaoException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="11" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
           <folding>
-            <element signature="e#214#215#0" expanded="true" />
-            <element signature="e#244#245#0" expanded="true" />
+            <element signature="e#214#215#0" expanded="false" />
+            <element signature="e#244#245#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3058,23 +3165,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/utils/constants/MessageKeys.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="107" column="51" lean-forward="false" selection-start-line="107" selection-start-column="31" selection-end-line="107" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/ServiceException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="14" column="58" lean-forward="false" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3082,7 +3172,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="26" column="72" lean-forward="false" selection-start-line="26" selection-start-column="72" selection-end-line="26" selection-end-column="72" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3090,7 +3179,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-289">
           <caret line="18" column="84" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="84" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3104,27 +3192,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/UserResponseServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="29" column="81" lean-forward="false" selection-start-line="29" selection-start-column="81" selection-end-line="29" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/ConstructingTestServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="37" column="74" lean-forward="true" selection-start-line="36" selection-start-column="12" selection-end-line="37" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="31" column="32" lean-forward="false" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3132,7 +3203,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3140,7 +3210,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3148,43 +3217,272 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-23">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/webProject/i18n/messages_en.properties">
+      <provider editor-type-id="ResourceBundle">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="40" lean-forward="true" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/admin/dashboard.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/admin/userResponsePage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="50" lean-forward="true" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/admin/viewUsersPage.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="30" column="83" lean-forward="false" selection-start-line="30" selection-start-column="83" selection-end-line="30" selection-end-column="83" />
+        <state relative-caret-position="348">
+          <caret line="37" column="39" lean-forward="true" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
           <folding>
             <element signature="n#style#0;n#span#0;n#h5#0;n#a#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/topic.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/question.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/userResponsePage.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="28" column="20" lean-forward="false" selection-start-line="27" selection-start-column="12" selection-end-line="28" selection-end-column="20" />
+        <state relative-caret-position="-283">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/webProject/i18n/messages_en.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/testsView.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/ServiceException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="40" lean-forward="true" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="69" />
+          <folding>
+            <element signature="e#427#428#0" expanded="false" />
+            <element signature="e#465#466#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/ControllerException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="ResourceBundle">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/utils/constants/MessageKeys.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="107" column="51" lean-forward="false" selection-start-line="107" selection-start-column="31" selection-end-line="107" selection-end-column="51" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/testsView.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/testPage.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="33" column="57" lean-forward="true" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
+        <state relative-caret-position="-235">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/viewTests.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="25" column="47" lean-forward="true" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/utils/constants/PagesPath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="19" column="53" lean-forward="false" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/HomeCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/CommandHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-254">
+          <caret line="23" column="6" lean-forward="false" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/topic/ViewTopicsCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/viewTopics.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="17" column="47" lean-forward="true" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/UserResponseDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="13" column="54" lean-forward="false" selection-start-line="13" selection-start-column="54" selection-end-line="13" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/UserResponseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="29" column="74" lean-forward="false" selection-start-line="29" selection-start-column="74" selection-end-line="29" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/utils/constants/Attributes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="51" lean-forward="true" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/CommandWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1203#1204#0" expanded="false" />
+            <element signature="e#1243#1244#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/tests/ViewTestsCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="32" column="91" lean-forward="false" selection-start-line="32" selection-start-column="91" selection-end-line="32" selection-end-column="91" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#760#761#0" expanded="false" />
+            <element signature="e#803#804#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/tests/ChooseTestCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="54" column="1" lean-forward="false" selection-start-line="54" selection-start-column="1" selection-end-line="54" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1070#1071#0" expanded="false" />
+            <element signature="e#1113#1114#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/FrontController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1912#1913#0" expanded="false" />
+            <element signature="e#1968#1969#0" expanded="false" />
+            <element signature="e#2959#2960#0" expanded="false" />
+            <element signature="e#3009#3010#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/dao/Impl/JdbcUserResponseDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3332">
+          <caret line="214" column="0" lean-forward="false" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2609#2610#0" expanded="false" />
+            <element signature="e#2636#2637#0" expanded="false" />
+            <marker date="1516915558644" expanded="true" signature="2744:2789" ph="SELECT * FRO... user_response" />
+            <marker date="1516915558644" expanded="true" signature="3931:3958" ph="SELECT * FRO... user_response" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/ConstructingTestServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="26" column="4" lean-forward="false" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="93" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/service/impl/UserResponseServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2142">
+          <caret line="148" column="0" lean-forward="false" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/jsp/user/profilePage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="58" lean-forward="false" selection-start-line="36" selection-start-column="58" selection-end-line="36" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/ViewProfileCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="34" column="31" lean-forward="true" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/admin/AdminViewUsersResponseCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="32" column="39" lean-forward="false" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/kiyv/training/testingSystem/controller/command/user/tests/TestSubmitCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="63" column="31" lean-forward="true" selection-start-line="63" selection-start-column="31" selection-end-line="63" selection-end-column="31" />
           <folding />
         </state>
       </provider>

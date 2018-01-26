@@ -58,9 +58,9 @@ public class TestSubmitCommand extends CommandWrapper {
                 .collect(Collectors.toList());
     }
 
-    public List<Option> getUserOptions(List<Option> options, List<Integer> optionsId){
+    public List<Option> getUserOptions(List<Option> options, List<Integer> userOptionsId){
         return options.stream()
-                .filter(option ->optionsId.contains(option.getId()))
+                .filter(option ->userOptionsId.contains(option.getId()))
                 .collect(Collectors.toList());
     }
 
