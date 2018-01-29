@@ -4,18 +4,25 @@ import ua.kiyv.training.testingSystem.controller.CommandWrapper;
 import ua.kiyv.training.testingSystem.controller.ControllerException;
 import ua.kiyv.training.testingSystem.model.entity.Option;
 import ua.kiyv.training.testingSystem.model.entity.Question;
+import ua.kiyv.training.testingSystem.model.entity.User;
+import ua.kiyv.training.testingSystem.service.ConstructingTestService;
 import ua.kiyv.training.testingSystem.service.ServiceFactory;
+import ua.kiyv.training.testingSystem.service.UserService;
 import ua.kiyv.training.testingSystem.service.impl.ConstructingTestServiceImpl;
 import ua.kiyv.training.testingSystem.utils.ParamExtractor;
 import ua.kiyv.training.testingSystem.utils.constants.Attributes;
 import ua.kiyv.training.testingSystem.utils.constants.MessageKeys;
 import ua.kiyv.training.testingSystem.utils.constants.PagesPath;
 import org.apache.log4j.Logger;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.*;
+
+import static ua.kiyv.training.testingSystem.utils.constants.Attributes.*;
+import static ua.kiyv.training.testingSystem.utils.constants.Attributes.PAGE;
 
 
 /**
@@ -27,29 +34,61 @@ public class ChooseTestCommand extends CommandWrapper {
     }
 
     private static final Logger logger = Logger.getLogger(ChooseTestCommand.class);
-
     ParamExtractor paramExtractor = new ParamExtractor();
+    private static final int itemsPerPage = 3;
+    private static final int FIRST = 1;
 
     @Override
     public String performExecute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         int testId = paramExtractor.extractSingleIntPathParam(request);
-//        long testId = extractLong(request,Attributes.TEST_ID);
-        request.getSession().setAttribute(Attributes.TEST_ID,testId);
-
-        Map<Question, List<Option>> test = ServiceFactory.getInstance()
-                .createConstructingTestService().getQuestionOptionsMapByTestID(testId);
-        request.setAttribute(Attributes.TEST, test);
-
+        boolean isQuestionChecked = true;
+        request.getSession().setAttribute(Attributes.TEST_ID, testId);
+        placeNecessaryDataToRequest(request,testId);
+        request.setAttribute(IS_QUESTION_CHECKED, isQuestionChecked);
         return PagesPath.TEST_PAGE;
     }
 
-//    public long extractLong(HttpServletRequest request, String param){
-//        try {
-//            return Long.parseLong(request.getParameter(param));
-//        } catch (NumberFormatException e) {
-//            logger.error(MessageKeys.WRONG_QUERY_PARAMETER);
-//            throw new ControllerException(MessageKeys.WRONG_QUERY_PARAMETER);
-//        }
-//    }
+    protected void placeNecessaryDataToRequest(HttpServletRequest request, int testId) {
+
+        int currentPageNumber = getPageNumberFromRequest(request);
+        int ordersStartFrom = calculateItemOffset(currentPageNumber);
+        ConstructingTestService constructingTestService = ServiceFactory.getInstance()
+                .createConstructingTestService();
+        Map<Question, List<Option>> test = constructingTestService
+                .getQuestionOptionsMapByTestIDWithLimitPerPage(testId, ordersStartFrom, itemsPerPage);
+        int lastPageNumber = calculateLastPageNumber(constructingTestService.countAllQuestionByTestId(testId));
+
+        while (currentPageNumber > lastPageNumber) {
+            currentPageNumber = lastPageNumber;
+            ordersStartFrom = calculateItemOffset(currentPageNumber);
+            test = constructingTestService
+                    .getQuestionOptionsMapByTestIDWithLimitPerPage(testId, ordersStartFrom, itemsPerPage);
+            lastPageNumber = calculateLastPageNumber(constructingTestService.countAllQuestionByTestId(testId));
+        }
+        request.setAttribute(Attributes.TEST, test);
+        request.setAttribute(CURRENT_PAGE, currentPageNumber);
+        request.setAttribute(LAST_PAGE, lastPageNumber);
+    }
+
+    private int calculateItemOffset(int pageNumber) {
+        return (pageNumber - FIRST) * itemsPerPage;
+    }
+
+    private int calculateLastPageNumber(int totalCount) {
+        int lastPageNumber = (int) Math.ceil(1.0 * totalCount / itemsPerPage);
+        return (lastPageNumber == 0) ? FIRST : lastPageNumber;
+    }
+
+    private int getPageNumberFromRequest(HttpServletRequest request) {
+        if (request.getParameter(PAGE) == null) {
+            return FIRST;
+        }
+        int requestedPageNumber = paramExtractor.extractIntFromString(request.getParameter(PAGE));
+        if (requestedPageNumber < FIRST) {
+            requestedPageNumber = FIRST;
+        }
+        return requestedPageNumber;
+    }
 }
+

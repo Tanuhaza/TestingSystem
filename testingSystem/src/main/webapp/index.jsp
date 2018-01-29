@@ -9,19 +9,16 @@
 <head>
     <meta charset="utf-8">
     <fmt:setBundle basename="${sessionScope['bundleFile']}" var="msg"/>
+    <link rel="stylesheet" href="/css/home.css">
     <title>home page</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/main.css">
-    <script src="/js/jquery-3.2.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
 </head>
-<body>
+<body class="index-body">
+
 <jsp:include page="/WEB-INF/view/jsp/fragment/header.jsp"/>
 
-<h3><fmt:message key="testing.system.welcome.to.testing.system" bundle="${msg}"/></h3>
-<h4><fmt:message key="testing.system.welcome.text" bundle="${msg}"/></h4>
-<h2><fmt:message key="testing.system.sign.in.or.sign.out" bundle="${msg}"/></h2>
+<div class="welcome-index"><fmt:message key="testing.system.welcome.to.testing.system" bundle="${msg}"/></div>
+<div class ="welcome-text"><fmt:message key="testing.system.welcome.text" bundle="${msg}"/></div>
+<div class="welcome-sign-in-out"> <fmt:message key="testing.system.sign.in.or.sign.out" bundle="${msg}"/></div>
 
 <jsp:include page="/WEB-INF/view/jsp/fragment/footer.jsp"/>
 </body>

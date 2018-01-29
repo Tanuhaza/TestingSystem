@@ -24,10 +24,8 @@ import java.util.List;
 
 /**
  * Created by Tanya on 02.01.2018.
- */
-
-/**
- * Implementation of topic response dao, which works with MySql using jdbc
+ *
+ * Implementation of question dao, which works with MySql using jdbc
  */
 
 public class JdbcQuestionDao implements QuestionDao {

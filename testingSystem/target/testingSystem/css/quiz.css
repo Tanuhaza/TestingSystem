@@ -1,0 +1,88 @@
+.question {
+    font-weight: normal;
+    background-color: #41caab17;
+    border-radius: 5px;
+    border-style: none;
+    border-width: 1px;
+    margin: 5px 400px 5px 400px;
+    padding: 5px 20px 5px 20px;
+    font-family: cursive;
+    width: auto;
+}
+
+.answer {
+    background-color: #5079ef2e;
+    border-radius: 5px;
+    border-style: none;
+    border-width: 1px;
+    margin: 5px 5px 5px 5px;
+    padding: 0px 5px 5px 5px;
+    width: auto;
+}
+
+.button-center {
+    text-align: center
+}
+
+.button-class {
+    width: max-content;
+    height: 50px;
+    width: 130px;
+    text-align: center;
+    border-radius: 15px;
+    font-size: 18px;
+    font-family: normal;
+    font-weight: bold;
+    background-color: #0b114a;
+    transition: All 0.9586s ease;
+    -webkit-transition: All 0.9586s ease;
+    -moz-transition: All 0.9586s ease;
+    -o-transition: All 0.9586s ease;
+
+    transform: rotate(0deg) scale(0.815) skew(1deg) translate(0px);
+    -webkit-transform: rotate(0deg) scale(0.815) skew(1deg) translate(0px);
+    -moz-transform: rotate(0deg) scale(0.815) skew(1deg) translate(0px);
+    -o-transform: rotate(0deg) scale(0.815) skew(1deg) translate(0px);
+    -ms-transform: rotate(0deg) scale(0.815) skew(1deg) translate(0px);
+
+}
+
+.button-class:hover {
+    transform: rotate(0deg) scale(0.99) skew(1deg) translate(0px);
+    -webkit-transform: rotate(0deg) scale(0.99) skew(1deg) translate(0px);
+    -moz-transform: rotate(0deg) scale(0.99) skew(1deg) translate(0px);
+    -o-transform: rotate(0deg) scale(0.99) skew(1deg) translate(0px);
+    -ms-transform: rotate(0deg) scale(0.99) skew(1deg) translate(0px);
+}
+
+.test-container {
+    background-color: #395cad47;
+}
+
+.messagebox-background {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.messagebox-content {
+    z-index: 101;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 auto;
+    width: 50%;
+    border-radius: 5px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    font-size: large;
+    color: #000000;
+    text-align: center;
+}

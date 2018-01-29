@@ -25,12 +25,12 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 /**
- * Created by Tanya on 23.01.2018.
+ * Implementation for UserResponse service
  */
+
 public class UserResponseServiceImpl implements UserResponseService {
 
     private static final Logger logger = Logger.getLogger(UserResponseServiceImpl.class);
-
 
     @Override
     public void create(UserResponse userResponse) {
@@ -73,12 +73,12 @@ public class UserResponseServiceImpl implements UserResponseService {
 
     @Override
     public List<Test> getTestsPassedByUser(int userId, int passedTimes) {
-        List<Integer> passedTestsId= DaoFactory.getInstance().createUserResponseDao().getPassedTestsId(userId,passedTimes);
+        List<Integer> passedTestsId = DaoFactory.getInstance().createUserResponseDao().getPassedTestsId(userId, passedTimes);
         ConstructingTestService testService = ServiceFactory.getInstance().createConstructingTestService();
         return passedTestsId
                 .stream()
                 .map(testId -> testService.findById(testId))
-                .filter(test->test.isPresent())
+                .filter(test -> test.isPresent())
                 .map(test -> test.get())
                 .collect(Collectors.toList());
     }
@@ -110,49 +110,49 @@ public class UserResponseServiceImpl implements UserResponseService {
     }
 
     @Override
-    public List<Test> getTestsPassedLastTime(int userId){
-            List<Integer> passedTestsId = DaoFactory.getInstance().createUserResponseDao().getPassedTestsId(userId);
-            ConstructingTestService testService = ServiceFactory.getInstance().createConstructingTestService();
-            return passedTestsId
-                    .stream()
-                    .filter(n -> getPassedTimes(userId, n).contains(2))
-                    .map(testId -> testService.findById(testId))
-                    .filter(test -> test.isPresent())
-                    .map(test -> test.get())
-                    .collect(Collectors.toList());
-        }
-
-    @Override
-    public int getTotalScoreByPassedTimes(int userId,int testId,int passedTimes) {
-        List<UserResponse> userResponses = DaoFactory.getInstance().createUserResponseDao().getUserResponseByUserAndTestId(userId,testId);
-        return   userResponses
+    public List<Test> getTestsPassedLastTime(int userId) {
+        List<Integer> passedTestsId = DaoFactory.getInstance().createUserResponseDao().getPassedTestsId(userId);
+        ConstructingTestService testService = ServiceFactory.getInstance().createConstructingTestService();
+        return passedTestsId
                 .stream()
-                .filter(userResponse -> userResponse.getPassedTimes()==passedTimes)
-                .map(userResponse -> userResponse.getTotalScore())
-                .findFirst().orElseThrow(()->new ServiceException(MessageKeys.USER_NOT_FOUND));
+                .filter(n -> getPassedTimes(userId, n).contains(2))
+                .map(testId -> testService.findById(testId))
+                .filter(test -> test.isPresent())
+                .map(test -> test.get())
+                .collect(Collectors.toList());
     }
 
     @Override
-    public Map<Test,Integer> getTestResultMapByPassedTimes (int userId,int passedTimes){
+    public int getTotalScoreByPassedTimes(int userId, int testId, int passedTimes) {
+        List<UserResponse> userResponses = DaoFactory.getInstance().createUserResponseDao().getUserResponseByUserAndTestId(userId, testId);
+        return userResponses
+                .stream()
+                .filter(userResponse -> userResponse.getPassedTimes() == passedTimes)
+                .map(userResponse -> userResponse.getTotalScore())
+                .findFirst().orElseThrow(() -> new ServiceException(MessageKeys.USER_NOT_FOUND));
+    }
+
+    @Override
+    public Map<Test, Integer> getTestResultMapByPassedTimes(int userId, int passedTimes) {
         UserResponseService userResponseService = ServiceFactory.getInstance().createUserResponseService();
-        List<Test> passedTests = userResponseService.getTestsPassedByUser(userId,passedTimes);
-        return  passedTests
+        List<Test> passedTests = userResponseService.getTestsPassedByUser(userId, passedTimes);
+        return passedTests
                 .stream()
                 .collect(Collectors.toMap(Function.identity(),
-                        test -> userResponseService.getTotalScoreByPassedTimes(userId,test.getId(),passedTimes)));
+                        test -> userResponseService.getTotalScoreByPassedTimes(userId, test.getId(), passedTimes)));
     }
 
     @Override
-    public Map<Test,Integer> getTestResultMapByFirstlyPassed (int userId){
+    public Map<Test, Integer> getTestResultMapByFirstlyPassed(int userId) {
         UserResponseService userResponseService = ServiceFactory.getInstance().createUserResponseService();
         List<Test> passedTests = userResponseService.getTestsPassedFirstly(userId);
-        return  passedTests
+        return passedTests
                 .stream()
                 .collect(Collectors.toMap(Function.identity(),
-                        test -> userResponseService.getTotalScoreByPassedTimes(userId,test.getId(),1)));
+                        test -> userResponseService.getTotalScoreByPassedTimes(userId, test.getId(), 1)));
     }
 
-    public int getTotalScore(Map<Question, List<Option>> resultMap){
+    public int getTotalScore(Map<Question, List<Option>> resultMap) {
         return resultMap.values()
                 .stream()
                 .flatMap(options -> options.stream())
@@ -162,14 +162,14 @@ public class UserResponseServiceImpl implements UserResponseService {
     @Override
     public List<Integer> getPassedTimes(int userId, int testId) {
         return DaoFactory.getInstance().createUserResponseDao()
-               .getPassedTimes(userId,testId);
+                .getPassedTimes(userId, testId);
     }
 
     @Override
-    public void deleteByPassedTimes(int userId, int testId, int passedTimes){
+    public void deleteByPassedTimes(int userId, int testId, int passedTimes) {
         JdbcTransactionHelper.getInstance().beginTransaction();
         try {
-            JdbcDaoFactory.getInstance().createUserResponseDao().deleteByPassedTimes(userId,testId,passedTimes);
+            JdbcDaoFactory.getInstance().createUserResponseDao().deleteByPassedTimes(userId, testId, passedTimes);
             JdbcTransactionHelper.getInstance().commitTransaction();
         } catch (DaoException ex) {
             JdbcTransactionHelper.getInstance().rollbackTransaction();

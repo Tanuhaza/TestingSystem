@@ -9,13 +9,9 @@
 <html>
 <head>
     <fmt:setLocale value="${sessionScope['locale']}"/>
-    <fmt:requestEncoding value="UTF-8" />
+    <fmt:requestEncoding value="UTF-8"/>
     <fmt:setBundle basename="${sessionScope['bundleFile']}" var="msg"/>
     <title>Users</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/main.css">
-    <script src="/js/jquery-3.2.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -26,8 +22,8 @@
 
         <c:forEach items="${topics}" var="topic">
             <tr>
-            <td><h4><a href="/topic/${topic.id} ">${topic.title} </a></h4></td>
-            <td><h4>${topic.info}</h4></td>
+                <td><h4><a href="/topic/${topic.id} ">${topic.title} </a></h4></td>
+                <td><h4>${topic.info}</h4></td>
             </tr>
         </c:forEach>
 

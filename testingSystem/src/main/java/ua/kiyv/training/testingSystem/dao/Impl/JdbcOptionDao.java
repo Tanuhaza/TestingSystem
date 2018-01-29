@@ -29,7 +29,6 @@ public class JdbcOptionDao implements OptionDao {
 
     private static final Logger logger = Logger.getLogger(JdbcOptionDao.class);
 
-
     @Override
     public void create(Option option) {
         String sqlStatement = "INSERT INTO options  (optionText, score, isCorrect, comment, " +
@@ -59,7 +58,6 @@ public class JdbcOptionDao implements OptionDao {
             throw new DaoException(ex, MessageKeys.WRONG_OPTION_DB_CAN_NOT_CREATE);
         }
     }
-
 
     @Override
     public Option findById(int id) {

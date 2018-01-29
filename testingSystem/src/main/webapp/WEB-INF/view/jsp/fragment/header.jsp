@@ -4,9 +4,17 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ page import="ua.kiyv.training.testingSystem.utils.constants.Attributes" %>
 
-<%--<fmt:setLocale value="${sessionScope['locale']}"/>--%>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/header.css">
+<link rel="stylesheet" href="/css/home.css">
+<script src="/js/jquery-3.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<fmt:setLocale value="${sessionScope['locale']}"/>
 <fmt:setBundle basename="${bundleFile}" var="msg"/>
-<fmt:requestEncoding value="UTF-8" />
+<fmt:requestEncoding value="UTF-8"/>
+
 <div class="mainmenu-wrapper">
     <div class="container">
         <div class="menuextras">
@@ -27,22 +35,77 @@
         <nav id="mainmenu" class="mainmenu">
             <ul>
                 <li>
-                    <a href="/home"><fmt:message key="testing.system.menu.home" bundle="${msg}"/></a>
+                    <div class="main-menu-button">
+                        <a href="/home"><fmt:message key="testing.system.menu.home" bundle="${msg}"/></a>
+                    </div>
                 </li>
                 <li>
-                    <a href="/topic"><fmt:message key="testing.system.menu.topics" bundle="${msg}"/></a>
+
+                        <a href="/topic"><fmt:message key="testing.system.menu.topics" bundle="${msg}"/></a>
+
                 </li>
                 <li>
-                    <a href="/profile"><fmt:message key="testing.system.menu.profile" bundle="${msg}"/></a>
+                    <div class="main-menu-button">
+                        <a href="/profile"><fmt:message key="testing.system.menu.profile" bundle="${msg}"/></a>
+                    </div>
                 </li>
                 <c:if test="${sessionScope.userRole=='ADMIN'}">
                     <li>
-                        <a href="/admin/users"><fmt:message key="testing.system.menu.users" bundle="${msg}"/></a>
+                        <div class="main-menu-button">
+                            <a href="/admin/users"><fmt:message key="testing.system.menu.users" bundle="${msg}"/></a>
+                        </div>
                     </li>
                 </c:if>
-
             </ul>
         </nav>
     </div>
 </div>
+        <%--<header>--%>
+            <%--<nav role="navigation">--%>
+                <%--<ul>--%>
+                    <%--<li>--%>
+                        <%--<a href="/">--%>
+                            <%--<div>--%>
+                                <%--Home--%>
+                                <%--<span>there's no place like it</span>--%>
+                            <%--</div>--%>
+                        <%--</a>--%>
+                    <%--</li>--%>
+                    <%--<li>--%>
+                        <%--<a href="/blog">--%>
+                            <%--<div>--%>
+                                <%--Blog--%>
+                                <%--<span>my thoughts rock</span>--%>
+                            <%--</div>--%>
+                        <%--</a><div>--%>
+                        <%--<ul>--%>
+                            <%--<li><a href="#">Me</a></li>--%>
+                            <%--<li><a href="#">Gaming</a></li>--%>
+                            <%--<li><a href="#">Sport</a></li>--%>
+                            <%--<li><a href="#">Web Design</a></li>--%>
+                            <%--<li><a href="#">Web Development</a></li>--%>
+                        <%--</ul>--%>
+                    <%--</div>--%>
+                    <%--</li>--%>
+                    <%--<li>--%>
+                        <%--<a href="/contact">--%>
+                            <%--<div>--%>
+                                <%--Contact--%>
+                                <%--<span>drop me a line</span>--%>
+                            <%--</div>--%>
+                        <%--</a>--%>
+                    <%--</li>--%>
+                    <%--<li>--%>
+                        <%--<a href="/forum">--%>
+                            <%--<div>--%>
+                                <%--Forum--%>
+                                <%--<span>chat with others</span>--%>
+                            <%--</div>--%>
+                        <%--</a>--%>
+                    <%--</li>--%>
+                <%--</ul>--%>
+            <%--</nav>--%>
+        <%--</header>--%>
+    <%--</div>--%>
+<%--</div>--%>
 

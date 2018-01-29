@@ -12,4 +12,6 @@ public interface TestDao extends GenericDao<Test> {
     public List<Integer> getAssociatedQuestionsIDByTestID(int id);
     public List<Test> getAssosiatedTestsByTopicId(int id);
     public boolean associate(Test test,Question question);
+    public List<Integer> getAssociatedQuestionsIDByTestIDWithLimitPerPage(int id,int startFrom, int quantity);
+    public int countAllQuestionByTestId(int id);
 }

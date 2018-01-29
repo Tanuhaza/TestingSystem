@@ -10,5 +10,7 @@ import java.util.List;
 public interface UserDao extends GenericDao<User> {
     public User findByLogin(String login);
     public List<User> findByRole(User.Role role);
+    public int countAllUsers();
+    public List<User> getAllWithLimitPerPage(int startFrom, int quantity);
 
 }

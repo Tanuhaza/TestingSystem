@@ -27,7 +27,8 @@ import java.util.List;
 
 public class JdbcUserDao implements UserDao {
 
-    JdbcUserDao(){}
+    JdbcUserDao() {
+    }
 
     private static final Logger logger = Logger.getLogger(JdbcUserDao.class);
 
@@ -72,8 +73,8 @@ public class JdbcUserDao implements UserDao {
             if (!resultSet.next()) {
                 throw new DaoException(MessageKeys.WRONG_USER_DB_NO_ID_EXIST);
             }
-            UserMapper userMapper=new UserMapper();
-            user=userMapper.extractFromResultSet(resultSet);
+            UserMapper userMapper = new UserMapper();
+            user = userMapper.extractFromResultSet(resultSet);
 
             resultSet.close();
             statement.close();
@@ -87,7 +88,7 @@ public class JdbcUserDao implements UserDao {
     @Override
     public User findByLogin(String login) {
         String sqlStatement = "SELECT id, firstName, lastName,login, password, email, role "
-                               + "FROM user WHERE login=?";
+                + "FROM user WHERE login=?";
         User user;
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sqlStatement);
@@ -96,8 +97,8 @@ public class JdbcUserDao implements UserDao {
             if (!resultSet.next()) {
                 throw new DaoException(MessageKeys.WRONG_USER_DB_NO_LOGIN_EXIST);
             }
-                UserMapper userMapper=new UserMapper();
-                user=userMapper.extractFromResultSet(resultSet);
+            UserMapper userMapper = new UserMapper();
+            user = userMapper.extractFromResultSet(resultSet);
 
             resultSet.close();
             statement.close();
@@ -116,17 +117,60 @@ public class JdbcUserDao implements UserDao {
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sqlStatement);
-            UserMapper userMapper=new UserMapper();
+            UserMapper userMapper = new UserMapper();
             while (resultSet.next()) {
-                user=userMapper.extractFromResultSet(resultSet);
+                user = userMapper.extractFromResultSet(resultSet);
                 users.add(user);
             }
             resultSet.close();
             statement.close();
-            } catch (SQLException ex) {
-                logger.error(LoggerMessages.ERROR_FIND_ALL_USERS);
-                throw new DaoException(ex, MessageKeys.WRONG_USER_DB_CAN_NOT_GET_ALL_USERS);
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_ALL_USERS);
+            throw new DaoException(ex, MessageKeys.WRONG_USER_DB_CAN_NOT_GET_ALL_USERS);
+        }
+        return users;
+    }
+
+    @Override
+    public int countAllUsers() {
+        String sqlStatement = "SELECT COUNT(id) AS total_count FROM user ";
+        int totalNumberOfUsers;
+        try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(sqlStatement);
+            ResultSet resultSet = statement.executeQuery();
+            if (!resultSet.next()) {
+                throw new DaoException(MessageKeys.WRONG_USER_DB_CAN_NOT_GET_ALL_USERS);
             }
+            totalNumberOfUsers = resultSet.getInt("total_count");
+
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_ALL_USERS);
+            throw new DaoException(ex, MessageKeys.WRONG_USER_DB_CAN_NOT_GET_ALL_USERS);
+        }
+        return totalNumberOfUsers;
+    }
+
+    @Override
+    public List<User> getAllWithLimitPerPage(int startFrom, int quantity) {
+        String sqlStatement = "SELECT * FROM user order by lastName desc limit ?,?";
+        User user;
+        List<User> users = new ArrayList<>();
+        try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(sqlStatement);
+            statement.setInt(1, startFrom);
+            statement.setInt(2, quantity);
+            ResultSet resultSet = statement.executeQuery();
+            UserMapper userMapper = new UserMapper();
+            while (resultSet.next()) {
+                user = userMapper.extractFromResultSet(resultSet);
+                users.add(user);
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_ALL_USERS);
+            throw new DaoException(ex, MessageKeys.WRONG_USER_DB_CAN_NOT_GET_ALL_USERS);
+        }
         return users;
     }
 
@@ -152,7 +196,6 @@ public class JdbcUserDao implements UserDao {
             logger.error(LoggerMessages.ERROR_UPDATE_USER + user.toString());
             throw new DaoException(ex, MessageKeys.WRONG_USER_DB_CAN_NOT_UPDATE);
         }
-
     }
 
     @Override
@@ -167,10 +210,9 @@ public class JdbcUserDao implements UserDao {
             }
             statement.close();
         } catch (SQLException ex) {
-        logger.error(LoggerMessages.ERROR_DELETE_USER + user.getId());
-        throw new DaoException(ex, MessageKeys.WRONG_USER_DB_CAN_NOT_DELETE);
-    }
-
+            logger.error(LoggerMessages.ERROR_DELETE_USER + user.getId());
+            throw new DaoException(ex, MessageKeys.WRONG_USER_DB_CAN_NOT_DELETE);
+        }
     }
 
     @Override
@@ -180,9 +222,9 @@ public class JdbcUserDao implements UserDao {
         User user;
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sqlStatement);
-            statement.setString(1,role.toString());
+            statement.setString(1, role.toString());
             ResultSet resultSet = statement.executeQuery();
-            UserMapper userMapper=new UserMapper();
+            UserMapper userMapper = new UserMapper();
             if (!resultSet.next()) {
                 throw new DaoException(MessageKeys.WRONG_USER_DB_ROLE);
             }

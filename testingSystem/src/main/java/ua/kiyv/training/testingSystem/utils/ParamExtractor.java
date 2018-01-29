@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 /**
  * Created by Tanya on 15.01.2018.
  */
-public class ParamExtractor {
+public class    ParamExtractor {
 
     public static final String NUMBER_BETWEEN_SLASHES_PATTERN = "\\d+(?=/|$)";
     private Pattern numberPattern = Pattern.compile(NUMBER_BETWEEN_SLASHES_PATTERN);
@@ -21,7 +21,7 @@ public class ParamExtractor {
         return 0;
     }
 
-    private int extractIntFromString(String str){
+    public int extractIntFromString(String str){
         int result=0;
         try {
             result = Integer.parseInt(str);

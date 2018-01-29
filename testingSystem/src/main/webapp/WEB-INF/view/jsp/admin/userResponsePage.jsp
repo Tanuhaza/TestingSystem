@@ -8,14 +8,10 @@
 <html>
 <head>
     <fmt:setLocale value="${sessionScope['locale']}"/>
-    <fmt:requestEncoding value="UTF-8" />
+    <fmt:requestEncoding value="UTF-8"/>
     <fmt:setBundle basename="${sessionScope['bundleFile']}" var="msg"/>
     <meta charset="utf-8">
     <title>Users</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/main.css">
-    <script src="/js/jquery-3.2.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
 <jsp:include page="../fragment/header.jsp"></jsp:include>
@@ -24,8 +20,8 @@
     <table class="table borderless">
         <c:forEach items="${testResultMap}" var="map">
             <tr>
-                <td> <h4>${map.key.name}</h4></td>
-                <td> <h4> ${map.value}</h4> </td>
+                <td><h4>${map.key.name}</h4></td>
+                <td><h4> ${map.value}</h4></td>
             </tr>
         </c:forEach>
     </table>

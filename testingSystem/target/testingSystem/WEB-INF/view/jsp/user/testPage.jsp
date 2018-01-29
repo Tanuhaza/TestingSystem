@@ -2,40 +2,45 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page trimDirectiveWhitespaces="true" %>
-<fmt:setBundle basename="webProject.i18n.messages" var="msg"/>
+<%@ taglib uri="/WEB-INF/view/taglib/Paginator.tld" prefix="custom" %>
+<%@ page import="ua.kiyv.training.testingSystem.utils.constants.Attributes" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
     <fmt:setLocale value="${sessionScope['locale']}"/>
-    <fmt:requestEncoding value="UTF-8" />
-    <%--<fmt:setBundle basename="${sessionScope['bundleFile']}" var="msg"/>--%>
+    <fmt:requestEncoding value="UTF-8"/>
+    <fmt:setBundle basename="${sessionScope['bundleFile']}" var="msg"/>
     <meta charset="utf-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/css/login.css">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <script src="/js/jquery-3.2.1.min.js"></script>
-    <script src="/js/login.js"></script>
-    <script src="/js/login-form-initializer.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/quiz.css">
 </head>
 <body>
-
-<form id="test-form" action="/test" method="post" id="test">
-<div class="dropdown choose-country top-right">
-    <ul>
-        <c:forEach items="${test}" var="entry">
-            <p>${entry.key.questionText}</p>
-            <c:forEach items="${entry.value}" var="item">
-                <div>
-                    <br> <input type="checkbox" name="${entry.key.id}" id="${item.id}" value="${item.id}"/>
-                    <label for="${item.id}"> ${item.optionText}</label>
+<c:set var="count" value="${0}"/>
+<form id="" action="/test" method="post">
+    <div class="test-container">
+        <ul>
+            <c:forEach items="${test}" var="entry">
+                <c:set var="count" value="${count+1}"/>
+                <div class="question"><c:out value="${count}."/> <span
+                        style='padding-left:20px;'> </span> ${entry.key.questionText}
+                    <c:forEach items="${entry.value}" var="item">
+                        <div class="answer">
+                            <br> <input type="checkbox" name="${entry.key.id}" id="${item.id}" value="${item.id}"
+                                        class="variant"/>
+                            <label for="${item.id}"> ${item.optionText}</label>
+                        </div>
+                    </c:forEach>
                 </div>
             </c:forEach>
-        </c:forEach>
-        <input type="submit" value="Submit Quiz"/>
-    </ul>
-</div>
-    </form>
-    </body>
-    </html>
+            <c:set var="count" value="${count+3}"/>
+            <jsp:include page="../fragment/paginator.jsp"/>
+            <div class = "button-center"> <input class="button-class" type="submit" value="Submit Quiz"/></div>
+        </ul>
+    </div>
+</form>
+
+
+</body>
+</html>
+

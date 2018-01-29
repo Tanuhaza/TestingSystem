@@ -23,6 +23,7 @@ public final class Attributes {
     public static final String LAST_TEST_RESULT_MAP = "lastTestResultMap";
     public static final String TEST_RESULT_MAP = "testResultMap";
     public static final String PAGE_TITLE = "page_title";
+    public static final String IS_QUESTION_CHECKED = "isQuestionChecked";
 
     public static final String QUESTIONS = "questions";
 
@@ -50,6 +51,9 @@ public final class Attributes {
     public static final String LIMIT = "limit";
     public static final String OFFSET = "page";
     public static final String TOTAL_PAGES = "pages";
+    public static final String CURRENT_PAGE = "current_page";
+    public static final String LAST_PAGE = "last_page";
+    public static final String PAGE = "page";
 
     public static final String EN = "en";
     public static final String UA = "ua";

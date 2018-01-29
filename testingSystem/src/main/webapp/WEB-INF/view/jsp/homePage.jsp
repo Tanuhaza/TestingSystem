@@ -8,21 +8,18 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/home.css">
     <fmt:setBundle basename="${sessionScope['bundleFile']}" var="msg"/>
     <title>home page</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/main.css">
-    <script src="/js/jquery-3.2.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
 </head>
-<body>
+<body class="home">
 <jsp:include page="fragment/header.jsp"/>
-
-<h3><fmt:message key="testing.system.you.are.welcom" bundle="${msg}"/></h3>
-<h3>${user.firstName}<span style='padding-left:10px;'> </span>${user.lastName}</h3>
-
+<div class="user-welcome">
+<div  class ="welcome" align="center"><fmt:message key="testing.system.you.are.welcom" bundle="${msg}"/></div>
+<div class="user-first-last-name" align="center">${user.firstName}<span style='padding-left:10px;'> </span>${user.lastName}</div>
+</div>
 <jsp:include page="fragment/footer.jsp"/>
+</body>
 </html>
 
 

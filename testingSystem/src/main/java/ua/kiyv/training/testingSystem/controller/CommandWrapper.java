@@ -22,8 +22,8 @@ import java.io.IOException;
 public abstract class CommandWrapper implements Command {
     private static final Logger logger = Logger.getLogger(CommandWrapper.class);
     private final String nextPage;
-//    private RequestParamExtractor paramExtractor = new RequestParamExtractor();
-    private static final int DEFAULT_QUANTITY_VALUE=10;
+    //    private RequestParamExtractor paramExtractor = new RequestParamExtractor();
+    private static final int DEFAULT_QUANTITY_VALUE = 10;
     private static final int DEFAULT_OFFSET_VALUE = 0;
 
     protected CommandWrapper(String nextPage) {
@@ -32,7 +32,8 @@ public abstract class CommandWrapper implements Command {
 
     /**
      * main method which wrap all actions, which could throw some exception
-     * @param request request from client
+     *
+     * @param request  request from client
      * @param response response to client
      * @return
      * @throws ServletException
@@ -42,30 +43,25 @@ public abstract class CommandWrapper implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             return performExecute(request, response);
-
-        }
-        catch (ServiceException exception){
+        } catch (ServiceException exception) {
             logger.error(LoggerMessages.SERVICE_EXCEPTION_OCCURRED, exception);
             putErrorMessageInRequest(request, exception.getMessageKey());
             request.getRequestDispatcher(PagesPath.ERROR_PAGE).forward(request, response);
-        }
-        catch (ApplicationException exception){
+        } catch (ApplicationException exception) {
             logger.error(LoggerMessages.APPLICATION_EXCEPTION_OCCURRED, exception);
             putErrorMessageInRequest(request, exception.getMessageKey());
-            request.getRequestDispatcher(PagesPath.ERROR_PAGE).forward(request,response);
-        }
-        catch (Exception exception){
+            request.getRequestDispatcher(PagesPath.ERROR_PAGE).forward(request, response);
+        } catch (Exception exception) {
             logger.error(LoggerMessages.UNKNOWN_ERROR_OCCURED, exception);
             putErrorMessageInRequest(request, MessageKeys.UNKNOWN_ERROR_OCCURED);
-            request.getRequestDispatcher(PagesPath.ERROR_PAGE).forward(request,response);
-
+            request.getRequestDispatcher(PagesPath.ERROR_PAGE).forward(request, response);
         }
         return PagesPath.FORWARD;
     }
 
-    public void putErrorMessageInRequest(HttpServletRequest request, String messageKey){
+    public void putErrorMessageInRequest(HttpServletRequest request, String messageKey) {
         Errors errors = (Errors) request.getAttribute(Attributes.ERRORS);
-        if(errors==null){
+        if (errors == null) {
             errors = new Errors();
         }
         errors.addError(Attributes.ERROR, messageKey);
@@ -86,7 +82,7 @@ public abstract class CommandWrapper implements Command {
 //                .orElse(DEFAULT_OFFSET_VALUE);
 //    }
 
-    protected int calculateOverallPagesCount(int limit, int totalCount){
-        return (int)Math.ceil((totalCount+0.0)/limit);
+    protected int calculateOverallPagesCount(int limit, int totalCount) {
+        return (int) Math.ceil((totalCount + 0.0) / limit);
     }
 }

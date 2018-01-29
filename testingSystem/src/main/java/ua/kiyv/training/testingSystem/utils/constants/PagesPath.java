@@ -37,9 +37,10 @@ public final class PagesPath {
     public static final String TEST_PAGE = VIEW_JSP_CLASSPATH + "user/testPage.jsp";
     public static final String QUESTIONS_PAGE = VIEW_JSP_CLASSPATH + "user/question.jsp";
     public static final String RESPONSE_PAGE = VIEW_JSP_CLASSPATH + "user/userResponsePage.jsp";
+    public static final String PARTIAL_RESPONSE_PAGE = VIEW_JSP_CLASSPATH + "user/partialResponsePage.jsp";
     public static final String PROFILE_PAGE = VIEW_JSP_CLASSPATH + "user/profilePage.jsp";
+    public static final String CONFIRMATION_PAGE = VIEW_JSP_CLASSPATH + "confirmation.jsp";
 
-    public static final String ERROR_PAGE = VIEW_JSP_CLASSPATH + "error.jsp";
-    public static final String CONFIRMATION_PAGE = VIEW_JSP_CLASSPATH + "confirmation.jsp";}
+    public static final String ERROR_PAGE = VIEW_JSP_CLASSPATH + "error.js";}
 
 

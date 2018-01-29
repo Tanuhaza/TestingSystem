@@ -12,7 +12,7 @@ public class DaoException extends ApplicationException {
         super(message, messageKey);
     }
 
-    public DaoException(Throwable cause, String message ) {
+    public DaoException(Throwable cause, String message) {
         super(cause, message);
     }
 }

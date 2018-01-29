@@ -23,9 +23,7 @@ import java.util.List;
 
 /**
  * Created by Tanya on 15.01.2018.
- */
-
-/**
+ *
  * Implementation of test dao, which works with MySql using jdbc
  */
 
@@ -160,6 +158,50 @@ public class JdbcTestDao implements TestDao {
             throw new DaoException(ex, MessageKeys.WRONG_TEST_DB_CAN_NOT_GET_ASSOSIATED_QUESTIONS);
         }
         return associatedQuestionsId;
+    }
+
+
+    @Override
+    public List<Integer> getAssociatedQuestionsIDByTestIDWithLimitPerPage(int id,int startFrom, int quantity) {
+        String sqlStatement = "SELECT * FROM question_test WHERE test_Id = ? limit ?,?";
+        List<Integer> associatedQuestionsId = new ArrayList<>();
+        try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(sqlStatement);
+            statement.setInt(1, id);
+            statement.setInt(2, startFrom);
+            statement.setInt(3, quantity);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                associatedQuestionsId.add(resultSet.getInt("question_Id"));
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_ASSOSIATED_QUESTIONS_BY_TEST_ID + id);
+            throw new DaoException(ex, MessageKeys.WRONG_TEST_DB_CAN_NOT_GET_ASSOSIATED_QUESTIONS);
+        }
+        return associatedQuestionsId;
+    }
+
+    @Override
+    public int countAllQuestionByTestId(int id) {
+        String sqlStatement = "SELECT COUNT(question_id) AS total_count FROM question_test WHERE test_Id= ? ";
+        int totalNumberOfQuestionsByTestId;
+        try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(sqlStatement);
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            if (!resultSet.next()) {
+                throw new DaoException(MessageKeys.WRONG_TEST_DB_CAN_NOT_GET_ALL_TESTS);
+            }
+            totalNumberOfQuestionsByTestId = resultSet.getInt("total_count");
+            resultSet.close();
+            statement.close();
+        } catch (SQLException ex) {
+            logger.error(LoggerMessages.ERROR_FIND_ALL_TESTS);
+            throw new DaoException(ex, MessageKeys.WRONG_TEST_DB_CAN_NOT_GET_ALL_TESTS);
+        }
+        return  totalNumberOfQuestionsByTestId;
     }
 
     @Override

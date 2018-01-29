@@ -34,7 +34,13 @@ public interface ConstructingTestService {
 
     public Map<Question,List<Option>> getQuestionOptionsMapByTestID(int id);
 
+    public Map<Question, List<Option>> getQuestionOptionsMapByTestIDWithLimitPerPage(int testId, int startFrom, int quantity);
+
+    public List<Question> getQuestionsByTestIDWithLimitPerPage(int id,int startFrom, int quantity);
+
     public List<Option> getOptionsByQuestionID(int id);
 
     public List<Integer> getTestsIDByQuestionID( int id);
+
+    public int countAllQuestionByTestId(int id);
 }

@@ -34,7 +34,6 @@ public class FrontController extends HttpServlet {
     public void init() throws ServletException {
         super.init();
         commandHolder = new CommandHolder(getServletContext().getContextPath());
-        System.out.println(getServletContext().getContextPath());
     }
 
     /**

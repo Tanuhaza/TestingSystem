@@ -8,7 +8,7 @@ import ua.kiyv.training.testingSystem.service.UserService;
 /**
  * Created by Tanya on 05.01.2018.
  */
-public class ServiceFactoryImpl extends ServiceFactory{
+public class ServiceFactoryImpl extends ServiceFactory {
     @Override
     public UserService createUserService() {
         return new UserServiceImpl();

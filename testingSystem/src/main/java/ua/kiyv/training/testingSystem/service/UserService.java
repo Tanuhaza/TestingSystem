@@ -15,5 +15,7 @@ public interface UserService {
     void update(User user);
     void delete(User user);
     public Optional<User> getUserByLoginPassword(String login, String password);
+    public int countAllUsers();
+    public List<User> getAllWithLimitPerPage(int startFrom, int quantity);
 
 }

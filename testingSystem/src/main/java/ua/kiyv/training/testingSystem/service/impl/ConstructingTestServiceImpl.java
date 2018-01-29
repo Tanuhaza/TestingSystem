@@ -3,6 +3,7 @@ package ua.kiyv.training.testingSystem.service.impl;
 import org.apache.log4j.Logger;
 import ua.kiyv.training.testingSystem.connection.Jdbc.JdbcTransactionHelper;
 import ua.kiyv.training.testingSystem.dao.DaoException;
+import ua.kiyv.training.testingSystem.dao.DaoFactory;
 import ua.kiyv.training.testingSystem.dao.Impl.JdbcDaoFactory;
 import ua.kiyv.training.testingSystem.dao.QuestionDao;
 import ua.kiyv.training.testingSystem.dao.TestDao;
@@ -20,7 +21,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * Created by Tanya on 23.01.2018.
+ * Implementation for ConstructingTest service
  */
 public class ConstructingTestServiceImpl implements ConstructingTestService {
 
@@ -54,23 +55,13 @@ public class ConstructingTestServiceImpl implements ConstructingTestService {
 
     @Override
     public Optional<Test> findById(int id) {
-        return  Optional.of(JdbcDaoFactory.getInstance().createTestDao().findById(id));}
+        return Optional.of(JdbcDaoFactory.getInstance().createTestDao().findById(id));
+    }
 
     @Override
     public List<Topic> findAllTopics() {
-        List<Topic> topics = new ArrayList<>();
-        JdbcTransactionHelper.getInstance().beginTransaction();
-        try {
-             topics = JdbcDaoFactory.getInstance().createTopicDao().findAll();
-            JdbcTransactionHelper.getInstance().commitTransaction();
-        } catch (DaoException ex) {
-            JdbcTransactionHelper.getInstance().rollbackTransaction();
-            logger.error(LoggerMessages.WRONG_TRANSACTION);
-            throw new ServiceException(ex, MessageKeys.WRONG_TRANSACTION);
-        }
-        return topics;
+        return JdbcDaoFactory.getInstance().createTopicDao().findAll();
     }
-
 
     @Override
     public void update(Test test) {
@@ -104,7 +95,7 @@ public class ConstructingTestServiceImpl implements ConstructingTestService {
         try {
             TestDao testDao = JdbcDaoFactory.getInstance().createTestDao();
             testDao.create(test);
-            questions.forEach(question -> testDao.associate(test,question));
+            questions.forEach(question -> testDao.associate(test, question));
             JdbcTransactionHelper.getInstance().commitTransaction();
         } catch (DaoException ex) {
             JdbcTransactionHelper.getInstance().rollbackTransaction();
@@ -112,35 +103,65 @@ public class ConstructingTestServiceImpl implements ConstructingTestService {
             throw new ServiceException(ex, MessageKeys.WRONG_TRANSACTION);
         }
     }
+@Override
+    public int countAllQuestionByTestId(int id){
+        return DaoFactory.getInstance().createTestDao().countAllQuestionByTestId(id);
+}
 
     @Override
     public List<Question> getQuestionsByTestID(int id) {
         QuestionDao questionDao = JdbcDaoFactory.getInstance().createQuestionDao();
         return JdbcDaoFactory.getInstance().createTestDao().getAssociatedQuestionsIDByTestID(id)
                 .stream()
-                .map(questionDao :: findById )
-                .collect(Collectors.toList());}
+                .map(questionDao::findById)
+                .collect(Collectors.toList());
+    }
 
+    @Override
+    public List<Question> getQuestionsByTestIDWithLimitPerPage(int id, int startFrom, int quantity) {
+        QuestionDao questionDao = JdbcDaoFactory.getInstance().createQuestionDao();
+        return JdbcDaoFactory.getInstance().createTestDao().getAssociatedQuestionsIDByTestIDWithLimitPerPage(id, startFrom, quantity)
+                .stream()
+                .map(questionDao::findById)
+                .collect(Collectors.toList());
+    }
 
     @Override
     public List<Option> getOptionsByQuestionID(int id) {
-        return  JdbcDaoFactory.getInstance().createQuestionDao().getAssociatedOptionsByQuestionID(id);}
+        return JdbcDaoFactory.getInstance().createQuestionDao().getAssociatedOptionsByQuestionID(id);
+    }
 
     @Override
     public List<Integer> getTestsIDByQuestionID(int id) {
-        return   JdbcDaoFactory.getInstance().createQuestionDao().getAssociatedTestsIDByQuestionID(id);}
+        return JdbcDaoFactory.getInstance().createQuestionDao().getAssociatedTestsIDByQuestionID(id);
+    }
 
     @Override
     public List<Test> getTestsByTopicId(int id) {
-        return JdbcDaoFactory.getInstance().createTestDao().getAssosiatedTestsByTopicId(id);}
+        return JdbcDaoFactory.getInstance().createTestDao().getAssosiatedTestsByTopicId(id);
+    }
 
     @Override
-    public Map<Question,List<Option>> getQuestionOptionsMapByTestID(int testId) {
+    public Map<Question, List<Option>> getQuestionOptionsMapByTestID(int testId) {
 
         Map<Question, List<Option>> test = new HashMap<>();
 
         ConstructingTestService constructingTestService = ServiceFactory.getInstance().createConstructingTestService();
         List<Question> questionsId = constructingTestService.getQuestionsByTestID(testId);
+        questionsId.stream()
+                .forEach(question ->
+                        test.put(question, constructingTestService.getOptionsByQuestionID(question.getId())));
+
+        return test;
+    }
+
+    @Override
+    public Map<Question, List<Option>> getQuestionOptionsMapByTestIDWithLimitPerPage(int testId, int startFrom, int quantity) {
+
+        Map<Question, List<Option>> test = new HashMap<>();
+
+        ConstructingTestService constructingTestService = ServiceFactory.getInstance().createConstructingTestService();
+        List<Question> questionsId = constructingTestService.getQuestionsByTestIDWithLimitPerPage(testId, startFrom, quantity);
         questionsId.stream()
                 .forEach(question ->
                         test.put(question, constructingTestService.getOptionsByQuestionID(question.getId())));
