@@ -97,40 +97,10 @@ public class UserResponseServiceImpl implements UserResponseService {
     }
 
     @Override
-    public List<Test> getTestsPassedFirstTime(int userId) {
-        List<Integer> passedTestsId = DaoFactory.getInstance().createUserResponseDao().getPassedTestsId(userId);
-        ConstructingTestService testService = ServiceFactory.getInstance().createConstructingTestService();
-        return passedTestsId
-                .stream()
-                .filter(n -> getPassedTimes(userId, n).contains(1))
-                .map(testId -> testService.findById(testId))
-                .filter(test -> test.isPresent())
-                .map(test -> test.get())
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public List<Test> getTestsPassedLastTime(int userId) {
-        List<Integer> passedTestsId = DaoFactory.getInstance().createUserResponseDao().getPassedTestsId(userId);
-        ConstructingTestService testService = ServiceFactory.getInstance().createConstructingTestService();
-        return passedTestsId
-                .stream()
-                .filter(n -> getPassedTimes(userId, n).contains(2))
-                .map(testId -> testService.findById(testId))
-                .filter(test -> test.isPresent())
-                .map(test -> test.get())
-                .collect(Collectors.toList());
-    }
-
-    @Override
     public int getTotalScoreByPassedTimes(int userId, int testId, int passedTimes) {
-        List<UserResponse> userResponses = DaoFactory.getInstance().createUserResponseDao().getUserResponseByUserAndTestId(userId, testId);
-        return userResponses
-                .stream()
-                .filter(userResponse -> userResponse.getPassedTimes() == passedTimes)
-                .map(userResponse -> userResponse.getTotalScore())
-                .findFirst().orElseThrow(() -> new ServiceException(MessageKeys.USER_NOT_FOUND));
+        return DaoFactory.getInstance().createUserResponseDao().getTotalScoreByPassedTimes(userId, testId, passedTimes);
     }
+
 
     @Override
     public Map<Test, Integer> getTestResultMapByPassedTimes(int userId, int passedTimes) {
@@ -143,7 +113,7 @@ public class UserResponseServiceImpl implements UserResponseService {
     }
 
     @Override
-    public Map<Test, Integer> getTestResultMapByFirstlyPassed(int userId) {
+    public Map<Test, Integer> getTestResultMapFirstlyPassed(int userId) {
         UserResponseService userResponseService = ServiceFactory.getInstance().createUserResponseService();
         List<Test> passedTests = userResponseService.getTestsPassedFirstly(userId);
         return passedTests

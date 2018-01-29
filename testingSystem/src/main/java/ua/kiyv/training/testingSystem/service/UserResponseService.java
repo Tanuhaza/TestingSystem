@@ -9,34 +9,84 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * This class represents UserResponse service
+ *
  * Created by Tanya on 23.01.2018.
  */
 public interface UserResponseService {
 
-    void create (UserResponse userResponse);
+    /**
+     * @param userResponse response of user to be created and saved in data base
+     */
+    void create(UserResponse userResponse);
 
-    void update (UserResponse userResponse);
+    void update(UserResponse userResponse);
 
     public void delete(UserResponse userResponse);
 
-    public List<Test> getTestsPassedByUser(int userId,int passedTimes);
+    /**
+     * @param userId      user id
+     * @param testId      test id
+     * @param passedTimes define first or last time test was passed, first=1,last=2
+     */
+
+    public void deleteByPassedTimes(int userId, int testId, int passedTimes);
+
+    /**
+     * @param userId      user id
+     * @param passedTimes define first or last time test was passed, first=1,last=2
+     * @return list of Test entity which was passed by user
+     */
+
+    public List<Test> getTestsPassedByUser(int userId, int passedTimes);
+
+    /**
+     * @param userId user id
+     * @return list of Test entity which was passed by user firstly
+     */
 
     public List<Test> getTestsPassedFirstly(int userId);
 
-    public List<Test> getTestsPassedFirstTime(int userId);
+    /**
+     * @param userId user id
+     * @return map
+     */
 
-    public List<Test> getTestsPassedLastTime(int userId);
+    public Map<Test, Integer> getTestResultMapFirstlyPassed(int userId);
 
-    public Map<Test,Integer> getTestResultMapByFirstlyPassed (int userId);
+    /**
+     * @param userId      user id
+     * @param testId      test id
+     * @param passedTimes define first or last time test was passed, first=1,last=2
+     * @return test score which was passed by user
+     */
 
-    public int getTotalScoreByPassedTimes(int userId,int testId, int passedTimes);
+    public int getTotalScoreByPassedTimes(int userId, int testId, int passedTimes);
 
-    public Map<Test,Integer> getTestResultMapByPassedTimes (int userId,int passedTimes);
+    /**
+     * @param resultMap resultmap consists of questions and options which were checked by user
+     * @return test score which was passed by user
+     */
 
     public int getTotalScore(Map<Question, List<Option>> resultMap);
 
-    public List<Integer> getPassedTimes(int userId,int testId);
+    /**
+     * @param userId user id
+     * @param passedTimes define first or last time test was passed, first=1,last=2
+     * @return map which consist of test's name and score for it
+     */
 
-    public void deleteByPassedTimes(int userId, int testId, int passedTimes);
+    public Map<Test, Integer> getTestResultMapByPassedTimes(int userId, int passedTimes);
+
+    /**
+     * @param userId      user id
+     * @param testId test id
+     * @return list of integer which can contains 0 or 1 or  {1,2},
+     * 1 means test was passed first time, 2 means test was passed last
+     */
+
+    public List<Integer> getPassedTimes(int userId, int testId);
+
+
 
 }

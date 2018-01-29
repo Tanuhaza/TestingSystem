@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/css/home.css">
     <title>home page</title>
 </head>
-<body class="index-body">
+<body class="body-profile-container">
 
 <jsp:include page="/WEB-INF/view/jsp/fragment/header.jsp"/>
 

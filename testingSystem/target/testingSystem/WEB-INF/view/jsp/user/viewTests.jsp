@@ -9,18 +9,21 @@
     <fmt:setLocale value="${sessionScope['locale']}"/>
     <fmt:requestEncoding value="UTF-8"/>
     <fmt:setBundle basename="${sessionScope['bundleFile']}" var="msg"/>
+    <link rel="stylesheet" href="/css/home.css">
     <meta charset="utf-8">
     <title>Users</title>
 </head>
-<body class="home">
+<body class="body-container">
 <jsp:include page="../fragment/header.jsp"></jsp:include>
 <table class="table borderless">
     <c:forEach items="${tests}" var="test">
         <tr>
-            <td><a href="/test/${test.id} ">${test.name}</a></td>
+            <td>${test.name}</td>
             <td>
-                <button class="btn-primary" id="${test.id}_button" name="${test.id}_button"><fmt:message
-                        key="testing.system.pass.test" bundle="${msg}"/></button>
+                <button class="btn-primary"
+                        onclick="window.location = '/test/${test.id}'" id="${test.id}_button"
+                        name="${user.id}_button"><fmt:message key="testing.system.pass.test"
+                                                              bundle="${msg}"/></button>
             </td>
         </tr>
     </c:forEach>

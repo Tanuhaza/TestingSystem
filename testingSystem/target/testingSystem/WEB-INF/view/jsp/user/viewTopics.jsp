@@ -11,10 +11,11 @@
     <fmt:setLocale value="${sessionScope['locale']}"/>
     <fmt:requestEncoding value="UTF-8"/>
     <fmt:setBundle basename="${sessionScope['bundleFile']}" var="msg"/>
+    <link rel="stylesheet" href="/css/home.css">
     <title>Users</title>
 
 </head>
-<body>
+<body class="body-container">
 <jsp:include page="../fragment/header.jsp"></jsp:include>
 
 <div class="dropdown choose-country top-right">

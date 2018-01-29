@@ -7,10 +7,11 @@
     <fmt:setLocale value="${sessionScope['locale']}"/>
     <fmt:requestEncoding value="UTF-8" />
     <fmt:setBundle basename="${sessionScope['bundleFile']}" var="msg"/>
+    <link rel="stylesheet" href="/css/home.css">
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
 </head>
-<body>
+<body class="body-container">
 
 <div class="top-bar">
     <a href="/home"><fmt:message key="testing.system.menu.home" bundle="${msg}"/> </a>

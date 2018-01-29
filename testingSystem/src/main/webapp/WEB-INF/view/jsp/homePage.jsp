@@ -12,7 +12,7 @@
     <fmt:setBundle basename="${sessionScope['bundleFile']}" var="msg"/>
     <title>home page</title>
 </head>
-<body class="home">
+<body class="body-profile-container">
 <jsp:include page="fragment/header.jsp"/>
 <div class="user-welcome">
 <div  class ="welcome" align="center"><fmt:message key="testing.system.you.are.welcom" bundle="${msg}"/></div>

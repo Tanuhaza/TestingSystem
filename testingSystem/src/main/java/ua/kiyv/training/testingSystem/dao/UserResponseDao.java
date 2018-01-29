@@ -20,4 +20,6 @@ public interface UserResponseDao extends GenericDao<UserResponse> {
     public List<UserResponse> findByUserId(int id);
 
     public void deleteByPassedTimes(int userId, int testId, int passedTimes);
+
+    public int getTotalScoreByPassedTimes(int userId, int testId, int passedTimes);
 }

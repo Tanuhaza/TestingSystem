@@ -13,6 +13,7 @@
     <meta charset="utf-8">
     <title>Title</title>
     <link rel="stylesheet" href="/css/quiz.css">
+    <link rel="stylesheet" href="/css/home.css">
     <style>
         .messagebox-background {
             z-index: 100;
@@ -24,7 +25,7 @@
             height: 100%;
             width: 100%;
             overflow: auto;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: #4ca4cc8a;;
         }
 
         .messagebox-content {
@@ -44,7 +45,7 @@
 
     </style>
 </head>
-<body>
+<body class="body-container">
 
 <div id="messageBox" class="messagebox-background" style="display: none">
     <div class="messagebox-content">
@@ -63,17 +64,17 @@
 </c:if>
 
 <form id="" action="/test" method="post">
-    <div class="test-container">
-        <ul>
+        <ul><c:set var="count" value="${0}"/>
             <c:set var="isTrue" value="${false}"/>
             <c:forEach items="${test}" var="entry">
-                <div class="question">${entry.key.questionText}
+                <c:set var="count" value="${count+1}"/>
+                <div class="test-question">${entry.key.questionText}
                     <c:forEach items="${entry.value}" var="option">
                         <c:forEach items="${result}" var="result">
                             <c:forEach items="${result.value}" var="option_result">
                                 <c:choose>
                                     <c:when test="${(option.id eq option_result.id)}">
-                                        <div class="answer">
+                                        <div class="test-answer">
                                             <br> <input type="checkbox" name="${entry.key.id}" id="${option.id}"
                                                         value="${option.id}" checked/>
                                             <label for="${option.id}"> ${option.optionText}</label>
@@ -85,7 +86,7 @@
                             </c:forEach>
                         </c:forEach>
                         <c:if test="${!isTrue}">
-                            <div class="answer">
+                            <div class="test-answer">
                                 <br> <input type="checkbox" name="${entry.key.id}" id="${option.id}"
                                             value="${option.id}"/>
                                 <label for="${option.id}"> ${option.optionText}</label>
@@ -99,7 +100,6 @@
                 <input class="button-class" type="submit" value="Submit Quiz"/>
             </div>
         </ul>
-    </div>
 </form>
 </body>
 </html>

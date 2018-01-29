@@ -19,9 +19,9 @@ public final class Attributes {
     public static final String TEST = "test";
     public static final String PASSED_TEST = "passedTests";
     public static final String TEST_ID = "test_id";
-    public static final String FIRST_TEST_RESULT_MAP = "firstTestResultMap";
-    public static final String LAST_TEST_RESULT_MAP = "lastTestResultMap";
     public static final String TEST_RESULT_MAP = "testResultMap";
+    public static final String TEST_RESULT_MAP_FIRST_TIME = "testResultMapFirst";
+    public static final String TEST_RESULT_MAP_LAST_TIME = "testResultMapLast";
     public static final String PAGE_TITLE = "page_title";
     public static final String IS_QUESTION_CHECKED = "isQuestionChecked";
 

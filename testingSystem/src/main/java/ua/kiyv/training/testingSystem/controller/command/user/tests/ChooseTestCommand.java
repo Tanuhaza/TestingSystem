@@ -44,8 +44,13 @@ public class ChooseTestCommand extends CommandWrapper {
         int testId = paramExtractor.extractSingleIntPathParam(request);
         boolean isQuestionChecked = true;
         request.getSession().setAttribute(Attributes.TEST_ID, testId);
-        placeNecessaryDataToRequest(request,testId);
+//        placeNecessaryDataToRequest(request,testId);
+        ConstructingTestService constructingTestService = ServiceFactory.getInstance()
+                .createConstructingTestService();
+        Map<Question, List<Option>> test = constructingTestService
+                .getQuestionOptionsMapByTestID(testId);
         request.setAttribute(IS_QUESTION_CHECKED, isQuestionChecked);
+        request.setAttribute(Attributes.TEST, test);
         return PagesPath.TEST_PAGE;
     }
 

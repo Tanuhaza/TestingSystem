@@ -11,17 +11,32 @@
     <fmt:requestEncoding value="UTF-8"/>
     <fmt:setBundle basename="${sessionScope['bundleFile']}" var="msg"/>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/home.css">
     <title>Users</title>
 </head>
-<body>
+<body class="body-container">
 <jsp:include page="../fragment/header.jsp"></jsp:include>
 
 <div class="dropdown choose-country top-right">
+
+    <div class="user-first-last-name" align="center">${user.firstName}<span
+            style='padding-left:10px;'> </span>${user.lastName}</div>
     <table class="table borderless">
-        <c:forEach items="${testResultMap}" var="map">
+        <tr>
+            <td><h4>${"Test"}</h4></td>
+            <td><h4>${"Score"}</h4></td>
+        </tr>
+
+        <c:forEach items="${testResultMapFirst}" var="mapFirst">
             <tr>
-                <td><h4>${map.key.name}</h4></td>
-                <td><h4> ${map.value}</h4></td>
+                <td><h4>${mapFirst.key.name}</h4></td>
+                <td><h4> ${mapFirst.value}</h4></td>
+            </tr>
+        </c:forEach>
+        <c:forEach items="${testResultMapLast}" var="mapLast">
+            <tr>
+                <td><h4>${mapLast.key.name}</h4></td>
+                <td><h4> ${mapLast.value}</h4></td>
             </tr>
         </c:forEach>
     </table>

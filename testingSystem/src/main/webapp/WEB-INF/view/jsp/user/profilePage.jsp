@@ -10,30 +10,31 @@
     <fmt:setLocale value="${sessionScope['locale']}"/>
     <fmt:requestEncoding value="UTF-8"/>
     <fmt:setBundle basename="${sessionScope['bundleFile']}" var="msg"/>
+    <link rel="stylesheet" href="/css/home.css">
     <meta charset="utf-8">
     <title>Users</title>
 </head>
-<body>
+<body class="body-container">
 <jsp:include page="../fragment/header.jsp"></jsp:include>
 
 <div class="dropdown choose-country top-right">
-    <h3>${user.firstName}<span style='padding-left:10px;'> </span>${user.lastName}</h3>
-    <h3><fmt:message key="testing.system.your.results" bundle="${msg}"/></h3>
+    <h4 align="center">${user.firstName}<span style='padding-left:10px;'> </span>${user.lastName}</h4>
+    <h4 align="center"><fmt:message key="testing.system.your.results" bundle="${msg}"/></h4>
     <table class="table borderless">
         <tr>
             <td><h4>${"Test"}</h4></td>
             <td><h4>${"Score"}</h4></td>
         </tr>
-        <c:forEach items="${firstTestResultMap}" var="map">
+        <c:forEach items="${testResultMapFirst}" var="map">
             <tr>
-                <td><h4>${map.key.name}</h4></td>
-                <td><h4>${map.value}</h4></td>
+                <td><h4 >${map.key.name}</h4></td>
+                <td><h4 >${map.value}</h4></td>
             </tr>
         </c:forEach>
-        <c:forEach items="${lastTestResultMap}" var="map">
+        <c:forEach items="${testResultMapLast}" var="map">
             <tr>
-                <td><h4>${map.key.name}</h4></td>
-                <td><h4>${map.value}</h4></td>
+                <td><h4 >${map.key.name}</h4></td>
+                <td><h4 >${map.value}</h4></td>
             </tr>
         </c:forEach>
 

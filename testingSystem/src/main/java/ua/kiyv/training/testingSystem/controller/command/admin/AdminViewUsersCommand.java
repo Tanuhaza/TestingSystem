@@ -25,7 +25,7 @@ import static ua.kiyv.training.testingSystem.utils.constants.Attributes.PAGE;
 public class AdminViewUsersCommand extends CommandWrapper {
 
     ParamExtractor paramExtractor = new ParamExtractor();
-    private static final int itemsPerPage = 10;
+    private static final int itemsPerPage = 7;
     private static final int FIRST = 1;
 
     public AdminViewUsersCommand() {

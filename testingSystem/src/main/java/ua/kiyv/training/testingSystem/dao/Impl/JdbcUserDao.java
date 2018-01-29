@@ -142,7 +142,8 @@ public class JdbcUserDao implements UserDao {
                 throw new DaoException(MessageKeys.WRONG_USER_DB_CAN_NOT_GET_ALL_USERS);
             }
             totalNumberOfUsers = resultSet.getInt("total_count");
-
+            resultSet.close();
+            statement.close();
         } catch (SQLException ex) {
             logger.error(LoggerMessages.ERROR_FIND_ALL_USERS);
             throw new DaoException(ex, MessageKeys.WRONG_USER_DB_CAN_NOT_GET_ALL_USERS);

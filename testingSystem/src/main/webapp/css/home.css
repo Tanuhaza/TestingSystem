@@ -6,7 +6,6 @@
     letter-spacing: 2.5px;
     text-decoration-color: #5ACBFF;
     color: #a03261;
-
 }
 
 .user-first-last-name {
@@ -16,13 +15,12 @@
 .welcome {
 }
 .welcome-index {
-    padding: 40px 200px 40px 200px;
+    padding: 40px 200px 40px 400px;
     font-family: Georgia, "Times New Roman", Times, serif;
     font-size: 30;
     font-weight: bolder;
-    color:#7883b9;
+    color:#4f8db3;
 }
-
 .welcome-text {
     padding: 0px 100px 0px 100px;
     font-family: Georgia;
@@ -30,25 +28,20 @@
     font-weight: 10px;
     letter-spacing:0.5px
 }
-
 .welcome-sign-in-out{
-
     margin 0px 0px 40px 0px;
-    padding: 20px 300px 0px 300px;
+    padding: 20px 300px 0px 500px;
     color: red;
     font-weight: bold;
     font-size: 20;
 }
-
 .main-menu {
 
 }
-.index-body{
+.body-profile-container{
     color: #050661;
-    background: url(/icons/green.jpg)
-
+    background: url(/icons/back.jpg)
 }
-
-.home{
-    background: url(/icons/green.jpg)
+.body-container{
+    background: url(/icons/back3.jpg)
 }

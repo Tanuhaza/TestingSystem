@@ -7,47 +7,62 @@
 <html>
 <head>
     <fmt:setLocale value="${sessionScope['locale']}"/>
-    <fmt:requestEncoding value="UTF-8" />
+    <fmt:requestEncoding value="UTF-8"/>
     <fmt:setBundle basename="${sessionScope['bundleFile']}" var="msg"/>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/quiz.css">
+    <link rel="stylesheet" href="/css/home.css">
     <title>Users</title>
 </head>
-<body>
+<body class="body-container">
 <jsp:include page="../fragment/header.jsp"></jsp:include>
 
-<ul>
-    <h4><fmt:message key="testing.system.response.total.score" bundle="${msg}"/> </h4>
-    <h4> <c:out value="${requestScope.sum}"/>  </h4>
-    <c:set var="isTrue" value="${false}"/>
-    <c:forEach items="${test}" var="entry">
-        <h3>${entry.key.questionText}</h3><br>
+
+<h4 align="center"><fmt:message key="testing.system.response.total.score" bundle="${msg}"/> <span
+        style='padding-left:10px;'> </span> <c:out value="${requestScope.sum}"/></h4>
+<c:set var="isTrue" value="${false}"/>
+<c:forEach items="${test}" var="entry">
+    <div class="test-question">${entry.key.questionText}
         <c:forEach items="${entry.value}" var="option">
             <c:forEach items="${result}" var="result">
                 <c:forEach items="${result.value}" var="option_result">
                     <c:choose>
                         <c:when test="${(option.id eq option_result.id)&&(option.isCorrect())}">
-                            <p>&#9745; ${option.optionText}<span style='padding-left:20px;'> </span>
-                            <%--${option.score} </p>--%>
-                            <%--<p> ${option.comment}</p><br>--%>
+                            <div class="test-answer">
+                                <div class="correct"> &#9745; ${option.optionText} <span
+                                        style='padding-left:10px;'> </span>${option.score}</div>
+                            </div>
                             <c:set var="isTrue" value="${true}"/>
                         </c:when>
                         <c:when test="${(option.id eq option_result.id)&&(!option.isCorrect())}">
-                            <p>&#9746;  ${option.optionText}</p> <span style='padding-left:20px;'> </span>
-                            <%--${option.score} </p>--%>
-                            <%--<p> ${option.comment}</p><br>--%>
+                            <div class="test-answer">
+                                <div class="incorrect">&#9746; ${option.optionText}<span
+                                        style='padding-left:10px;'> ${option.score}</span></div>
+                            </div>
                             <c:set var="isTrue" value="${true}"/>
                         </c:when>
                     </c:choose>
-                </c:forEach >
+                </c:forEach>
             </c:forEach>
-            <c:if test="${!isTrue}"><p>&#9744; ${option.optionText}</p><span style='padding-left:20px;'> </span>
-                <%--${option.score} </p>--%>
-                <%--<p> ${option.comment}</p><br>--%>
+            <c:if test="${!isTrue}">
+                <c:choose>
+                    <c:when test="${option.isCorrect()}">
+                        <div class="test-answer">
+                            <div class="correct">&#9744; ${option.optionText} <span
+                                    style='padding-left:10px;'> </span>${option.score}</div>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="test-answer">&#9744; ${option.optionText}<span
+                                style='padding-left:10px;'> </span>${option.score}</div>
+                    </c:otherwise>
+                </c:choose>
             </c:if>
             <c:set var="isTrue" value="${false}"/>
         </c:forEach>
-    </c:forEach>
-</ul>
+    </div>
+</c:forEach>
+
 <jsp:include page="../fragment/footer.jsp"></jsp:include>
 </body>
 </html>

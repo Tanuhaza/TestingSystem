@@ -37,11 +37,11 @@ public class ViewProfileCommand extends CommandWrapper{
         }
 
         UserResponseService userResponseService = ServiceFactory.getInstance().createUserResponseService();
-        Map<Test,Integer> testResultMapByFirstlyPassed =  userResponseService.getTestResultMapByFirstlyPassed(userId);
+        Map<Test,Integer> testResultMapByFirstlyPassed =  userResponseService.getTestResultMapFirstlyPassed(userId);
         Map<Test,Integer> testResultMapLastTimePassed =  userResponseService.getTestResultMapByPassedTimes(userId,2);
 
-        request.setAttribute(FIRST_TEST_RESULT_MAP, testResultMapByFirstlyPassed);
-        request.setAttribute(LAST_TEST_RESULT_MAP, testResultMapLastTimePassed);
+        request.setAttribute(TEST_RESULT_MAP_FIRST_TIME, testResultMapByFirstlyPassed);
+        request.setAttribute(TEST_RESULT_MAP_LAST_TIME, testResultMapLastTimePassed);
         return PROFILE_PAGE;
     }
 }

@@ -14,18 +14,18 @@
     <meta charset="utf-8">
     <title>Title</title>
     <link rel="stylesheet" href="/css/quiz.css">
+    <link rel="stylesheet" href="/css/home.css">
 </head>
-<body>
+<body class="body-container" >
 <c:set var="count" value="${0}"/>
 <form id="" action="/test" method="post">
-    <div class="test-container">
         <ul>
             <c:forEach items="${test}" var="entry">
                 <c:set var="count" value="${count+1}"/>
-                <div class="question"><c:out value="${count}."/> <span
+                <div class="test-question"><c:out value="${count}."/> <span
                         style='padding-left:20px;'> </span> ${entry.key.questionText}
                     <c:forEach items="${entry.value}" var="item">
-                        <div class="answer">
+                        <div class="test-answer">
                             <br> <input type="checkbox" name="${entry.key.id}" id="${item.id}" value="${item.id}"
                                         class="variant"/>
                             <label for="${item.id}"> ${item.optionText}</label>
@@ -33,11 +33,9 @@
                     </c:forEach>
                 </div>
             </c:forEach>
-            <c:set var="count" value="${count+3}"/>
-            <jsp:include page="../fragment/paginator.jsp"/>
             <div class = "button-center"> <input class="button-class" type="submit" value="Submit Quiz"/></div>
+            <%--<jsp:include page="../fragment/paginator.jsp"/>--%>
         </ul>
-    </div>
 </form>
 
 
