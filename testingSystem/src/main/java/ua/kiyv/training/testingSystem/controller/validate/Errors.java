@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * this is dto which contains errors to display in UI
+ * this class contains errors to display in UI
  */
 public class Errors {
     private Map<String, String> errors;

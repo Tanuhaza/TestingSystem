@@ -1,7 +1,7 @@
 package ua.kiyv.training.testingSystem.model.dto;
 
 /**
- * This class represents DTO to transfer login data from controller layer to UI
+ * This class represents DTO to transfer login data from controller layer to user instance
  */
 public class LoginData {
     protected String login;

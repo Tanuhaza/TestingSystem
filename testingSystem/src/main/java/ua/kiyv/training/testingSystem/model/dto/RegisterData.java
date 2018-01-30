@@ -1,7 +1,7 @@
 package ua.kiyv.training.testingSystem.model.dto;
 
 /**
- * This class represents DTO to transfer register data to UI
+ * This class represents DTO to transfer register data to user instance
  */
 public class RegisterData extends LoginData {
     private String firstName;

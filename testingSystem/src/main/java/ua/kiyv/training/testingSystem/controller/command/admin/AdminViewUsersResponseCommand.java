@@ -36,7 +36,7 @@ public class AdminViewUsersResponseCommand extends CommandWrapper {
             request.setAttribute(Attributes.USER, person);
         }
         Map<Quiz, Integer> quizResultMapFirstTimePassed = ServiceFactory.getInstance().createUserResponseService()
-                .getQuizResultMapByPassedTimes(userId, 1);
+                .getQuizResultMapFirstlyPassed(userId);
         Map<Quiz, Integer> quizResultMapLastTimePassed = ServiceFactory.getInstance().createUserResponseService()
                 .getQuizResultMapByPassedTimes(userId, 2);
         request.setAttribute(Attributes.QUIZ_RESULT_MAP_FIRST_TIME, quizResultMapFirstTimePassed);

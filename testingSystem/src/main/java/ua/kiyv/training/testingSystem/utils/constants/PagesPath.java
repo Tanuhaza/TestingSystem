@@ -21,13 +21,9 @@ public final class PagesPath {
     public static final String QUIZ_PATH="/quiz";
     public static final String ADMIN_USERS_PATH="/admin/users";
     public static final String ADMIN_USER_ID_PATH="/admin/user/id";
-    public static final String ADMIN_TOPIC = "/admin/topic";
-    public static final String ADMIN_HOME = "/admin/home";
-    public static final String ADMIN_PROFILE = "/admin/profile";
     public static final String PROFILE_PATH = "/profile";
 
     public static final String HOME_PAGE = VIEW_JSP_CLASSPATH + "homePage.jsp";
-    public static final String ADMIN_HOME_PAGE = VIEW_JSP_CLASSPATH + "admin/dashboard.jsp";
     public static final String ADMIN_VIEW_USERS_PAGE = VIEW_JSP_CLASSPATH + "admin/viewUsersPage.jsp";
     public static final String ADMIN_USER_RESPONSE_PAGE = VIEW_JSP_CLASSPATH + "admin/userResponsePage.jsp";
 
@@ -35,7 +31,6 @@ public final class PagesPath {
     public static final String TOPICS_PAGE = VIEW_JSP_CLASSPATH + "user/viewTopics.jsp";
     public static final String QUIZ_VIEW_PAGE = VIEW_JSP_CLASSPATH + "user/viewQuizzes.jsp";
     public static final String QUIZ_PAGE = VIEW_JSP_CLASSPATH + "user/quizPage.jsp";
-    public static final String QUESTIONS_PAGE = VIEW_JSP_CLASSPATH + "user/question.jsp";
     public static final String RESPONSE_PAGE = VIEW_JSP_CLASSPATH + "user/userResponsePage.jsp";
     public static final String PARTIAL_RESPONSE_PAGE = VIEW_JSP_CLASSPATH + "user/partialResponsePage.jsp";
     public static final String PROFILE_PAGE = VIEW_JSP_CLASSPATH + "user/profilePage.jsp";

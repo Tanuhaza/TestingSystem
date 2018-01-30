@@ -10,6 +10,8 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
+ * This class represents ConstructingQuiz  service
+ *
  * Created by Tanya on 23.01.2018.
  */
 public interface ConstructingQuizService {
