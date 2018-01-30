@@ -3,15 +3,15 @@ package ua.kiyv.training.testingSystem.model.entity;
 /**
  * Created by Tanya on 14.01.2018.
  */
-public class Test{
+public class Quiz {
         private int id;
         private String name;
         private int topicId;
 
-    public Test() {
+    public Quiz() {
     }
 
-    public Test(String name, int topicId) {
+    public Quiz(String name, int topicId) {
         this.name = name;
         this.topicId = topicId;
     }
@@ -45,11 +45,11 @@ public class Test{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Test test = (Test) o;
+        Quiz quiz = (Quiz) o;
 
-        if (id != test.id) return false;
-        if (topicId != test.topicId) return false;
-        return (name != null ? test.equals(test.name) : (test.name == null));
+        if (id != quiz.id) return false;
+        if (topicId != quiz.topicId) return false;
+        return (name != null ? quiz.equals(quiz.name) : (quiz.name == null));
     }
 
     @Override
@@ -62,36 +62,36 @@ public class Test{
 
     @Override
     public String toString() {
-        return "Test{" +
+        return "Quiz{" +
                 "id=" + id +
                 ", name='" + name +
                 '}'+'\n';
     }
 
     public static class Builder {
-        private Test test;
+        private Quiz quiz;
 
         public Builder() {
-            test = new Test();
+            quiz = new Quiz();
         }
 
-        public Test.Builder setId(int id) {
-            test.setId(id);
+        public Quiz.Builder setId(int id) {
+            quiz.setId(id);
             return this;
         }
 
-        public Test.Builder setName(String name) {
-            test.setName(name);
+        public Quiz.Builder setName(String name) {
+            quiz.setName(name);
             return this;
         }
 
-        public Test.Builder setTopicId(int id) {
-            test.setTopicId(id);
+        public Quiz.Builder setTopicId(int id) {
+            quiz.setTopicId(id);
             return this;
         }
 
-        public Test build() {
-            return test;
+        public Quiz build() {
+            return quiz;
         }
     }
 }

@@ -3,15 +3,12 @@ package ua.kiyv.training.testingSystem.dao.Impl;
 import org.apache.log4j.Logger;
 import ua.kiyv.training.testingSystem.connection.DaoConnection;
 import ua.kiyv.training.testingSystem.connection.Jdbc.JdbcTransactionHelper;
-import ua.kiyv.training.testingSystem.connection.TransactionHelper;
 import ua.kiyv.training.testingSystem.dao.DaoException;
 import ua.kiyv.training.testingSystem.dao.QuestionDao;
 import ua.kiyv.training.testingSystem.dao.mapper.OptionMapper;
 import ua.kiyv.training.testingSystem.dao.mapper.QuestionMapper;
 import ua.kiyv.training.testingSystem.model.entity.Option;
 import ua.kiyv.training.testingSystem.model.entity.Question;
-import ua.kiyv.training.testingSystem.model.entity.Test;
-import ua.kiyv.training.testingSystem.model.entity.Topic;
 import ua.kiyv.training.testingSystem.utils.constants.LoggerMessages;
 import ua.kiyv.training.testingSystem.utils.constants.MessageKeys;
 
@@ -190,7 +187,7 @@ public class JdbcQuestionDao implements QuestionDao {
 
 
     @Override
-    public List<Integer> getAssociatedTestsIDByQuestionID(int id) {
+    public List<Integer> getAssociatedQuizzesIDByQuestionID(int id) {
         String sqlStatement = "SELECT * FROM question_test WHERE question_Id = ?";
         List<Integer> associatedTestsId = new ArrayList<>();
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {

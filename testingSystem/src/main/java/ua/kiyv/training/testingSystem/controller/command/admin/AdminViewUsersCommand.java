@@ -20,6 +20,8 @@ import static ua.kiyv.training.testingSystem.utils.constants.Attributes.LAST_PAG
 import static ua.kiyv.training.testingSystem.utils.constants.Attributes.PAGE;
 
 /**
+ * This class represents admin's view users get method
+ *
  * Created by Tanya on 18.01.2018.
  */
 public class AdminViewUsersCommand extends CommandWrapper {

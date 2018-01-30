@@ -17,8 +17,8 @@ public final class PagesPath {
     public static final String LOGOUT_PATH = "/logout";
     public static final String TOPICS_PATH="/topic";
     public static final String TOPICS_ID_PATH="/topic/id";
-    public static final String TEST_ID_PATH="/test/id";
-    public static final String TEST_PATH="/test";
+    public static final String QUIZ_ID_PATH="/quiz/id";
+    public static final String QUIZ_PATH="/quiz";
     public static final String ADMIN_USERS_PATH="/admin/users";
     public static final String ADMIN_USER_ID_PATH="/admin/user/id";
     public static final String ADMIN_TOPIC = "/admin/topic";
@@ -33,8 +33,8 @@ public final class PagesPath {
 
     public static final String LOGIN_PAGE = VIEW_JSP_CLASSPATH + "loginPage.jsp";
     public static final String TOPICS_PAGE = VIEW_JSP_CLASSPATH + "user/viewTopics.jsp";
-    public static final String TEST_VIEW_PAGE = VIEW_JSP_CLASSPATH + "user/viewTests.jsp";
-    public static final String TEST_PAGE = VIEW_JSP_CLASSPATH + "user/testPage.jsp";
+    public static final String QUIZ_VIEW_PAGE = VIEW_JSP_CLASSPATH + "user/viewQuizzes.jsp";
+    public static final String QUIZ_PAGE = VIEW_JSP_CLASSPATH + "user/quizPage.jsp";
     public static final String QUESTIONS_PAGE = VIEW_JSP_CLASSPATH + "user/question.jsp";
     public static final String RESPONSE_PAGE = VIEW_JSP_CLASSPATH + "user/userResponsePage.jsp";
     public static final String PARTIAL_RESPONSE_PAGE = VIEW_JSP_CLASSPATH + "user/partialResponsePage.jsp";

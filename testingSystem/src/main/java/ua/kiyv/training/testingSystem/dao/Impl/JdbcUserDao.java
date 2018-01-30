@@ -19,9 +19,7 @@ import java.util.List;
 
 /**
  * Created by Tanya on 02.01.2018.
- */
-
-/**
+ *
  * Implementation of user dao, which works with MySql using jdbc
  */
 

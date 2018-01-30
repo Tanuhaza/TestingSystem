@@ -6,14 +6,14 @@ import ua.kiyv.training.testingSystem.dao.DaoException;
 import ua.kiyv.training.testingSystem.dao.DaoFactory;
 import ua.kiyv.training.testingSystem.dao.Impl.JdbcDaoFactory;
 import ua.kiyv.training.testingSystem.dao.QuestionDao;
-import ua.kiyv.training.testingSystem.dao.TestDao;
+import ua.kiyv.training.testingSystem.dao.QuizDao;
 import ua.kiyv.training.testingSystem.model.entity.Option;
 import ua.kiyv.training.testingSystem.model.entity.Question;
-import ua.kiyv.training.testingSystem.model.entity.Test;
+import ua.kiyv.training.testingSystem.model.entity.Quiz;
 import ua.kiyv.training.testingSystem.model.entity.Topic;
 import ua.kiyv.training.testingSystem.service.ServiceException;
 import ua.kiyv.training.testingSystem.service.ServiceFactory;
-import ua.kiyv.training.testingSystem.service.ConstructingTestService;
+import ua.kiyv.training.testingSystem.service.ConstructingQuizService;
 import ua.kiyv.training.testingSystem.utils.constants.LoggerMessages;
 import ua.kiyv.training.testingSystem.utils.constants.MessageKeys;
 
@@ -23,15 +23,15 @@ import java.util.stream.Collectors;
 /**
  * Implementation for ConstructingTest service
  */
-public class ConstructingTestServiceImpl implements ConstructingTestService {
+public class ConstructingQuizServiceImpl implements ConstructingQuizService {
 
-    private static final Logger logger = Logger.getLogger(ConstructingTestServiceImpl.class);
+    private static final Logger logger = Logger.getLogger(ConstructingQuizServiceImpl.class);
 
     @Override
-    public void create(Test test) {
+    public void create(Quiz quiz) {
         JdbcTransactionHelper.getInstance().beginTransaction();
         try {
-            JdbcDaoFactory.getInstance().createTestDao().create(test);
+            JdbcDaoFactory.getInstance().createQuizDao().create(quiz);
             JdbcTransactionHelper.getInstance().commitTransaction();
         } catch (DaoException ex) {
             JdbcTransactionHelper.getInstance().rollbackTransaction();
@@ -54,8 +54,8 @@ public class ConstructingTestServiceImpl implements ConstructingTestService {
     }
 
     @Override
-    public Optional<Test> findById(int id) {
-        return Optional.of(JdbcDaoFactory.getInstance().createTestDao().findById(id));
+    public Optional<Quiz> findById(int id) {
+        return Optional.of(JdbcDaoFactory.getInstance().createQuizDao().findById(id));
     }
 
     @Override
@@ -64,10 +64,10 @@ public class ConstructingTestServiceImpl implements ConstructingTestService {
     }
 
     @Override
-    public void update(Test test) {
+    public void update(Quiz quiz) {
         JdbcTransactionHelper.getInstance().beginTransaction();
         try {
-            JdbcDaoFactory.getInstance().createTestDao().update(test);
+            JdbcDaoFactory.getInstance().createQuizDao().update(quiz);
             JdbcTransactionHelper.getInstance().commitTransaction();
         } catch (DaoException ex) {
             JdbcTransactionHelper.getInstance().rollbackTransaction();
@@ -77,10 +77,10 @@ public class ConstructingTestServiceImpl implements ConstructingTestService {
     }
 
     @Override
-    public void delete(Test test) {
+    public void delete(Quiz quiz) {
         JdbcTransactionHelper.getInstance().beginTransaction();
         try {
-            JdbcDaoFactory.getInstance().createTestDao().delete(test);
+            JdbcDaoFactory.getInstance().createQuizDao().delete(quiz);
             JdbcTransactionHelper.getInstance().commitTransaction();
         } catch (DaoException ex) {
             JdbcTransactionHelper.getInstance().rollbackTransaction();
@@ -90,12 +90,12 @@ public class ConstructingTestServiceImpl implements ConstructingTestService {
     }
 
     @Override
-    public void createTestAndAssosiateWithQuestion(Test test, List<Question> questions) {
+    public void createQuizAndAssosiateWithQuestion(Quiz quiz, List<Question> questions) {
         JdbcTransactionHelper.getInstance().beginTransaction();
         try {
-            TestDao testDao = JdbcDaoFactory.getInstance().createTestDao();
-            testDao.create(test);
-            questions.forEach(question -> testDao.associate(test, question));
+            QuizDao quizDao = JdbcDaoFactory.getInstance().createQuizDao();
+            quizDao.create(quiz);
+            questions.forEach(question -> quizDao.associate(quiz, question));
             JdbcTransactionHelper.getInstance().commitTransaction();
         } catch (DaoException ex) {
             JdbcTransactionHelper.getInstance().rollbackTransaction();
@@ -104,23 +104,23 @@ public class ConstructingTestServiceImpl implements ConstructingTestService {
         }
     }
 @Override
-    public int countAllQuestionByTestId(int id){
-        return DaoFactory.getInstance().createTestDao().countAllQuestionByTestId(id);
+    public int countAllQuestionByQuizId(int id){
+        return DaoFactory.getInstance().createQuizDao().countAllQuestionByQuizId(id);
 }
 
     @Override
-    public List<Question> getQuestionsByTestID(int id) {
+    public List<Question> getQuestionsByQuizID(int id) {
         QuestionDao questionDao = JdbcDaoFactory.getInstance().createQuestionDao();
-        return JdbcDaoFactory.getInstance().createTestDao().getAssociatedQuestionsIDByTestID(id)
+        return JdbcDaoFactory.getInstance().createQuizDao().getAssociatedQuestionsIDByQuizID(id)
                 .stream()
                 .map(questionDao::findById)
                 .collect(Collectors.toList());
     }
 
     @Override
-    public List<Question> getQuestionsByTestIDWithLimitPerPage(int id, int startFrom, int quantity) {
+    public List<Question> getQuestionsByQuizIDWithLimitPerPage(int id, int startFrom, int quantity) {
         QuestionDao questionDao = JdbcDaoFactory.getInstance().createQuestionDao();
-        return JdbcDaoFactory.getInstance().createTestDao().getAssociatedQuestionsIDByTestIDWithLimitPerPage(id, startFrom, quantity)
+        return JdbcDaoFactory.getInstance().createQuizDao().getAssociatedQuestionsIDByQuizIDWithLimitPerPage(id, startFrom, quantity)
                 .stream()
                 .map(questionDao::findById)
                 .collect(Collectors.toList());
@@ -132,40 +132,40 @@ public class ConstructingTestServiceImpl implements ConstructingTestService {
     }
 
     @Override
-    public List<Integer> getTestsIDByQuestionID(int id) {
-        return JdbcDaoFactory.getInstance().createQuestionDao().getAssociatedTestsIDByQuestionID(id);
+    public List<Integer> getQuizzesIDByQuestionID(int id) {
+        return JdbcDaoFactory.getInstance().createQuestionDao().getAssociatedQuizzesIDByQuestionID(id);
     }
 
     @Override
-    public List<Test> getTestsByTopicId(int id) {
-        return JdbcDaoFactory.getInstance().createTestDao().getAssosiatedTestsByTopicId(id);
+    public List<Quiz> getQuizzesByTopicId(int id) {
+        return JdbcDaoFactory.getInstance().createQuizDao().getAssosiatedQuizzesByTopicId(id);
     }
 
     @Override
-    public Map<Question, List<Option>> getQuestionOptionsMapByTestID(int testId) {
+    public Map<Question, List<Option>> getQuestionOptionsMapByQuizID(int testId) {
 
-        Map<Question, List<Option>> test = new HashMap<>();
+        Map<Question, List<Option>> quiz = new HashMap<>();
 
-        ConstructingTestService constructingTestService = ServiceFactory.getInstance().createConstructingTestService();
-        List<Question> questionsId = constructingTestService.getQuestionsByTestID(testId);
+        ConstructingQuizService constructingQuizService = ServiceFactory.getInstance().createConstructingQuizService();
+        List<Question> questionsId = constructingQuizService.getQuestionsByQuizID(testId);
         questionsId.stream()
                 .forEach(question ->
-                        test.put(question, constructingTestService.getOptionsByQuestionID(question.getId())));
+                        quiz.put(question, constructingQuizService.getOptionsByQuestionID(question.getId())));
 
-        return test;
+        return quiz;
     }
 
     @Override
-    public Map<Question, List<Option>> getQuestionOptionsMapByTestIDWithLimitPerPage(int testId, int startFrom, int quantity) {
+    public Map<Question, List<Option>> getQuestionOptionsMapByQuizIDWithLimitPerPage(int testId, int startFrom, int quantity) {
 
-        Map<Question, List<Option>> test = new HashMap<>();
+        Map<Question, List<Option>> quiz = new HashMap<>();
 
-        ConstructingTestService constructingTestService = ServiceFactory.getInstance().createConstructingTestService();
-        List<Question> questionsId = constructingTestService.getQuestionsByTestIDWithLimitPerPage(testId, startFrom, quantity);
+        ConstructingQuizService constructingQuizService = ServiceFactory.getInstance().createConstructingQuizService();
+        List<Question> questionsId = constructingQuizService.getQuestionsByQuizIDWithLimitPerPage(testId, startFrom, quantity);
         questionsId.stream()
                 .forEach(question ->
-                        test.put(question, constructingTestService.getOptionsByQuestionID(question.getId())));
+                        quiz.put(question, constructingQuizService.getOptionsByQuestionID(question.getId())));
 
-        return test;
+        return quiz;
     }
 }

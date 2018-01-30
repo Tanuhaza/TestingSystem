@@ -18,14 +18,14 @@
 </head>
 <body class="body-container" >
 <c:set var="count" value="${0}"/>
-<form id="" action="/test" method="post">
+<form id="" action="/quiz" method="post">
         <ul>
-            <c:forEach items="${test}" var="entry">
+            <c:forEach items="${quiz}" var="entry">
                 <c:set var="count" value="${count+1}"/>
-                <div class="test-question"><c:out value="${count}."/> <span
+                <div class="quiz-question"><c:out value="${count}."/> <span
                         style='padding-left:20px;'> </span> ${entry.key.questionText}
                     <c:forEach items="${entry.value}" var="item">
-                        <div class="test-answer">
+                        <div class="quiz-answer">
                             <br> <input type="checkbox" name="${entry.key.id}" id="${item.id}" value="${item.id}"
                                         class="variant"/>
                             <label for="${item.id}"> ${item.optionText}</label>

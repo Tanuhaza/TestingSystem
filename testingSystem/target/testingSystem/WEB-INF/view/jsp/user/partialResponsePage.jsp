@@ -63,18 +63,18 @@
     </script>
 </c:if>
 
-<form id="" action="/test" method="post">
+<form id="" action="/quiz" method="post">
         <ul><c:set var="count" value="${0}"/>
             <c:set var="isTrue" value="${false}"/>
-            <c:forEach items="${test}" var="entry">
+            <c:forEach items="${quiz}" var="entry">
                 <c:set var="count" value="${count+1}"/>
-                <div class="test-question">${entry.key.questionText}
+                <div class="quiz-question">${entry.key.questionText}
                     <c:forEach items="${entry.value}" var="option">
                         <c:forEach items="${result}" var="result">
                             <c:forEach items="${result.value}" var="option_result">
                                 <c:choose>
                                     <c:when test="${(option.id eq option_result.id)}">
-                                        <div class="test-answer">
+                                        <div class="quiz-answer">
                                             <br> <input type="checkbox" name="${entry.key.id}" id="${option.id}"
                                                         value="${option.id}" checked/>
                                             <label for="${option.id}"> ${option.optionText}</label>
@@ -86,7 +86,7 @@
                             </c:forEach>
                         </c:forEach>
                         <c:if test="${!isTrue}">
-                            <div class="test-answer">
+                            <div class="quiz-answer">
                                 <br> <input type="checkbox" name="${entry.key.id}" id="${option.id}"
                                             value="${option.id}"/>
                                 <label for="${option.id}"> ${option.optionText}</label>

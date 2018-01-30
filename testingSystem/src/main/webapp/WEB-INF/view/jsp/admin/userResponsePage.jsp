@@ -23,17 +23,17 @@
             style='padding-left:10px;'> </span>${user.lastName}</div>
     <table class="table borderless">
         <tr>
-            <td><h4>${"Test"}</h4></td>
+            <td><h4>${"Quiz"}</h4></td>
             <td><h4>${"Score"}</h4></td>
         </tr>
 
-        <c:forEach items="${testResultMapFirst}" var="mapFirst">
+        <c:forEach items="${quizResultMapFirst}" var="mapFirst">
             <tr>
                 <td><h4>${mapFirst.key.name}</h4></td>
                 <td><h4> ${mapFirst.value}</h4></td>
             </tr>
         </c:forEach>
-        <c:forEach items="${testResultMapLast}" var="mapLast">
+        <c:forEach items="${quizResultMapLast}" var="mapLast">
             <tr>
                 <td><h4>${mapLast.key.name}</h4></td>
                 <td><h4> ${mapLast.value}</h4></td>

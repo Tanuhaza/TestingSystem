@@ -50,23 +50,15 @@ class CommandHolder {
         commands.put(GET + deployPath + LOGOUT_PATH, new LogoutCommand());
         commands.put(GET + deployPath + TOPICS_PATH, new ViewTopicsCommand());
         commands.put(GET+ deployPath + TOPICS_ID_PATH, new ViewTestsCommand());
-        commands.put(GET+ deployPath + TEST_ID_PATH, new ChooseTestCommand());
+        commands.put(GET+ deployPath + QUIZ_ID_PATH, new ChooseTestCommand());
         commands.put(GET+ deployPath + PROFILE_PATH, new ViewProfileCommand());
         commands.put(GET+ deployPath + ADMIN_USERS_PATH, new AdminViewUsersCommand());
         commands.put(GET+ deployPath + ADMIN_USER_ID_PATH, new AdminViewUsersResponseCommand());
         commands.put(GET + deployPath + ADMIN_PATH, new AdminHomeCommand());
 
-//        commands.put(GET + deployPath + ADMIN_HOME, new AdminHomeCommand());
-//        commands.put(GET + deployPath + ADMIN_TOPIC, new ViewTopicsCommand());
-//        commands.put(GET + deployPath + ADMIN_, new AdminHomeCommand());
-
         commands.put(POST + deployPath + LOGIN_PATH, new LoginSubmitCommand());
         commands.put(POST + deployPath + REGISTER_PATH, new RegisterSubmitCommand());
-
-        commands.put(POST + deployPath + TEST_PATH, new TestSubmitCommand());
-
-
-
+        commands.put(POST + deployPath + QUIZ_PATH, new TestSubmitCommand());
     }
 
     /**

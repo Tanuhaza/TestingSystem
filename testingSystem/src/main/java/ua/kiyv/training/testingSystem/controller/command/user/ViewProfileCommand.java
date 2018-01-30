@@ -1,7 +1,7 @@
 package ua.kiyv.training.testingSystem.controller.command.user;
 
 import ua.kiyv.training.testingSystem.controller.CommandWrapper;
-import ua.kiyv.training.testingSystem.model.entity.Test;
+import ua.kiyv.training.testingSystem.model.entity.Quiz;
 import ua.kiyv.training.testingSystem.model.entity.User;
 import ua.kiyv.training.testingSystem.service.ServiceFactory;
 import ua.kiyv.training.testingSystem.service.UserResponseService;
@@ -10,7 +10,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -24,8 +23,6 @@ import static ua.kiyv.training.testingSystem.utils.constants.PagesPath.PROFILE_P
 public class ViewProfileCommand extends CommandWrapper{
     public ViewProfileCommand() {super(LOGIN_PAGE);}
 
-//    ParamExtractor paramExtractor = new ParamExtractor();
-
     @Override
     public String performExecute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -37,11 +34,11 @@ public class ViewProfileCommand extends CommandWrapper{
         }
 
         UserResponseService userResponseService = ServiceFactory.getInstance().createUserResponseService();
-        Map<Test,Integer> testResultMapByFirstlyPassed =  userResponseService.getTestResultMapFirstlyPassed(userId);
-        Map<Test,Integer> testResultMapLastTimePassed =  userResponseService.getTestResultMapByPassedTimes(userId,2);
+        Map<Quiz,Integer> quizResultMapByFirstlyPassed =  userResponseService.getQuizResultMapFirstlyPassed(userId);
+        Map<Quiz,Integer> quizResultMapLastTimePassed =  userResponseService.getQuizResultMapByPassedTimes(userId,2);
 
-        request.setAttribute(TEST_RESULT_MAP_FIRST_TIME, testResultMapByFirstlyPassed);
-        request.setAttribute(TEST_RESULT_MAP_LAST_TIME, testResultMapLastTimePassed);
+        request.setAttribute(QUIZ_RESULT_MAP_FIRST_TIME, quizResultMapByFirstlyPassed);
+        request.setAttribute(QUIZ_RESULT_MAP_LAST_TIME, quizResultMapLastTimePassed);
         return PROFILE_PAGE;
     }
 }

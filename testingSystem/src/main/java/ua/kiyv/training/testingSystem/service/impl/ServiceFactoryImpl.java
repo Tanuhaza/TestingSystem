@@ -1,6 +1,6 @@
 package ua.kiyv.training.testingSystem.service.impl;
 
-import ua.kiyv.training.testingSystem.service.ConstructingTestService;
+import ua.kiyv.training.testingSystem.service.ConstructingQuizService;
 import ua.kiyv.training.testingSystem.service.ServiceFactory;
 import ua.kiyv.training.testingSystem.service.UserResponseService;
 import ua.kiyv.training.testingSystem.service.UserService;
@@ -15,8 +15,8 @@ public class ServiceFactoryImpl extends ServiceFactory {
     }
 
     @Override
-    public ConstructingTestService createConstructingTestService() {
-        return new ConstructingTestServiceImpl();
+    public ConstructingQuizService createConstructingQuizService() {
+        return new ConstructingQuizServiceImpl();
     }
 
     @Override

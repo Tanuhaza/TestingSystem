@@ -1,4 +1,4 @@
-.test-question {
+.quiz-question {
     font-weight: normal;
     background-color: #41caab17;
     border-radius: 5px;
@@ -10,7 +10,7 @@
     width: auto;
 }
 
-.test-answer {
+.quiz-answer {
     background-color: #5079ef2e;
     border-radius: 5px;
     border-style: none;

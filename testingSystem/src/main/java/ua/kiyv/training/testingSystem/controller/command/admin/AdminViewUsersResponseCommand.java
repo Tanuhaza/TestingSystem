@@ -1,8 +1,7 @@
 package ua.kiyv.training.testingSystem.controller.command.admin;
 
 import ua.kiyv.training.testingSystem.controller.CommandWrapper;
-import ua.kiyv.training.testingSystem.model.entity.Option;
-import ua.kiyv.training.testingSystem.model.entity.Test;
+import ua.kiyv.training.testingSystem.model.entity.Quiz;
 import ua.kiyv.training.testingSystem.model.entity.User;
 import ua.kiyv.training.testingSystem.service.ServiceFactory;
 import ua.kiyv.training.testingSystem.utils.ParamExtractor;
@@ -36,12 +35,12 @@ public class AdminViewUsersResponseCommand extends CommandWrapper {
             User person = user.get();
             request.setAttribute(Attributes.USER, person);
         }
-        Map<Test, Integer> testResultMapFirstTimePassed = ServiceFactory.getInstance().createUserResponseService()
-                .getTestResultMapByPassedTimes(userId, 1);
-        Map<Test, Integer> testResultMapLastTimePassed = ServiceFactory.getInstance().createUserResponseService()
-                .getTestResultMapByPassedTimes(userId, 2);
-        request.setAttribute(Attributes.TEST_RESULT_MAP_FIRST_TIME, testResultMapFirstTimePassed);
-        request.setAttribute(Attributes.TEST_RESULT_MAP_LAST_TIME, testResultMapLastTimePassed);
+        Map<Quiz, Integer> quizResultMapFirstTimePassed = ServiceFactory.getInstance().createUserResponseService()
+                .getQuizResultMapByPassedTimes(userId, 1);
+        Map<Quiz, Integer> quizResultMapLastTimePassed = ServiceFactory.getInstance().createUserResponseService()
+                .getQuizResultMapByPassedTimes(userId, 2);
+        request.setAttribute(Attributes.QUIZ_RESULT_MAP_FIRST_TIME, quizResultMapFirstTimePassed);
+        request.setAttribute(Attributes.QUIZ_RESULT_MAP_LAST_TIME, quizResultMapLastTimePassed);
         return PagesPath.ADMIN_USER_RESPONSE_PAGE;
     }
 }

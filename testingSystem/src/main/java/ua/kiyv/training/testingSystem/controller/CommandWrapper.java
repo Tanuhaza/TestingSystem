@@ -22,9 +22,6 @@ import java.io.IOException;
 public abstract class CommandWrapper implements Command {
     private static final Logger logger = Logger.getLogger(CommandWrapper.class);
     private final String nextPage;
-    //    private RequestParamExtractor paramExtractor = new RequestParamExtractor();
-    private static final int DEFAULT_QUANTITY_VALUE = 10;
-    private static final int DEFAULT_OFFSET_VALUE = 0;
 
     protected CommandWrapper(String nextPage) {
         this.nextPage = nextPage;
@@ -70,19 +67,5 @@ public abstract class CommandWrapper implements Command {
 
     public abstract String performExecute(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException;
-//
-//    protected int getLimitValueOrDefault(HttpServletRequest request){
-//        return Optional.ofNullable(paramExtractor.extractPaginParam(request, Attributes.LIMIT))
-//                .orElse(DEFAULT_QUANTITY_VALUE);
-//    }
-//
-//    protected int getOffsetValueOrDefault(HttpServletRequest request, int quantity){
-//        return Optional.ofNullable(paramExtractor.extractPaginParam(request, Attributes.OFFSET))
-//                .map(page->(page-1)*quantity)
-//                .orElse(DEFAULT_OFFSET_VALUE);
-//    }
 
-    protected int calculateOverallPagesCount(int limit, int totalCount) {
-        return (int) Math.ceil((totalCount + 0.0) / limit);
-    }
 }

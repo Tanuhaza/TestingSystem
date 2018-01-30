@@ -8,7 +8,7 @@ import ua.kiyv.training.testingSystem.dao.Impl.JdbcDaoFactory;
 public abstract class DaoFactory {
     private static DaoFactory daoFactory;
 
-    public abstract TestDao createTestDao();
+    public abstract QuizDao createQuizDao();
     public abstract UserDao createUserDao();
     public  abstract TopicDao createTopicDao();
     public abstract OptionDao createOptionDao();

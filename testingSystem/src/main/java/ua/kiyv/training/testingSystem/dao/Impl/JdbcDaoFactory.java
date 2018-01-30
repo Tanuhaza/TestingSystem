@@ -6,35 +6,32 @@ import ua.kiyv.training.testingSystem.dao.*;
  * Created by Tanya on 02.01.2018.
  */
 
-public class JdbcDaoFactory  extends DaoFactory{
-    private UserDao userDao;
+public class JdbcDaoFactory extends DaoFactory {
 
     @Override
     public UserDao createUserDao() {
-        if (userDao==null) {
-            userDao = new JdbcUserDao();
-        }
-        return userDao;
+        return new JdbcUserDao();
     }
 
     @Override
-    public TopicDao createTopicDao() {
-        return new JdbcTopicDao();
+    public TopicDao createTopicDao() {return new JdbcTopicDao();}
+
+    @Override
+    public QuizDao createQuizDao()
+    {
+        return new JdbcQuizDao();
     }
 
     @Override
-    public TestDao createTestDao() {
-        return new JdbcTestDao();
+    public OptionDao createOptionDao() {return new JdbcOptionDao();}
+
+    @Override
+    public QuestionDao createQuestionDao() {
+        return new JdbcQuestionDao();
     }
 
     @Override
-    public OptionDao createOptionDao() {
-        return new JdbcOptionDao();
+    public UserResponseDao createUserResponseDao() {
+        return new JdbcUserResponseDao();
     }
-
-    @Override
-    public QuestionDao createQuestionDao() {return new JdbcQuestionDao();}
-
-    @Override
-    public UserResponseDao createUserResponseDao() {return new JdbcUserResponseDao();}
 }

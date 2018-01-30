@@ -15,13 +15,13 @@ public final class Attributes {
     public static final String TOPICS = "topics";
     public static final String TOPIC_ID = "topic_id";
 
-    public static final String TESTS = "tests";
-    public static final String TEST = "test";
+    public static final String QUIZZES = "quizzes";
+    public static final String QUIZ = "quiz";
     public static final String PASSED_TEST = "passedTests";
-    public static final String TEST_ID = "test_id";
-    public static final String TEST_RESULT_MAP = "testResultMap";
-    public static final String TEST_RESULT_MAP_FIRST_TIME = "testResultMapFirst";
-    public static final String TEST_RESULT_MAP_LAST_TIME = "testResultMapLast";
+    public static final String QUIZ_ID = "quiz_id";
+    public static final String QUIZ_RESULT_MAP = "quizResultMap";
+    public static final String QUIZ_RESULT_MAP_FIRST_TIME = "quizResultMapFirst";
+    public static final String QUIZ_RESULT_MAP_LAST_TIME = "quizResultMapLast";
     public static final String PAGE_TITLE = "page_title";
     public static final String IS_QUESTION_CHECKED = "isQuestionChecked";
 

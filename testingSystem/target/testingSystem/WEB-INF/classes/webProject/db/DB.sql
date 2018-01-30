@@ -72,9 +72,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `testing_system`.`test`
+-- Table `testing_system`.`quiz`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `testing_system`.`test` (
+CREATE TABLE IF NOT EXISTS `testing_system`.`quiz` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `topic_id` INT(10) UNSIGNED NOT NULL,
@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `testing_system`.`question_test` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_question_has_test_test1`
     FOREIGN KEY (`test_id` , `topic_id`)
-    REFERENCES `testing_system`.`test` (`id` , `topic_id`)
+    REFERENCES `testing_system`.`quiz` (`id` , `topic_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -149,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `testing_system`.`user_test` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_user_has_test_test1`
     FOREIGN KEY (`test_id` , `topic_id`)
-    REFERENCES `testing_system`.`test` (`id` , `topic_id`)
+    REFERENCES `testing_system`.`quiz` (`id` , `topic_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -204,8 +204,8 @@ INSERT INTO `testing_system`.`topic` (`id`, `title`, `info`) VALUES ('3', 'Integ
 INSERT INTO `testing_system`.`question` (`id`, `question`, `creationDate`, `topic_id`) VALUES ('1', 'Choose equation of tangent line', '14.01.2018', '2');
 INSERT INTO `testing_system`.`question` (`id`, `question`, `creationDate`, `topic_id`) VALUES ('2', 'Definition of integral', '14.01.2018', '3');
 
-INSERT INTO `testing_system`.`test` (`id`, `name`, `topic_id`) VALUES ('1', 'Theory of Integration', '3');
-INSERT INTO `testing_system`.`test` (`id`, `name`, `topic_id`) VALUES ('2', 'Basic points on differentiation', '2');
+INSERT INTO `testing_system`.`quiz` (`id`, `name`, `topic_id`) VALUES ('1', 'Theory of Integration', '3');
+INSERT INTO `testing_system`.`quiz` (`id`, `name`, `topic_id`) VALUES ('2', 'Basic points on differentiation', '2');
 
 INSERT INTO `testing_system`.`question_test` (`question_id`, `test_id`, `topic_id`) VALUES ('1', '1', '2');
 INSERT INTO `testing_system`.`question_test` (`question_id`, `test_id`, `topic_id`) VALUES ('2', '2', '3');

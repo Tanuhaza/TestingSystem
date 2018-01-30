@@ -1,7 +1,7 @@
 package ua.kiyv.training.testingSystem.controller.command.user.tests;
 
 import ua.kiyv.training.testingSystem.controller.CommandWrapper;
-import ua.kiyv.training.testingSystem.model.entity.Test;
+import ua.kiyv.training.testingSystem.model.entity.Quiz;
 import ua.kiyv.training.testingSystem.service.ServiceFactory;
 import ua.kiyv.training.testingSystem.utils.ParamExtractor;
 import ua.kiyv.training.testingSystem.utils.constants.Attributes;
@@ -30,8 +30,8 @@ public class ViewTestsCommand extends CommandWrapper {
 
         int topicId = paramExtractor.extractSingleIntPathParam(request);
         request.getSession().setAttribute(Attributes.TOPIC_ID,topicId);
-        List<Test> tests = ServiceFactory.getInstance().createConstructingTestService().getTestsByTopicId(topicId);
-        request.setAttribute(Attributes.TESTS, tests);
-        return PagesPath.TEST_VIEW_PAGE;
+        List<Quiz> quizzes = ServiceFactory.getInstance().createConstructingQuizService().getQuizzesByTopicId(topicId);
+        request.setAttribute(Attributes.QUIZZES, quizzes);
+        return PagesPath.QUIZ_VIEW_PAGE;
     }
 }

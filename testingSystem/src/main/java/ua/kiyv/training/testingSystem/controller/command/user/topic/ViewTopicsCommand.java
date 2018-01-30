@@ -23,7 +23,7 @@ public class ViewTopicsCommand extends CommandWrapper {
 
     @Override
     public String performExecute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Topic> topics = ServiceFactory.getInstance().createConstructingTestService().findAllTopics();
+        List<Topic> topics = ServiceFactory.getInstance().createConstructingQuizService().findAllTopics();
         request.setAttribute(Attributes.TOPICS, topics);
         return PagesPath.TOPICS_PAGE;
 

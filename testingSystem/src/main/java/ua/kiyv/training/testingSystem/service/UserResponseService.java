@@ -2,7 +2,7 @@ package ua.kiyv.training.testingSystem.service;
 
 import ua.kiyv.training.testingSystem.model.entity.Option;
 import ua.kiyv.training.testingSystem.model.entity.Question;
-import ua.kiyv.training.testingSystem.model.entity.Test;
+import ua.kiyv.training.testingSystem.model.entity.Quiz;
 import ua.kiyv.training.testingSystem.model.entity.UserResponse;
 
 import java.util.List;
@@ -35,24 +35,24 @@ public interface UserResponseService {
     /**
      * @param userId      user id
      * @param passedTimes define first or last time test was passed, first=1,last=2
-     * @return list of Test entity which was passed by user
+     * @return list of Quiz entity which was passed by user
      */
 
-    public List<Test> getTestsPassedByUser(int userId, int passedTimes);
+    public List<Quiz> getQuizzesPassedByUser(int userId, int passedTimes);
 
     /**
      * @param userId user id
-     * @return list of Test entity which was passed by user firstly
+     * @return list of Quiz entity which was passed by user firstly
      */
 
-    public List<Test> getTestsPassedFirstly(int userId);
+    public List<Quiz> getQuizzesPassedFirstly(int userId);
 
     /**
      * @param userId user id
      * @return map
      */
 
-    public Map<Test, Integer> getTestResultMapFirstlyPassed(int userId);
+    public Map<Quiz, Integer> getQuizResultMapFirstlyPassed(int userId);
 
     /**
      * @param userId      user id
@@ -76,7 +76,7 @@ public interface UserResponseService {
      * @return map which consist of test's name and score for it
      */
 
-    public Map<Test, Integer> getTestResultMapByPassedTimes(int userId, int passedTimes);
+    public Map<Quiz, Integer> getQuizResultMapByPassedTimes(int userId, int passedTimes);
 
     /**
      * @param userId      user id

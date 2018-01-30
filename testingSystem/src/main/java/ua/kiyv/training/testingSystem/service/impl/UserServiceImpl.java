@@ -75,8 +75,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Optional<User> getUserByLoginPassword(String login, String password) {
-        UserDao userDao = DaoFactory.getInstance().createUserDao();
-        User user = userDao.findByLogin(login);
+        UserDao userDao = JdbcDaoFactory.getInstance().createUserDao();
+        User user =
+                userDao.findByLogin(login);
         if (!password.equals(user.getPassword())) {
             throw new ServiceException(MessageKeys.WRONG_LOGIN_DATA);
         }

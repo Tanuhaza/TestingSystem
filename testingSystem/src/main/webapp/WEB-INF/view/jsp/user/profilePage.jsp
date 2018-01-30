@@ -22,16 +22,16 @@
     <h4 align="center"><fmt:message key="testing.system.your.results" bundle="${msg}"/></h4>
     <table class="table borderless">
         <tr>
-            <td><h4>${"Test"}</h4></td>
+            <td><h4>${"Quiz"}</h4></td>
             <td><h4>${"Score"}</h4></td>
         </tr>
-        <c:forEach items="${testResultMapFirst}" var="map">
+        <c:forEach items="${quizResultMapFirst}" var="map">
             <tr>
                 <td><h4 >${map.key.name}</h4></td>
                 <td><h4 >${map.value}</h4></td>
             </tr>
         </c:forEach>
-        <c:forEach items="${testResultMapLast}" var="map">
+        <c:forEach items="${quizResultMapLast}" var="map">
             <tr>
                 <td><h4 >${map.key.name}</h4></td>
                 <td><h4 >${map.value}</h4></td>

@@ -4,13 +4,10 @@ import org.apache.log4j.Logger;
 import ua.kiyv.training.testingSystem.connection.DaoConnection;
 import ua.kiyv.training.testingSystem.connection.Jdbc.JdbcTransactionHelper;
 import ua.kiyv.training.testingSystem.dao.DaoException;
-import ua.kiyv.training.testingSystem.dao.TestDao;
-import ua.kiyv.training.testingSystem.dao.mapper.QuestionMapper;
-import ua.kiyv.training.testingSystem.dao.mapper.TestMapper;
-import ua.kiyv.training.testingSystem.dao.mapper.TopicMapper;
+import ua.kiyv.training.testingSystem.dao.QuizDao;
+import ua.kiyv.training.testingSystem.dao.mapper.QuizMapper;
 import ua.kiyv.training.testingSystem.model.entity.Question;
-import ua.kiyv.training.testingSystem.model.entity.Test;
-import ua.kiyv.training.testingSystem.model.entity.Topic;
+import ua.kiyv.training.testingSystem.model.entity.Quiz;
 import ua.kiyv.training.testingSystem.utils.constants.LoggerMessages;
 import ua.kiyv.training.testingSystem.utils.constants.MessageKeys;
 
@@ -24,23 +21,23 @@ import java.util.List;
 /**
  * Created by Tanya on 15.01.2018.
  *
- * Implementation of test dao, which works with MySql using jdbc
+ * Implementation of quiz dao, which works with MySql using jdbc
  */
 
-public class JdbcTestDao implements TestDao {
+public class JdbcQuizDao implements QuizDao {
 
-    JdbcTestDao(){}
+    JdbcQuizDao(){}
 
-    private static final Logger logger = Logger.getLogger(JdbcTestDao.class);
+    private static final Logger logger = Logger.getLogger(JdbcQuizDao.class);
 
     @Override
-    public void create(Test test) {
+    public void create(Quiz quiz) {
         String sqlStatement = "INSERT INTO test (name,topic_id) VALUES (?, ? )";
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sqlStatement,
                     Statement.RETURN_GENERATED_KEYS);
-            statement.setString(1, test.getName());
-            statement.setInt(2, test.getTopicId());
+            statement.setString(1, quiz.getName());
+            statement.setInt(2, quiz.getTopicId());
 
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
@@ -51,19 +48,19 @@ public class JdbcTestDao implements TestDao {
                 throw new DaoException(MessageKeys.WRONG_TEST_DB_NO_ID_OBTAINED);
             }
             Integer id = generatedKeys.getInt(1);
-            test.setId(id);
+            quiz.setId(id);
             generatedKeys.close();
             statement.close();
         } catch (SQLException ex) {
-            logger.error(LoggerMessages.ERROR_CREATE_NEW_TEST + test.toString());
+            logger.error(LoggerMessages.ERROR_CREATE_NEW_TEST + quiz.toString());
             throw new DaoException(ex, MessageKeys.WRONG_TEST_DB_CAN_NOT_CREATE);
         }
     }
 
     @Override
-    public Test findById(int id) {
+    public Quiz findById(int id) {
         String sqlStatement = "SELECT * FROM test WHERE id = ?";
-        Test test;
+        Quiz quiz;
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sqlStatement);
             statement.setInt(1, id);
@@ -71,29 +68,29 @@ public class JdbcTestDao implements TestDao {
             if (!resultSet.next()) {
                 throw new DaoException(MessageKeys.WRONG_TEST_DB_NO_ID_EXIST);
             }
-            TestMapper testMapper = new TestMapper();
-            test = testMapper.extractFromResultSet(resultSet);
+            QuizMapper quizMapper = new QuizMapper();
+            quiz = quizMapper.extractFromResultSet(resultSet);
             resultSet.close();
             statement.close();
         } catch (SQLException ex) {
             logger.error(LoggerMessages.ERROR_FIND_TEST_BY_ID + id);
             throw new DaoException(ex, MessageKeys.WRONG_TEST_DB_CAN_NOT_GET);
         }
-        return test;
+        return quiz;
     }
 
     @Override
-    public List<Test> findAll() {
+    public List<Quiz> findAll() {
         String sqlStatement = "SELECT * FROM test";
-        Test test;
-        List<Test> tests = new ArrayList<>();
+        Quiz quiz;
+        List<Quiz> quizzes = new ArrayList<>();
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sqlStatement);
-            TestMapper testMapper=new TestMapper();
+            QuizMapper quizMapper =new QuizMapper();
             while (resultSet.next()) {
-                test=testMapper.extractFromResultSet(resultSet);
-                tests.add(test);
+                quiz = quizMapper.extractFromResultSet(resultSet);
+                quizzes.add(quiz);
             }
             resultSet.close();
             statement.close();
@@ -101,47 +98,47 @@ public class JdbcTestDao implements TestDao {
             logger.error(LoggerMessages.ERROR_FIND_ALL_TESTS);
             throw new DaoException(ex, MessageKeys.WRONG_TEST_DB_CAN_NOT_GET_ALL_TESTS);
         }
-        return tests;
+        return quizzes;
     }
 
     @Override
-    public void update(Test test) {
+    public void update(Quiz quiz) {
         String sqlStatement = "UPDATE test SET name = ?, topic_id = ?  WHERE id = ?";
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sqlStatement);
-            statement.setString(1, test.getName());
-            statement.setInt(2, test.getTopicId());
-            statement.setInt(3, test.getId());
+            statement.setString(1, quiz.getName());
+            statement.setInt(2, quiz.getTopicId());
+            statement.setInt(3, quiz.getId());
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
                 throw new DaoException(MessageKeys.WRONG_TEST_DB_UPDATING_NO_ROWS_AFFECTED);
             }
             statement.close();
         } catch (SQLException ex) {
-            logger.error(LoggerMessages.ERROR_UPDATE_TEST + test.toString());
+            logger.error(LoggerMessages.ERROR_UPDATE_TEST + quiz.toString());
             throw new DaoException(ex, MessageKeys.WRONG_TEST_DB_CAN_NOT_UPDATE);
         }
     }
 
     @Override
-    public void delete(Test test) {
+    public void delete(Quiz quiz) {
         String sqlStatement = "DELETE FROM test WHERE id = ?";
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sqlStatement);
-            statement.setInt(1, test.getId());
+            statement.setInt(1, quiz.getId());
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
                 throw new DaoException(MessageKeys.WRONG_TEST_DB_DELETING_NO_ROWS_AFFECTED);
             }
             statement.close();
         } catch (SQLException ex) {
-            logger.error(LoggerMessages.ERROR_DELETE_TEST + test.getId());
+            logger.error(LoggerMessages.ERROR_DELETE_TEST + quiz.getId());
             throw new DaoException(ex, MessageKeys.WRONG_TEST_DB_CAN_NOT_DELETE);
         }
     }
 
     @Override
-    public List<Integer> getAssociatedQuestionsIDByTestID(int id) {
+    public List<Integer> getAssociatedQuestionsIDByQuizID(int id) {
         String sqlStatement = "SELECT * FROM question_test WHERE test_Id = ?";
         List<Integer> associatedQuestionsId = new ArrayList<>();
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
@@ -162,7 +159,7 @@ public class JdbcTestDao implements TestDao {
 
 
     @Override
-    public List<Integer> getAssociatedQuestionsIDByTestIDWithLimitPerPage(int id,int startFrom, int quantity) {
+    public List<Integer> getAssociatedQuestionsIDByQuizIDWithLimitPerPage(int id,int startFrom, int quantity) {
         String sqlStatement = "SELECT * FROM question_test WHERE test_Id = ? limit ?,?";
         List<Integer> associatedQuestionsId = new ArrayList<>();
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
@@ -184,7 +181,7 @@ public class JdbcTestDao implements TestDao {
     }
 
     @Override
-    public int countAllQuestionByTestId(int id) {
+    public int countAllQuestionByQuizId(int id) {
         String sqlStatement = "SELECT COUNT(question_id) AS total_count FROM question_test WHERE test_Id= ? ";
         int totalNumberOfQuestionsByTestId;
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
@@ -205,18 +202,18 @@ public class JdbcTestDao implements TestDao {
     }
 
     @Override
-    public List<Test> getAssosiatedTestsByTopicId(int id) {
+    public List<Quiz> getAssosiatedQuizzesByTopicId(int id) {
         String sqlStatement = "SELECT * FROM test WHERE topic_id = ?";
-        List<Test> tests=new ArrayList<>();
-        Test test;
+        List<Quiz> quizzes =new ArrayList<>();
+        Quiz quiz;
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sqlStatement);
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
-            TestMapper testMapper = new TestMapper();
+            QuizMapper quizMapper = new QuizMapper();
             while (resultSet.next()) {
-                test = testMapper.extractFromResultSet(resultSet);
-                tests.add(test);
+                quiz = quizMapper.extractFromResultSet(resultSet);
+                quizzes.add(quiz);
             }
             resultSet.close();
             statement.close();
@@ -224,23 +221,23 @@ public class JdbcTestDao implements TestDao {
             logger.error(LoggerMessages.ERROR_FIND_FIND_ASSOSIATED_TESTS_BY_TOPIC_ID + id);
             throw new DaoException(ex, MessageKeys.WRONG_TEST_DB_CAN_NOT_GET_ASSOSIATED_TEST_BY_TOPIC);
         }
-        return tests;
+        return quizzes;
     }
 
     @Override
-    public boolean associate(Test test,Question question) {
+    public boolean associate(Quiz quiz, Question question) {
         String sqlStatement = "INSERT INTO test  (question_id, test_id, topic_id ) VALUES (?,?,?)";
         boolean isCreated;
         try (DaoConnection connection = JdbcTransactionHelper.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sqlStatement);
             statement.setInt(1, question.getId());
-            statement.setInt(2, test.getId());
-            statement.setInt(3, test.getTopicId());
+            statement.setInt(2, quiz.getId());
+            statement.setInt(3, quiz.getTopicId());
 
             isCreated = statement.executeUpdate() != 0;
             statement.close();
         } catch (SQLException ex) {
-            logger.error(LoggerMessages.ERROR_ASSOSIATE_TEST_WITH_QUESTION +" testId " + test.getId() + " questionId  " + question.getId());
+            logger.error(LoggerMessages.ERROR_ASSOSIATE_TEST_WITH_QUESTION +" testId " + quiz.getId() + " questionId  " + question.getId());
             throw new DaoException(ex, MessageKeys.WRONG_TEST_DB_CAN_NOT_ASSOSIATE_TESTS_WITH_QUESTIONS);
         }
         return isCreated;

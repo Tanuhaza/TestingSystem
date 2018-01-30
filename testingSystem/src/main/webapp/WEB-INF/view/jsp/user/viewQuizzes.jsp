@@ -16,13 +16,13 @@
 <body class="body-container">
 <jsp:include page="../fragment/header.jsp"></jsp:include>
 <table class="table borderless">
-    <c:forEach items="${tests}" var="test">
+    <c:forEach items="${quizzes}" var="quiz">
         <tr>
-            <td>${test.name}</td>
+            <td>${quiz.name}</td>
             <td>
                 <button class="btn-primary"
-                        onclick="window.location = '/test/${test.id}'" id="${test.id}_button"
-                        name="${user.id}_button"><fmt:message key="testing.system.pass.test"
+                        onclick="window.location = '/quiz/${quiz.id}'" id="${quiz.id}_button"
+                        name="${user.id}_button"><fmt:message key="testing.system.pass.quiz"
                                                               bundle="${msg}"/></button>
             </td>
         </tr>

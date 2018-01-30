@@ -20,8 +20,6 @@ import java.util.stream.Collectors;
 
 import static ua.kiyv.training.testingSystem.utils.constants.Attributes.IS_QUESTION_CHECKED;
 import static ua.kiyv.training.testingSystem.utils.constants.PagesPath.PARTIAL_RESPONSE_PAGE;
-import static ua.kiyv.training.testingSystem.utils.constants.PagesPath.TEST_ID_PATH;
-import static ua.kiyv.training.testingSystem.utils.constants.PagesPath.TEST_PAGE;
 
 
 /**
@@ -34,25 +32,25 @@ public class TestSubmitCommand extends CommandWrapper {
     @Override
     public String performExecute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-       Integer testId = (Integer)request.getSession().getAttribute(Attributes.TEST_ID);
+       Integer quizId = (Integer)request.getSession().getAttribute(Attributes.QUIZ_ID);
        Integer topicId = (Integer)request.getSession().getAttribute(Attributes.TOPIC_ID);
        Integer userId = (Integer)request.getSession().getAttribute(Attributes.USER_ID);
-       Map<Question, List<Option>> testMap = ServiceFactory.getInstance()
-               .createConstructingTestService().getQuestionOptionsMapByTestID((int) testId);
-       if (!isQuestionChecked(request,testMap.keySet())){
+       Map<Question, List<Option>> quizMap = ServiceFactory.getInstance()
+               .createConstructingQuizService().getQuestionOptionsMapByQuizID((int)quizId);
+       if (!isQuestionChecked(request,quizMap.keySet())){
            boolean isQuestionChecked = false;
            request.setAttribute(IS_QUESTION_CHECKED, isQuestionChecked);
-           Map<Question, List<Option>> partialResultMap =getPartialUserResultMap(request,testMap,getPartialUserQuestions(request,testMap.keySet()));
-           request.setAttribute(Attributes.TEST, testMap);
+           Map<Question, List<Option>> partialResultMap =getPartialUserResultMap(request,quizMap,getPartialUserQuestions(request,quizMap.keySet()));
+           request.setAttribute(Attributes.QUIZ, quizMap);
            request.setAttribute("result", partialResultMap);
            request.getRequestDispatcher( PARTIAL_RESPONSE_PAGE).forward(request,response);
        }
-       Map<Question, List<Option>> userResultMap = getUserResultMap(request,testMap);
+       Map<Question, List<Option>> userResultMap = getUserResultMap(request,quizMap);
        int totalScore =ServiceFactory.getInstance().createUserResponseService().getTotalScore(userResultMap);
-       saveUserResultMap(userResultMap,userId,topicId,testId,totalScore);
+       saveUserResultMap(userResultMap,userId,topicId,quizId,totalScore);
 
         request.setAttribute("result", userResultMap);
-        request.setAttribute("test", testMap);
+        request.setAttribute("quiz", quizMap);
         request.setAttribute("sum", totalScore);
         request.getRequestDispatcher(PagesPath.RESPONSE_PAGE).forward(request, response);
     return PagesPath.FORWARD; }
@@ -64,10 +62,10 @@ public class TestSubmitCommand extends CommandWrapper {
                 .collect(Collectors.toList());
     }
 
-    private Map<Question, List<Option>> getPartialUserResultMap(HttpServletRequest request, Map<Question, List<Option>> testMap,List<Question> questions){
-        return  testMap.keySet()
+    private Map<Question, List<Option>> getPartialUserResultMap(HttpServletRequest request, Map<Question, List<Option>> quizMap,List<Question> questions){
+        return  quizMap.keySet()
                 .stream().filter(question -> questions.contains(question)).collect(Collectors.toMap(Function.identity(),
-                question->getUserOptions(testMap.get(question),getUserOptionsIdByQuestion(request,question))));
+                question->getUserOptions(quizMap.get(question),getUserOptionsIdByQuestion(request,question))));
     }
 
     private boolean isQuestionChecked(HttpServletRequest request,Set<Question> questions) {
@@ -80,10 +78,10 @@ public class TestSubmitCommand extends CommandWrapper {
         return  (request.getParameterValues(String.valueOf(question.getId())));
     }
 
-    private Map<Question,List<Option>> getUserResultMap(HttpServletRequest request,Map<Question,List<Option>> testMap){
-        return testMap.keySet().stream()
+    private Map<Question,List<Option>> getUserResultMap(HttpServletRequest request,Map<Question,List<Option>> quizMap){
+        return quizMap.keySet().stream()
                 .collect(Collectors.toMap(Function.identity(),
-                        question->getUserOptions(testMap.get(question),getUserOptionsIdByQuestion(request,question))));
+                        question->getUserOptions(quizMap.get(question),getUserOptionsIdByQuestion(request,question))));
     }
 
     private List<Option> getUserOptions(List<Option> options, List<Integer> userOptionsId){
@@ -99,30 +97,30 @@ public class TestSubmitCommand extends CommandWrapper {
                 .collect(Collectors.toList());
     }
 
-    private void saveUserResultMap(Map<Question,List<Option>> userResultMap,int userId, int topicId, int testId,int totalScore ){
-        int passedTimes = definedPassedTimes(userId,testId);
+    private void saveUserResultMap(Map<Question,List<Option>> userResultMap,int userId, int topicId, int quizId,int totalScore ){
+        int passedTimes = definedPassedTimes(userId,quizId);
         userResultMap.entrySet()
                 .forEach(e -> e.getValue()
-                        .forEach(option -> saveUserResponseDate(userId,topicId,testId,e.getKey(),option,passedTimes,totalScore)));
+                        .forEach(option -> saveUserResponseDate(userId,topicId,quizId,e.getKey(),option,passedTimes,totalScore)));
     }
 
-    private int definedPassedTimes(int userId,int testId){
+    private int definedPassedTimes(int userId,int quizId){
         UserResponseService userResponseService = ServiceFactory.getInstance().createUserResponseService();
-        List<Integer> passedTimesList =  userResponseService.getPassedTimes(userId,testId);
+        List<Integer> passedTimesList =  userResponseService.getPassedTimes(userId,quizId);
         int passedTimes = 0;
         if ((passedTimesList.contains(2)&& passedTimesList.contains(1))||(passedTimesList.contains(1))){
             passedTimes = 2;} else {passedTimes = 1;}
 
         if (passedTimesList.contains(2)){
-            userResponseService.deleteByPassedTimes(userId,testId,2);}
+            userResponseService.deleteByPassedTimes(userId,quizId,2);}
         return passedTimes;
     }
 
-    private void saveUserResponseDate(int userId, int topicId, int testId, Question question, Option option,int passedTimes, int sum ){
+    private void saveUserResponseDate(int userId, int topicId, int quizId, Question question, Option option,int passedTimes, int sum ){
         UserResponseService userResponseService = ServiceFactory.getInstance().createUserResponseService();
         UserResponse userResponse= new UserResponse.Builder()
                             .setUserId(userId)
-                            .setTestId(testId)
+                            .setTestId(quizId)
                             .setTopicId(topicId)
                             .setQuestionId(question.getId())
                             .setOptionId(option.getId())

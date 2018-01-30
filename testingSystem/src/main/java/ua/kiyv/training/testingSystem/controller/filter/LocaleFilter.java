@@ -20,7 +20,6 @@ public class LocaleFilter implements Filter {
      */
     private LocaleHolder localeHolder = new LocaleHolder(LocaleHolder.DEFAULT_LOCALE);
     private static final String MESSAGE_PATH = "webProject.i18n.messages";
-//    private static final String MESSAGE_PATH = "messages";
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
@@ -30,12 +29,12 @@ public class LocaleFilter implements Filter {
         setResourceBundle(session);
         Locale locale = localeHolder.getCurrentLocale();
         String localeName = extractLocale(req);
-        if(localeName != null) {
+        if (localeName != null) {
             locale = findSupportedLocale(localeName);
         }
         req.setAttribute(Attributes.LOCALE, locale);
         session.setAttribute(Attributes.LOCALE, locale);
-        session.setAttribute("SUPPORTED_LOCALES",LocaleHolder.SUPPORTED_LOCALES);
+        session.setAttribute("SUPPORTED_LOCALES", LocaleHolder.SUPPORTED_LOCALES);
         chain.doFilter(request, response);
     }
 
@@ -49,7 +48,7 @@ public class LocaleFilter implements Filter {
 
     }
 
-    private String extractLocale(HttpServletRequest request){
+    private String extractLocale(HttpServletRequest request) {
         return request.getParameter(Attributes.LANG);
     }
 
@@ -63,8 +62,8 @@ public class LocaleFilter implements Filter {
         return LocaleHolder.DEFAULT_LOCALE;
     }
 
-    private void setResourceBundle(HttpSession session){
-        if(session.getAttribute(Attributes.BUNDLE_FILE)==null){
+    private void setResourceBundle(HttpSession session) {
+        if (session.getAttribute(Attributes.BUNDLE_FILE) == null) {
             session.setAttribute(Attributes.BUNDLE_FILE, MESSAGE_PATH);
         }
     }

@@ -6,7 +6,6 @@ import ua.kiyv.training.testingSystem.connection.Jdbc.JdbcTransactionHelper;
 import ua.kiyv.training.testingSystem.dao.DaoException;
 import ua.kiyv.training.testingSystem.dao.UserResponseDao;
 import ua.kiyv.training.testingSystem.dao.mapper.UserResponseMapper;
-import ua.kiyv.training.testingSystem.model.entity.Test;
 import ua.kiyv.training.testingSystem.model.entity.UserResponse;
 import ua.kiyv.training.testingSystem.utils.constants.LoggerMessages;
 import ua.kiyv.training.testingSystem.utils.constants.MessageKeys;

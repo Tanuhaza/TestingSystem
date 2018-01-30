@@ -9,7 +9,7 @@ public abstract class ServiceFactory {
     private static ServiceFactory serviceFactory;
 
     public abstract UserService createUserService();
-    public abstract ConstructingTestService createConstructingTestService();
+    public abstract ConstructingQuizService createConstructingQuizService();
     public abstract UserResponseService createUserResponseService();
 
     public static ServiceFactory getInstance() {

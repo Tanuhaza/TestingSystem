@@ -98,12 +98,12 @@ public class Apps {
         //UserResponseDao.delete(UserResponse);
        // System.out.println(UserResponseDao.findAll());
 //        UserResponseDao.update(UserResponse);
-/** Test****
+/** Quiz****
  */
 //TestDao testDao=DaoFactory.getInstance().createTestDao();
-//        Test test= new Test("Basic rules of Differentiation",2);
+//        Quiz test= new Quiz("Basic rules of Differentiation",2);
 //testDao.create(test);
-//        Test test1 = testDao.findById(1);
+//        Quiz test1 = testDao.findById(1);
 //        System.out.println(testDao.getAssosiatedTestsByTopicId(2));
 //        test1.setName("Basic rules of Integration");
 

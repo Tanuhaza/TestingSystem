@@ -9,9 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-
-
-
 /**
  * This class represents request dispatcher. It calls commands for correspondent request uri
  * and forwards request to the appropriate view page.
@@ -80,7 +77,6 @@ public class FrontController extends HttpServlet {
         String path = processRequest(request, response);
         if(!path.equals(PagesPath.FORWARD))
             response.sendRedirect(path);
-//        request.getRequestDispatcher(path).forward(request, response);
     }
 
     void setCommandHolder(CommandHolder commandHolder) {

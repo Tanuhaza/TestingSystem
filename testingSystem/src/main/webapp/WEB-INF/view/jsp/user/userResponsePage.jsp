@@ -21,21 +21,21 @@
 <h4 align="center"><fmt:message key="testing.system.response.total.score" bundle="${msg}"/> <span
         style='padding-left:10px;'> </span> <c:out value="${requestScope.sum}"/></h4>
 <c:set var="isTrue" value="${false}"/>
-<c:forEach items="${test}" var="entry">
-    <div class="test-question">${entry.key.questionText}
+<c:forEach items="${quiz}" var="entry">
+    <div class="quiz-question">${entry.key.questionText}
         <c:forEach items="${entry.value}" var="option">
             <c:forEach items="${result}" var="result">
                 <c:forEach items="${result.value}" var="option_result">
                     <c:choose>
                         <c:when test="${(option.id eq option_result.id)&&(option.isCorrect())}">
-                            <div class="test-answer">
+                            <div class="quiz-answer">
                                 <div class="correct"> &#9745; ${option.optionText} <span
                                         style='padding-left:10px;'> </span>${option.score}</div>
                             </div>
                             <c:set var="isTrue" value="${true}"/>
                         </c:when>
                         <c:when test="${(option.id eq option_result.id)&&(!option.isCorrect())}">
-                            <div class="test-answer">
+                            <div class="quiz-answer">
                                 <div class="incorrect">&#9746; ${option.optionText}<span
                                         style='padding-left:10px;'> ${option.score}</span></div>
                             </div>
@@ -47,13 +47,13 @@
             <c:if test="${!isTrue}">
                 <c:choose>
                     <c:when test="${option.isCorrect()}">
-                        <div class="test-answer">
+                        <div class="quiz-answer">
                             <div class="correct">&#9744; ${option.optionText} <span
                                     style='padding-left:10px;'> </span>${option.score}</div>
                         </div>
                     </c:when>
                     <c:otherwise>
-                        <div class="test-answer">&#9744; ${option.optionText}<span
+                        <div class="quiz-answer">&#9744; ${option.optionText}<span
                                 style='padding-left:10px;'> </span>${option.score}</div>
                     </c:otherwise>
                 </c:choose>
