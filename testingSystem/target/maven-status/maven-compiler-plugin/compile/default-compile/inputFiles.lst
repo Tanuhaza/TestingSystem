@@ -16,7 +16,6 @@ C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main
 C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\java\ua\kiyv\training\testingSystem\dao\mapper\TopicMapper.java
 C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\java\ua\kiyv\training\testingSystem\dao\QuestionDao.java
 C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\java\ua\kiyv\training\testingSystem\controller\command\user\RegisterSubmitCommand.java
-C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\java\ua\kiyv\training\testingSystem\Apps.java
 C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\java\ua\kiyv\training\testingSystem\controller\command\user\LogoutCommand.java
 C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\java\ua\kiyv\training\testingSystem\dao\mapper\UserMapper.java
 C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\java\ua\kiyv\training\testingSystem\dao\OptionDao.java
@@ -41,7 +40,6 @@ C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main
 C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\java\ua\kiyv\training\testingSystem\controller\filter\LocaleFilter.java
 C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\java\ua\kiyv\training\testingSystem\connection\TransactionHelper.java
 C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\java\ua\kiyv\training\testingSystem\dao\mapper\UserResponseMapper.java
-C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\java\ua\kiyv\training\testingSystem\controller\ControllerException.java
 C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\java\ua\kiyv\training\testingSystem\controller\filter\AuthFilter.java
 C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\java\ua\kiyv\training\testingSystem\service\impl\UserServiceImpl.java
 C:\Users\Tanya\Desktop\EPAMtraining\Project\TestingSystem\testingSystem\src\main\java\ua\kiyv\training\testingSystem\dao\TopicDao.java

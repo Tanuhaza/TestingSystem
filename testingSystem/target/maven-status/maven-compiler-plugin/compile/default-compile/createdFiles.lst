@@ -49,10 +49,8 @@ ua\kiyv\training\testingSystem\dao\QuizDao.class
 ua\kiyv\training\testingSystem\connection\Jdbc\JdbcDaoConnection.class
 ua\kiyv\training\testingSystem\utils\constants\LoggerMessages.class
 ua\kiyv\training\testingSystem\dao\Impl\JdbcUserDao.class
-ua\kiyv\training\testingSystem\Apps.class
 ua\kiyv\training\testingSystem\controller\command\user\tests\ChooseTestCommand.class
 ua\kiyv\training\testingSystem\controller\filter\AuthFilter$1.class
-ua\kiyv\training\testingSystem\controller\ControllerException.class
 ua\kiyv\training\testingSystem\model\dto\RegisterData.class
 ua\kiyv\training\testingSystem\controller\command\login\LoginCommand.class
 ua\kiyv\training\testingSystem\service\impl\ServiceFactoryImpl.class
